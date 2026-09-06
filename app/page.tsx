@@ -14,7 +14,7 @@ export default function HomePage() {
 
   const heroSlides = [
     {
-      badge: 'Backed by BuilditIndia & Buildverse Group',
+      badge: 'Backed by BuilditIndia',
       title: "India’s Smartest Building Materials Platform",
       highlight: 'Building Materials',
       desc: 'Reshaping how India sources, supplies, and scales construction material needs — with tech-first operations, powerful private labels, and a next-gen retail footprint.',

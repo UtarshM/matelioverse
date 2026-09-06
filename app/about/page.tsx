@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us | Matelioverse — India’s Smartest Building Materials Platform',
-  description: 'Learn about Matelioverse, our mission to modernize India’s ₹100,000 Cr construction retail market, our proprietary private labels, and backing by BuilditIndia & Buildverse Group.',
+  description: 'Learn about Matelioverse, our mission to modernize India’s ₹100,000 Cr construction retail market, our proprietary private labels, and backing by BuilditIndia.',
 };
 
 export default function AboutPage() {
@@ -32,7 +32,7 @@ export default function AboutPage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'center', marginBottom: 60 }} className="about-split-grid">
           <div>
             <span style={{ fontSize: 12, fontWeight: 800, color: 'var(--primary-green)', textTransform: 'uppercase', letterSpacing: 1 }}>
-              Backed by BuilditIndia &amp; Buildverse Group
+              Backed by BuilditIndia
             </span>
             <h2 style={{ fontSize: 28, fontWeight: 900, color: '#0F172A', marginTop: 6, marginBottom: 16 }}>
               From Fragmented Wholesale to Transparent Click-and-Mortar Commerce

@@ -47,10 +47,10 @@ export default function ContactPage() {
                 Corporate Headquarters
               </div>
               <h3 style={{ fontSize: 20, fontWeight: 800, color: '#0F172A', marginBottom: 6 }}>
-                Ahmedabad Central Hub
+                BuilditIndia HQ (Ahmedabad Central Hub)
               </h3>
               <p style={{ fontSize: 13.5, color: '#475569', lineHeight: 1.5, marginBottom: 16 }}>
-                405 Claywalls, OPP. Shanti Palace, Hebatpur Road, Thaltej, Ahmedabad, Gujarat 380054
+                Lubi Corporate Rd, opp. Ratnam Auram, rode, Zundal, Ahmedabad, Gujarat 382421
               </p>
 
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', paddingTop: 14, borderTop: '1px solid #E2E8F0' }}>

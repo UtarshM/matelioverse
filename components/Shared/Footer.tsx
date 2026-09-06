@@ -28,7 +28,7 @@ export default function Footer() {
             </p>
             <div style={{ fontSize: 12.5, color: '#64748B' }}>Powered By</div>
             <div style={{ color: '#34D399', fontWeight: 800, fontSize: 15, marginTop: 2 }}>
-              BuilditIndia.com &amp; Buildverse Group
+              BuilditIndia.com
             </div>
           </div>
 
@@ -65,9 +65,9 @@ export default function Footer() {
             <h4 className="footer-col-h4">FULFILLMENT HUBS</h4>
             <div className="footer-contact-block">
               <div className="city-contact-group">
-                <div className="city-label-bold">Head Office (Ahmedabad Hub)</div>
+                <div className="city-label-bold">Head Office (BuilditIndia HQ, Ahmedabad)</div>
                 <p style={{ fontSize: 12, color: '#94A3B8', lineHeight: 1.4, marginBottom: 6 }}>
-                  405 Claywalls, OPP. Shanti Palace, Hebatpur Road, Thaltej, Ahmedabad, Gujarat 380054
+                  Lubi Corporate Rd, opp. Ratnam Auram, rode, Zundal, Ahmedabad, Gujarat 382421
                 </p>
                 <a href="tel:+919824939888" className="contact-link-row">
                   <span>📞</span> <span>+91 98249 39888</span>
@@ -107,7 +107,7 @@ export default function Footer() {
         {/* Bottom Copyright & Legal Row */}
         <div className="footer-bottom-bar">
           <p className="footer-copy-text">
-            © {new Date().getFullYear()} All Rights Reserved by <span style={{ color: '#00A86B', fontWeight: 700 }}>Matelioverse</span> · Backed by BuilditIndia &amp; Buildverse Group
+            © {new Date().getFullYear()} All Rights Reserved by <span style={{ color: '#00A86B', fontWeight: 700 }}>Matelioverse</span> · Powered by BuilditIndia
           </p>
           <div className="footer-legal-links">
             <Link href="/contact">Terms of Trade</Link>

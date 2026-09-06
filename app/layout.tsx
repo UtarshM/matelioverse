@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Matelioverse & BuilditIndia' }],
   creator: 'Matelioverse',
-  publisher: 'Buildverse Group',
+  publisher: 'BuilditIndia',
   formatDetection: {
     email: false,
     address: false,
@@ -88,10 +88,10 @@ export default function RootLayout({
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '405 Claywalls, OPP. Shanti Palace, Hebatpur Road, Thaltej',
+      streetAddress: 'BuilditIndia HQ, Lubi Corporate Rd, opp. Ratnam Auram, rode, Zundal',
       addressLocality: 'Ahmedabad',
       addressRegion: 'Gujarat',
-      postalCode: '380054',
+      postalCode: '382421',
       addressCountry: 'IN',
     },
     contactPoint: {

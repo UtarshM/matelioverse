@@ -42,4 +42,4 @@ npm run build
 ```
 
 ---
-Built for Matelioverse | Backed by Buildverse Group & BuilditIndia
+Built for Matelioverse | Backed by BuilditIndia

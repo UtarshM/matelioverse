@@ -65,7 +65,7 @@ export default function LocationModal() {
                   setPinInput(e.target.value.replace(/\D/g, ''));
                   setErrorMsg('');
                 }}
-                placeholder="e.g. 380054"
+                placeholder="e.g. 382421"
                 style={{ flex: 1, border: '1.5px solid #CBD5E1', borderRadius: 10, padding: '10px 14px', fontSize: 14, outline: 'none', fontWeight: 600 }}
               />
               <button
