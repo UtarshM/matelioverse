@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>India’s Smartest Building Materials Platform | Matelioverse</title>
+  <meta name="description" content="Welcome to the future of construction retail. Matelioverse is reshaping how India sources, supplies, and scales building material needs — with tech-first operations, powerful private labels, and a next-gen retail footprint. Backed by BuilditIndia.">
+  <link rel="icon" href="https://matelioverse.com/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ==========================================================================
+     STICKY HEADER & NAVIGATION (Exact MOB Visual Style, Matelioverse Content)
+     ========================================================================== -->
+<header class="site-header" id="site-header">
+  <!-- Top Nav Row -->
+  <div class="top-nav">
+    <div class="site-container top-nav-inner">
+      <!-- Left: Mobile Hamburger & Logo -->
+      <div class="nav-left-group">
+        <button type="button" class="mob-hamburger-btn" id="mob-hamburger-btn" aria-label="Open Navigation Menu" onclick="document.getElementById('mobile-drawer').classList.add('active'); document.body.style.overflow='hidden';">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="/" class="brand-logo-wrap" aria-label="Matelioverse Homepage">
+          <img src="https://api.matelioverse.com/assets/e0847d46-2489-475e-8dfc-e7b520e1df15" alt="Matelioverse" class="brand-logo-img" width="160" height="30">
+        </a>
+
+        <!-- Powered by BuilditIndia Badge (Desktop) -->
+        <a href="https://builditindia.com/" target="_blank" rel="noopener" class="delivery-picker-btn" id="delivery-picker" style="text-decoration: none;">
+          <div class="delivery-lightning">⚡</div>
+          <div class="delivery-text-wrap">
+            <div class="delivery-title-row">
+              <span>Backed by BuilditIndia</span>
+            </div>
+            <div class="delivery-location-row">From Bricks to Clicks ▾</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center: Search bar with AI button -->
+      <div class="top-search-wrap">
+        <div class="top-search-inner">
+          <input type="search" id="top-search-input" class="top-search-input" placeholder='Search "TileTrendz"' autocomplete="off" aria-label="Search Matelioverse categories and brands">
+          <button type="button" class="top-search-ai-btn" aria-label="Search with AI">
+            <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1.27c.34-.6.99-1 1.73-1a2 2 0 010 4c-.74 0-1.39-.4-1.73-1H20a7 7 0 01-7 7v1.27c.6.34 1 .99 1 1.73a2 2 0 01-4 0c0-.74.4-1.39 1-1.73V23a7 7 0 01-7-7H2.73c-.34.6-.99 1-1.73 1a2 2 0 010-4c.74 0 1.39.4 1.73 1H4a7 7 0 017-7V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/></svg>
+            <span>AI</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Partner CTA, Contact, Login -->
+      <div class="top-nav-actions">
+        <a href="/partner.html" class="referral-pill-btn" aria-label="Partner With Us">
+          <span class="referral-gift-icon">🤝</span>
+          <div class="referral-text-stack">
+            <span class="referral-label-sm">Join</span>
+            <span class="referral-label-lg">Partner</span>
+          </div>
+        </a>
+
+        <button type="button" class="nav-login-pill" id="nav-login-btn" onclick="document.getElementById('login-modal').classList.add('active'); document.body.style.overflow='hidden';">Login</button>
+
+        <a href="/contact.html" class="nav-cart-btn" aria-label="Inquire Now">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span>Inquire</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Sub-Bar: Tagline Strip (Mobile Only) -->
+  <div class="mob-delivery-strip">
+    <div class="site-container mob-delivery-strip-inner">
+      <div class="mob-delivery-badge">
+        <span class="bolt">⚡</span> From Bricks to Clicks
+      </div>
+      <div class="mob-delivery-loc-text">
+        India First · World Ready <span class="chevron">▾</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secondary Sub-Nav Row -->
+  <div class="sub-nav">
+    <div class="site-container sub-nav-inner">
+      <div class="sub-nav-left categories-nav-item">
+        <a href="/categories.html" class="sub-nav-link cat-dropdown-trigger" style="display:flex;align-items:center;gap:6px;text-decoration:none;color:#1E293B;font-weight:600;font-size:13.5px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/></svg>
+          <span>Categories &amp; Brands</span>
+          <span class="cat-arrow-down">▾</span>
+        </a>
+        <div class="categories-dropdown-menu">
+          <a href="/categories.html" class="cat-dropdown-item">CemXtra (Cement, GGBS) <span>›</span></a>
+          <a href="/categories.html" class="cat-dropdown-item">EzyWall (AAC Panels) <span>›</span></a>
+          <a href="/categories.html" class="cat-dropdown-item">Tuffar (TMT Bars) <span>›</span></a>
+          <a href="/categories.html" class="cat-dropdown-item">TileTrendz (Tiles) <span>›</span></a>
+          <a href="/categories.html" class="cat-dropdown-item">HydroLine (Piping &amp; Fittings) <span>›</span></a>
+          <a href="/categories.html" class="cat-dropdown-item">Sanivo (Sanitaryware &amp; CP) <span>›</span></a>
+          <a href="/categories.html" class="cat-dropdown-item">Strongfab (Structural Steel) <span>›</span></a>
+          <a href="/categories.html" class="cat-dropdown-item">ReflectoGlass (Architectural Glass) <span>›</span></a>
+        </div>
+      </div>
+
+      <div class="sub-nav-right-links">
+        <a href="/about.html" class="sub-link">About Us</a>
+        <a href="/partner.html" class="sub-link">Partner With Us</a>
+        <a href="#tech-edge" class="sub-link">Our Tech Edge</a>
+        <a href="#news-media" class="sub-link">News &amp; Media</a>
+        <a href="/contact.html" class="sub-link">Contact Us</a>
+        <a href="/partner.html" class="matelio-star-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>matelio STAR</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ==========================================================================
+       HERO BANNER CAROUSEL (MOB 3-Slide Component Style, Matelioverse Content)
+       ========================================================================== -->
+  <section class="hero-wrapper">
+    <div class="site-container">
+      <div class="hero-slider-container" id="hero-slider">
+        <div class="hero-track" id="hero-track">
+
+          <!-- Slide 1: India's Smartest Building Materials Platform -->
+          <div class="hero-slide hero-slide--credit">
+            <div class="hero-slide-content">
+              <div style="font-size: 12px; font-weight: 700; color: #34D399; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Backed by BuilditIndia &amp; Buildverse Group</div>
+              <h1 class="hero-h1">India’s Smartest <span class="accent-mint">Building Materials</span> Platform
+                <span class="hero-shield-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="#34D399"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </span>
+              </h1>
+              <p style="font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.5; margin-bottom: 16px; max-width: 520px;">
+                Reshaping how India sources, supplies, and scales building material needs — with tech-first operations, powerful brands, and a next-gen retail footprint.
+              </p>
+              <div class="credit-features-row">
+                <div class="credit-feat-item">
+                  <div class="feat-circle-icon">✓</div>
+                  <span>100% Verified<br>Products</span>
+                </div>
+                <div class="credit-feat-item">
+                  <div class="feat-circle-icon">📈</div>
+                  <span>Built for<br>Scale</span>
+                </div>
+                <div class="credit-feat-item">
+                  <div class="feat-circle-icon">🌐</div>
+                  <span>Smart Dealer<br>Network</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: center; margin-top: 8px;">
+                <a href="/categories.html" class="hero-white-pill-btn">Explore Categories</a>
+                <a href="/partner.html" style="color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.4); padding: 10px 22px; border-radius: 24px; text-decoration: none; font-size: 13px; font-weight: 700; transition: background 0.15s;">Partner With Us</a>
+              </div>
+            </div>
+            <div class="hero-credit-graphic">
+              <img src="https://api.matelioverse.com/assets/abe9ee82-b583-4b77-add9-8ca1b4f92d5f" alt="Matelioverse Platform" loading="eager">
+            </div>
+          </div>
+
+          <!-- Slide 2: Omni-Channel Retail (From Bricks to Clicks) -->
+          <div class="hero-slide hero-slide--refer">
+            <div class="hero-slide-content">
+              <div style="font-size: 12px; font-weight: 700; color: #FBBF24; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">India First · World Ready</div>
+              <h2 class="hero-h1">Brick &amp; Click Strategy for <span style="color:#FBBF24;">Infra Entrepreneurs</span></h2>
+              <p style="font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.5; margin-bottom: 16px; max-width: 520px;">
+                Replacing outdated inventory-led retail with demand-led, data-backed operations across franchise smart stores and online fulfillment hubs.
+              </p>
+              <div class="credit-features-row">
+                <div class="credit-feat-item">
+                  <div class="feat-circle-icon" style="color:#FBBF24;">✦</div>
+                  <span>AI Demand Prediction &amp;<br>Geo-Tagged Inventory</span>
+                </div>
+                <div class="credit-feat-item">
+                  <div class="feat-circle-icon" style="color:#FBBF24;">🏪</div>
+                  <span>Smart Franchise Stores<br>with Lean Capital</span>
+                </div>
+              </div>
+              <a href="/partner.html" class="hero-gold-pill-btn">Join Franchise Network</a>
+            </div>
+            <div class="hero-credit-graphic">
+              <img src="https://api.matelioverse.com/assets/3b42937e-6a9d-4e89-a3f7-e260a72a51d3" alt="Franchise Smart Store" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Slide 3: Proprietary High-Margin Brands -->
+          <div class="hero-slide hero-slide--materials">
+            <div class="hero-slide-content">
+              <div style="font-size: 12px; font-weight: 700; color: #34D399; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Proprietary Private Labels</div>
+              <h2 class="hero-h1">Stronger Margins. <span style="color:#34D399;">Stronger Brands.</span></h2>
+              <p style="font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.5; margin-bottom: 16px; max-width: 520px;">
+                Own-brands like TileTrendz, Tuffar, EzyWall, CemXtra, Bondex, and Sanivo help dealers boost margins, while customers experience verified, superior quality.
+              </p>
+              <div class="free-delivery-badge-box">
+                <span class="free-badge-white">HIGH RECALL</span>
+                <span class="free-badge-orange">20-35% MARGIN</span>
+              </div>
+              <div class="qwik-delivery-tag-row" style="margin-top: 16px;">
+                <span style="font-size: 18px; font-weight: 900; color: #FFFFFF; letter-spacing: -0.5px;">matelio<span style="color:#34D399;">Brands</span></span>
+                <span class="qwik-tag-pill">✦ EXCLUSIVE TERRITORY RIGHTS</span>
+              </div>
+              <div style="margin-top: 18px;">
+                <a href="/categories.html" class="hero-white-pill-btn" style="background:#34D399; color:#064E3B;">Explore Private Labels</a>
+              </div>
+            </div>
+            <div class="hero-credit-graphic">
+              <img src="https://api.matelioverse.com/assets/c57b078c-15c5-43f9-a882-e256024915ce" alt="Proprietary Brands" loading="lazy">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Capsule Indicator Dots -->
+      <div class="hero-dots-wrap">
+        <div class="hero-dots-capsule" id="hero-dots-capsule">
+          <button class="hero-dot-btn active" data-index="0" aria-label="Slide 1"></button>
+          <button class="hero-dot-btn" data-index="1" aria-label="Slide 2"></button>
+          <button class="hero-dot-btn" data-index="2" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FEATURED CATEGORIES (MOB Cream Square Cards, Matelioverse Proprietary Lines)
+       ========================================================================== -->
+  <section class="categories-section">
+    <div class="site-container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:18px;">
+        <div>
+          <h2 class="section-title-h2" style="margin-bottom:4px;">Featured Categories &amp; Brands</h2>
+          <p style="font-size:13.5px; color:#64748B;">Explore Matelioverse proprietary lines &amp; construction materials</p>
+        </div>
+        <a href="/categories.html" style="font-size:13px; font-weight:700; color:var(--primary-green); text-decoration:none;">View All Categories ›</a>
+      </div>
+
+      <!-- Row 1: 8 Core Categories (MOB Cream Cards with 3D Transparent Renders) -->
+      <div class="categories-grid-row-1">
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Building_Materials.webp" alt="CemXtra Cement" loading="lazy">
+          </div>
+          <span class="cat-card-label">CemXtra (Cement)</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Plywood_and_Boards.webp" alt="EzyWall AAC Panels" loading="lazy">
+          </div>
+          <span class="cat-card-label">EzyWall (AAC Panels)</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Hardware_and_Fittings.webp" alt="Tuffar TMT Steel" loading="lazy">
+          </div>
+          <span class="cat-card-label">Tuffar (TMT Steel)</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Tiles.webp" alt="TileTrendz Tiles" loading="lazy">
+          </div>
+          <span class="cat-card-label">TileTrendz (Tiles)</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Plumbing.webp" alt="HydroLine Plumbing" loading="lazy">
+          </div>
+          <span class="cat-card-label">HydroLine (Piping)</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Bathroom.webp" alt="Sanivo Sanitaryware" loading="lazy">
+          </div>
+          <span class="cat-card-label">Sanivo (Sanitaryware)</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Laminates.webp" alt="ReflectoGlass Glass" loading="lazy">
+          </div>
+          <span class="cat-card-label">ReflectoGlass</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Tools_Equipment_and_Safety.webp" alt="Strongfab Steel" loading="lazy">
+          </div>
+          <span class="cat-card-label">Strongfab (Steel)</span>
+        </a>
+      </div>
+
+      <!-- Row 2: 7 Specialized Categories (MOB Cream Cards with 3D Transparent Renders) -->
+      <div class="categories-grid-row-2">
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp" alt="Bondex Adhesives" loading="lazy">
+          </div>
+          <span class="cat-card-label">Bondex (Adhesives)</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Electrical.webp" alt="Flexo Electrical & Wires" loading="lazy">
+          </div>
+          <span class="cat-card-label">Electrical &amp; Cabling</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Lighting.webp" alt="Commercial Lighting" loading="lazy">
+          </div>
+          <span class="cat-card-label">Commercial Lighting</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Hardware_and_Fittings.webp" alt="GripFit Hardware" loading="lazy">
+          </div>
+          <span class="cat-card-label">Hardware &amp; Fittings</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Fans.webp" alt="HVAC & Ventilation" loading="lazy">
+          </div>
+          <span class="cat-card-label">HVAC &amp; Ventilation</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Kitchen.webp" alt="Kitchen & Modular" loading="lazy">
+          </div>
+          <span class="cat-card-label">Modular &amp; Kitchen</span>
+        </a>
+
+        <a href="/categories.html" class="cat-card-item">
+          <div class="cat-card-box">
+            <img src="https://cdn.madoverbuildings.com/category/category/Tools_Equipment_and_Safety.webp" alt="Site Safety & PPE" loading="lazy">
+          </div>
+          <span class="cat-card-label">Site Safety &amp; PPE</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WHY CHOOSE MATELIOVERSE (3 Value Pillars, MOB Card Aesthetic)
+       ========================================================================== -->
+  <section class="section-block" style="background: #F8FAFC; padding: 48px 0;">
+    <div class="site-container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+        <span style="font-size: 11.5px; font-weight: 800; color: var(--primary-green); text-transform: uppercase; letter-spacing: 1px;">Smart Retail Architecture</span>
+        <h2 class="section-title-h2" style="font-size: 28px; margin-top: 4px; margin-bottom: 8px;">Why Choose Matelioverse?</h2>
+        <p style="color: #64748B; font-size: 14px;">We are replacing outdated inventory-led retail with demand-led, data-backed operations across India.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;" class="why-matelio-grid">
+        <!-- Pillar 1 -->
+        <div class="why-card-item" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s;">
+          <div style="height: 180px; overflow: hidden; position: relative;">
+            <img src="https://api.matelioverse.com/assets/86b3e000-054c-47b6-ba67-c8cb893ce26d" alt="Built on Tech" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(14,49,40,0.85) 100%);"></div>
+          </div>
+          <div style="padding: 24px;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: #ECFDF5; color: #059669; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 14px; font-weight: 800;">⚡</div>
+            <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">Built on Tech. Designed for Scale.</h3>
+            <p style="font-size: 13px; color: #475569; line-height: 1.6;">Our platform combines digital tools with deep supply chain intelligence to optimize pricing, availability, and fulfillment across India.</p>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="why-card-item" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s;">
+          <div style="height: 180px; overflow: hidden; position: relative;">
+            <img src="https://api.matelioverse.com/assets/091a903c-77a1-41d9-ae33-4dc9a7162913" alt="From Hardware to Smart Store" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(14,49,40,0.85) 100%);"></div>
+          </div>
+          <div style="padding: 24px;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: #EFF6FF; color: #2563EB; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 14px; font-weight: 800;">🏪</div>
+            <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">From Hardware Store to Smart Store.</h3>
+            <p style="font-size: 13px; color: #475569; line-height: 1.6;">We're replacing outdated inventory-led retail with demand-led, data-backed operations across franchise stores and online fulfillment hubs.</p>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="why-card-item" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s;">
+          <div style="height: 180px; overflow: hidden; position: relative;">
+            <img src="https://api.matelioverse.com/assets/c57b078c-15c5-43f9-a882-e256024915ce" alt="Stronger Margins Stronger Brands" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(14,49,40,0.85) 100%);"></div>
+          </div>
+          <div style="padding: 24px;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: #FEF3C7; color: #D97706; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 14px; font-weight: 800;">💎</div>
+            <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">Stronger Margins. Stronger Brands.</h3>
+            <p style="font-size: 13px; color: #475569; line-height: 1.6;">Own-brands like TileTrendz, Tuffar, EzyWall, Bondex, and Sanivo help dealers boost margins while customers experience verified, superior quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FEATURED BRANDS TICKER (MOB White Card Grid, Matelioverse Brands)
+       ========================================================================== -->
+  <section class="section-block">
+    <div class="site-container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:20px;">
+        <div>
+          <h2 class="section-title-h2" style="margin-bottom:4px;">Featured Brands &amp; Private Labels</h2>
+          <p style="font-size:13.5px; color:#64748B;">Proprietary &amp; partner brands engineered for high recall and superior margins</p>
+        </div>
+        <a href="/categories.html" style="font-size:13px; font-weight:700; color:var(--primary-green); text-decoration:none;">View All Brands ›</a>
+      </div>
+
+      <div class="popular-brands-grid">
+        <!-- Brand 1: STRONGFAB -->
+        <a href="/categories.html" class="brand-showcase-card">
+          <img src="https://api.matelioverse.com/assets/c232adb3-0a14-4f54-b28d-0ccdbd18a88b" alt="Strongfab" class="brand-showcase-logo" loading="lazy">
+          <span style="font-size:11px; font-weight:700; color:#64748B; margin-top:8px;">Structural Steel</span>
+        </a>
+
+        <!-- Brand 2: XTRA-CAM -->
+        <a href="/categories.html" class="brand-showcase-card">
+          <img src="https://api.matelioverse.com/assets/5fdb7ac5-124f-4c22-af5b-dc0876af9aea" alt="Xtra-Cam" class="brand-showcase-logo" loading="lazy">
+          <span style="font-size:11px; font-weight:700; color:#64748B; margin-top:8px;">Site Surveillance</span>
+        </a>
+
+        <!-- Brand 3: TileTrendz -->
+        <a href="/categories.html" class="brand-showcase-card">
+          <img src="https://api.matelioverse.com/assets/c21a907a-9fe3-4e14-8c6a-a4fe775476c3" alt="TileTrendz" class="brand-showcase-logo" loading="lazy">
+          <span style="font-size:11px; font-weight:700; color:#64748B; margin-top:8px;">Vitrified &amp; Ceramic Tiles</span>
+        </a>
+
+        <!-- Brand 4: HYDROLINES -->
+        <a href="/categories.html" class="brand-showcase-card">
+          <img src="https://api.matelioverse.com/assets/22a04414-4916-4f67-867e-b5bd95b416ce" alt="Hydrolines" class="brand-showcase-logo" loading="lazy">
+          <span style="font-size:11px; font-weight:700; color:#64748B; margin-top:8px;">Piping &amp; Plumbing</span>
+        </a>
+
+        <!-- Brand 5: ReflectoGlass -->
+        <a href="/categories.html" class="brand-showcase-card">
+          <img src="https://api.matelioverse.com/assets/74913a3c-32b8-40c3-918a-de641df70d38" alt="ReflectoGlass" class="brand-showcase-logo" loading="lazy">
+          <span style="font-size:11px; font-weight:700; color:#64748B; margin-top:8px;">Architectural Glass</span>
+        </a>
+
+        <!-- Brand 6: Tuffar TMT -->
+        <a href="/categories.html" class="brand-showcase-card">
+          <div style="font-size: 20px; font-weight: 900; color: #DC2626; letter-spacing: 0.5px;">TUFFAR®</div>
+          <span style="font-size:11px; font-weight:700; color:#64748B; margin-top:8px;">TMT Rebars Fe550D</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       OUR TECH EDGE SECTION (Interactive Grid from Matelioverse.com)
+       ========================================================================== -->
+  <section class="section-block" id="tech-edge" style="background: #F0FDF4; padding: 48px 0;">
+    <div class="site-container">
+      <div style="max-width: 640px; margin-bottom: 28px;">
+        <span style="font-size: 11.5px; font-weight: 800; color: var(--primary-green); text-transform: uppercase; letter-spacing: 1px;">Proprietary Digital Architecture</span>
+        <h2 class="section-title-h2" style="font-size: 28px; margin-top: 4px; margin-bottom: 8px;">Our Tech Edge</h2>
+        <p style="font-size: 14px; color: #475569;">Matelioverse isn’t just a marketplace. It’s an intelligent retail-tech engine designed to power construction commerce.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 2fr 3fr; gap: 20px;" class="tech-edge-split-grid">
+        <!-- Feature 1: Large Featured Card -->
+        <div style="position: relative; border-radius: 18px; overflow: hidden; height: 360px;" class="tech-card-hover">
+          <img src="https://api.matelioverse.com/assets/6fc2fbf4-169e-401e-a993-6b5c27a2d02d" alt="Geo-tagged Inventory Tracking" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(10,37,64,0.92) 100%);"></div>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; color: #FFFFFF;">
+            <div style="font-size: 11px; font-weight: 800; color: #34D399; text-transform: uppercase; margin-bottom: 6px;">Live Telematics</div>
+            <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 6px;">Geo-tagged Inventory Tracking</h3>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.8); line-height: 1.4;">Real-time stock visibility across centralized warehouses, transit hubs, and dealer outlets.</p>
+          </div>
+        </div>
+
+        <!-- 4 Grid Cards -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <!-- Card 2 -->
+          <div style="position: relative; border-radius: 16px; overflow: hidden; height: 172px;" class="tech-card-hover">
+            <img src="https://api.matelioverse.com/assets/3b748db5-005d-490e-bb32-d25d199df6e3" alt="Order Management System" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(10,37,64,0.92) 100%);"></div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px; color: #FFFFFF;">
+              <h4 style="font-size: 14px; font-weight: 800;">Order Management (OMS)</h4>
+              <p style="font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px;">Automated dispatch &amp; fulfillment</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div style="position: relative; border-radius: 16px; overflow: hidden; height: 172px;" class="tech-card-hover">
+            <img src="https://api.matelioverse.com/assets/ed6cd82e-6bfd-47d9-a7a3-fbe5358134ed" alt="AI Demand Prediction" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(10,37,64,0.92) 100%);"></div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px; color: #FFFFFF;">
+              <h4 style="font-size: 14px; font-weight: 800;">AI Demand Prediction</h4>
+              <p style="font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px;">Predictive regional demand spikes</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div style="position: relative; border-radius: 16px; overflow: hidden; height: 172px;" class="tech-card-hover">
+            <img src="https://api.matelioverse.com/assets/86fe988f-3eed-4031-a276-825e407db7f3" alt="Dynamic Pricing Tools" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(10,37,64,0.92) 100%);"></div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px; color: #FFFFFF;">
+              <h4 style="font-size: 14px; font-weight: 800;">Dynamic Pricing Tools</h4>
+              <p style="font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px;">Margin-optimized spot rate quotes</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div style="position: relative; border-radius: 16px; overflow: hidden; height: 172px;" class="tech-card-hover">
+            <img src="https://api.matelioverse.com/assets/785bde08-c573-4d8f-abb3-5714bff8cd30" alt="CRM & Dealer Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(10,37,64,0.92) 100%);"></div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px; color: #FFFFFF;">
+              <h4 style="font-size: 14px; font-weight: 800;">CRM &amp; Dealer Dashboard</h4>
+              <p style="font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px;">End-to-end franchise ledger tools</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WHO WE SERVE SECTION (Matelioverse Core Audience)
+       ========================================================================== -->
+  <section class="section-block">
+    <div class="site-container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 32px;">
+        <span style="font-size: 11.5px; font-weight: 800; color: var(--primary-green); text-transform: uppercase; letter-spacing: 1px;">Our Ecosystem</span>
+        <h2 class="section-title-h2" style="font-size: 28px; margin-top: 4px; margin-bottom: 6px;">Who We Serve</h2>
+        <p style="font-size: 14px; color: #64748B;">Connecting key stakeholders across the Indian construction value chain</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;" class="who-serve-grid">
+        <!-- Audience 1 -->
+        <div style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 28px 20px; text-align: center; transition: all 0.2s ease;">
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: #ECFDF5; color: var(--primary-green); display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">🏗️</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">Infra Contractors</h3>
+          <p style="font-size: 12.5px; color: #64748B; line-height: 1.5;">Direct bulk sourcing, certified test certificates, and on-schedule site dispatch.</p>
+        </div>
+
+        <!-- Audience 2 -->
+        <div style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 28px 20px; text-align: center; transition: all 0.2s ease;">
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: #EFF6FF; color: #2563EB; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">🏪</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">Retail Dealers</h3>
+          <p style="font-size: 12.5px; color: #64748B; line-height: 1.5;">Exclusive territory rights, higher margins on private labels, and zero inventory dead-stock.</p>
+        </div>
+
+        <!-- Audience 3 -->
+        <div style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 28px 20px; text-align: center; transition: all 0.2s ease;">
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: #FEF3C7; color: #D97706; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">🏢</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">Real Estate Developers</h3>
+          <p style="font-size: 12.5px; color: #64748B; line-height: 1.5;">Standardized project BOQ fulfillment, consistent grade quality, and transparent billing.</p>
+        </div>
+
+        <!-- Audience 4 -->
+        <div style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 28px 20px; text-align: center; transition: all 0.2s ease;">
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: #F3E8FF; color: #7C3AED; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">📐</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">Architects &amp; Planners</h3>
+          <p style="font-size: 12.5px; color: #64748B; line-height: 1.5;">Technical datasheets, physical sample studios, and modern interior &amp; facade solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       NEWS & MEDIA (Verified Press Releases from Matelioverse.com)
+       ========================================================================== -->
+  <section class="section-block" id="news-media" style="background: #F8FAFC; padding: 48px 0;">
+    <div class="site-container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px;">
+        <div>
+          <span style="font-size: 11.5px; font-weight: 800; color: var(--primary-green); text-transform: uppercase; letter-spacing: 1px;">Press Coverage</span>
+          <h2 class="section-title-h2" style="font-size: 28px; margin-top: 4px; margin-bottom: 4px;">News &amp; Media</h2>
+          <p style="font-size: 13.5px; color: #64748B;">Industry coverage and milestones of Matelioverse &amp; BuilditIndia</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;" class="news-media-grid">
+        <!-- Article 1: The India Awaaz -->
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="position: relative; height: 110px; background: #F1F5F9; display: flex; align-items: center; justify-content: center; padding: 12px;">
+            <span style="position: absolute; top: 8px; left: 8px; background: var(--primary-green); color: #fff; font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 6px;">14 Aug</span>
+            <img src="https://api.matelioverse.com/assets/5a4e1820-e265-4988-96a8-6a2b995b7aee" alt="The India Awaaz" style="max-height: 40px; max-width: 80%; object-fit: contain;">
+          </div>
+          <div style="padding: 16px;">
+            <h4 style="font-size: 14px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">The India Awaaz</h4>
+            <p style="font-size: 12px; color: #64748B; line-height: 1.5;">BuilditIndia launches subsidiary Matelio to redefine how India buys building materials.</p>
+          </div>
+        </div>
+
+        <!-- Article 2: APN News -->
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="position: relative; height: 110px; background: #F1F5F9; display: flex; align-items: center; justify-content: center; padding: 12px;">
+            <span style="position: absolute; top: 8px; left: 8px; background: var(--primary-green); color: #fff; font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 6px;">13 Aug</span>
+            <img src="https://api.matelioverse.com/assets/09e94aff-e8f9-457f-a174-e061b9c84558" alt="APN News" style="max-height: 40px; max-width: 80%; object-fit: contain;">
+          </div>
+          <div style="padding: 16px;">
+            <h4 style="font-size: 14px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">APN News</h4>
+            <p style="font-size: 12px; color: #64748B; line-height: 1.5;">Next-gen retail-tech venture designed to digitize India's fragmented building-materials market.</p>
+          </div>
+        </div>
+
+        <!-- Article 3: Media Infoline -->
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="position: relative; height: 110px; background: #F1F5F9; display: flex; align-items: center; justify-content: center; padding: 12px;">
+            <span style="position: absolute; top: 8px; left: 8px; background: var(--primary-green); color: #fff; font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 6px;">13 Aug</span>
+            <img src="https://api.matelioverse.com/assets/2a9b0488-a53c-49eb-9610-da155dcba1b6" alt="Media Infoline" style="max-height: 40px; max-width: 80%; object-fit: contain;">
+          </div>
+          <div style="padding: 16px;">
+            <h4 style="font-size: 14px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">Media Infoline</h4>
+            <p style="font-size: 12px; color: #64748B; line-height: 1.5;">Aimed at organizing ₹225 billion building-materials sector through an omni-channel approach.</p>
+          </div>
+        </div>
+
+        <!-- Article 4: Silicon India -->
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="position: relative; height: 110px; background: #F1F5F9; display: flex; align-items: center; justify-content: center; padding: 12px;">
+            <span style="position: absolute; top: 8px; left: 8px; background: var(--primary-green); color: #fff; font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 6px;">12 Aug</span>
+            <img src="https://api.matelioverse.com/assets/67a470eb-3d55-459b-a8c2-743a25c4f3b9" alt="Silicon India" style="max-height: 40px; max-width: 80%; object-fit: contain;">
+          </div>
+          <div style="padding: 16px;">
+            <h4 style="font-size: 14px; font-weight: 800; color: #0F172A; margin-bottom: 6px;">Silicon India</h4>
+            <p style="font-size: 12px; color: #64748B; line-height: 1.5;">Appoints industry veteran Sandeep Kakkar as Director to lead the omni-channel venture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PARTNER CTA BANNER (MOB Wide Banner Component)
+       ========================================================================== -->
+  <section class="section-block" style="padding: 16px 0 32px 0;">
+    <div class="site-container">
+      <div style="background: linear-gradient(105deg, #0A2540 0%, #06192C 100%); border-radius: 24px; padding: 44px 48px; display: flex; justify-content: space-between; align-items: center; color: #FFFFFF;" class="partner-cta-box">
+        <div style="max-width: 600px;">
+          <span style="background: rgba(52, 211, 153, 0.2); color: #34D399; font-size: 11.5px; font-weight: 800; padding: 4px 12px; border-radius: 12px; text-transform: uppercase;">Franchise &amp; Dealership</span>
+          <h2 style="font-size: 28px; font-weight: 800; margin-top: 10px; margin-bottom: 8px; line-height: 1.25;">Be Part of the Matelioverse.</h2>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.5;">
+            Join the movement that’s modernizing India’s ₹100,000 Cr+ retail building material market. Whether you’re a dealer, distributor, or franchisee — Matelioverse gives you an unfair advantage.
+          </p>
+        </div>
+        <div>
+          <a href="/partner.html" class="hero-white-pill-btn" style="background: #FBBF24; color: #78350F; font-size: 14px; padding: 14px 36px;">Partner With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==========================================================================
+     MAIN DARK FOOTER (Exact MOB Structure with Matelioverse Brand Data)
+     ========================================================================== -->
+<footer class="site-dark-footer">
+  <div class="site-container">
+    <div class="footer-top-grid">
+      <!-- Col 1: Logo & Mission -->
+      <div class="footer-brand-col">
+        <div class="footer-logo-wrap">
+          <img src="https://api.matelioverse.com/assets/e0847d46-2489-475e-8dfc-e7b520e1df15" alt="Matelioverse" class="footer-logo-img" width="180" height="34">
+        </div>
+        <div class="footer-materials-h4">India's Smartest Building Materials Platform</div>
+        <p style="font-size: 13px; color: #94A3B8; line-height: 1.5; margin-bottom: 14px; max-width: 320px;">
+          Designed to scale globally. We’re creating a borderless infrastructure commerce engine.
+        </p>
+        <div style="font-size: 12.5px; color: #64748B;">Powered By</div>
+        <div style="color: #34D399; font-weight: 800; font-size: 15px; margin-top: 2px;">BuilditIndia.com</div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div>
+        <h4 class="footer-col-h4">QUICK LINKS</h4>
+        <ul class="footer-links-list">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/categories.html">Categories &amp; Brands</a></li>
+          <li><a href="/partner.html">Partner With Us</a></li>
+          <li><a href="/contact.html">Inquiries &amp; Quotes</a></li>
+          <li><a href="#tech-edge">Our Tech Edge</a></li>
+          <li><a href="#news-media">News &amp; Media</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Proprietary Brands -->
+      <div>
+        <h4 class="footer-col-h4">PRIVATE LABELS</h4>
+        <ul class="footer-links-list">
+          <li><a href="/categories.html">CemXtra (Cement &amp; GGBS)</a></li>
+          <li><a href="/categories.html">EzyWall (AAC Panels)</a></li>
+          <li><a href="/categories.html">Tuffar (TMT Rebars)</a></li>
+          <li><a href="/categories.html">TileTrendz (Tiles)</a></li>
+          <li><a href="/categories.html">HydroLine (Piping)</a></li>
+          <li><a href="/categories.html">Sanivo (Sanitaryware)</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact Us -->
+      <div>
+        <h4 class="footer-col-h4">CONTACT US</h4>
+        <div class="footer-contact-block">
+          <div class="city-contact-group">
+            <div class="city-label-bold">Head Office (Ahmedabad)</div>
+            <p style="font-size: 12.5px; color: #94A3B8; line-height: 1.4; margin-bottom: 6px;">
+              405 Claywalls, OPP. Shanti Palace, Hebatpur Road, Thaltej, Ahmedabad, Gujarat 380054
+            </p>
+            <a href="tel:+919824939888" class="contact-link-row">
+              <span>📞</span> <span>+91 98249 39888</span>
+            </a>
+          </div>
+
+          <a href="mailto:hello@matelioverse.com" class="contact-link-row" style="margin-top: 8px;">
+            <span>✉️</span> <span>hello@matelioverse.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Pills in Footer -->
+    <div class="footer-categories-block">
+      <h4 class="footer-col-h4" style="margin-bottom:0;">Top Categories</h4>
+      <div class="footer-cat-pills-flex">
+        <a href="/categories.html" class="footer-cat-pill">CemXtra Cement</a>
+        <a href="/categories.html" class="footer-cat-pill">EzyWall AAC Panels</a>
+        <a href="/categories.html" class="footer-cat-pill">Tuffar TMT Steel</a>
+        <a href="/categories.html" class="footer-cat-pill">TileTrendz Tiles</a>
+        <a href="/categories.html" class="footer-cat-pill">HydroLine Plumbing</a>
+        <a href="/categories.html" class="footer-cat-pill">Sanivo Sanitaryware</a>
+        <a href="/categories.html" class="footer-cat-pill">ReflectoGlass</a>
+        <a href="/categories.html" class="footer-cat-pill">Strongfab Fabrication</a>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright Row -->
+    <div class="footer-bottom-bar">
+      <p class="footer-copy-text">© Copyright 2025, All Rights Reserved by <span style="color:#00A86B; font-weight:700;">Matelioverse</span> · Powered by BuilditIndia</p>
+      <div class="footer-legal-links">
+        <a href="/contact.html">Terms of Use</a>
+        <span>·</span>
+        <a href="/contact.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================================================================
+     MOBILE SLIDE-OUT DRAWER MENU (Matelioverse Links)
+     ========================================================================== -->
+<div class="mobile-drawer-overlay" id="mobile-drawer" onclick="if(event.target === this){ this.classList.remove('active'); document.body.style.overflow=''; }">
+  <div class="mobile-drawer-card">
+    <div class="mob-drawer-header">
+      <img src="https://api.matelioverse.com/assets/e0847d46-2489-475e-8dfc-e7b520e1df15" alt="Matelioverse" style="height: 24px; width: auto;">
+      <button type="button" class="mob-drawer-close-btn" aria-label="Close menu" onclick="document.getElementById('mobile-drawer').classList.remove('active'); document.body.style.overflow='';">✕</button>
+    </div>
+
+    <div class="mob-drawer-body">
+      <div class="mob-drawer-section-title">EXPLORE MATELIOVERSE</div>
+      <a href="/" class="mob-drawer-link">
+        <span>🏠</span> <span>Home</span>
+      </a>
+      <a href="/about.html" class="mob-drawer-link">
+        <span>🏢</span> <span>About Us</span>
+      </a>
+      <a href="/categories.html" class="mob-drawer-link">
+        <span>⊞</span> <span>Categories &amp; Brands</span>
+        <span class="mob-badge-new">HOT</span>
+      </a>
+      <a href="/partner.html" class="mob-drawer-link">
+        <span>🤝</span> <span>Partner With Us</span>
+        <span class="mob-badge-hot">FRANCHISE</span>
+      </a>
+      <a href="#tech-edge" class="mob-drawer-link" onclick="document.getElementById('mobile-drawer').classList.remove('active'); document.body.style.overflow='';">
+        <span>⚡</span> <span>Our Tech Edge</span>
+      </a>
+      <a href="#news-media" class="mob-drawer-link" onclick="document.getElementById('mobile-drawer').classList.remove('active'); document.body.style.overflow='';">
+        <span>📰</span> <span>News &amp; Media</span>
+      </a>
+
+      <div class="mob-drawer-divider"></div>
+
+      <div class="mob-drawer-section-title">CONTACT &amp; INQUIRY</div>
+      <a href="/contact.html" class="mob-drawer-link">
+        <span>✉️</span> <span>Contact Us</span>
+      </a>
+      <a href="https://wa.me/919824939888" target="_blank" rel="noopener" class="mob-drawer-link" style="color: #059669;">
+        <span>💬</span> <span>WhatsApp Support</span>
+      </a>
+    </div>
+
+    <div class="mob-drawer-footer">
+      <button type="button" class="mob-drawer-login-btn" onclick="document.getElementById('mobile-drawer').classList.remove('active'); document.getElementById('login-modal').classList.add('active');">
+        <span>👤</span> <span>Log in or Sign up</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     FIXED NATIVE MOBILE BOTTOM APP BAR (5 Native Tabs)
+     ========================================================================== -->
+<nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+  <a href="/" class="mob-nav-tab active">
+    <svg class="mob-tab-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="/about.html" class="mob-nav-tab">
+    <svg class="mob-tab-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    <span>About</span>
+  </a>
+  <a href="/categories.html" class="mob-nav-tab">
+    <svg class="mob-tab-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/></svg>
+    <span>Categories</span>
+  </a>
+  <a href="/partner.html" class="mob-nav-tab">
+    <svg class="mob-tab-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+    <span>Partner</span>
+  </a>
+  <a href="/contact.html" class="mob-nav-tab">
+    <svg class="mob-tab-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <span>Contact</span>
+  </a>
+</nav>
+
+<!-- ==========================================================================
+     LOGIN / SIGN UP MODAL (Exact MOB Modal Structure)
+     ========================================================================== -->
+<div class="login-modal-overlay" id="login-modal" onclick="if(event.target === this){ this.classList.remove('active'); document.body.style.overflow=''; }">
+  <div class="login-modal-card">
+    <button type="button" class="modal-close-btn" aria-label="Close modal" onclick="document.getElementById('login-modal').classList.remove('active'); document.body.style.overflow='';">✕</button>
+    <div class="login-modal-content">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <img src="https://api.matelioverse.com/assets/e0847d46-2489-475e-8dfc-e7b520e1df15" alt="Matelioverse" style="height: 28px; width: auto; margin-bottom: 12px;">
+        <h3 style="font-size: 20px; font-weight: 800; color: #0F172A;">Log in or sign up</h3>
+        <p style="font-size: 13px; color: #64748B; margin-top: 4px;">Access dealer pricing, order tracking, and franchise tools</p>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('Demo: Verification OTP has been dispatched.'); document.getElementById('login-modal').classList.remove('active'); document.body.style.overflow='';">
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Mobile Number</label>
+          <div style="display: flex; border: 1.5px solid #E2E8F0; border-radius: 12px; overflow: hidden; background: #F8FAFC;">
+            <div style="padding: 10px 14px; background: #EDF2F7; font-size: 14px; font-weight: 600; color: #475569; display: flex; align-items: center; gap: 4px; border-right: 1px solid #CBD5E1;">
+              <span>🇮🇳</span> <span>+91</span>
+            </div>
+            <input type="tel" required pattern="[0-9]{10}" placeholder="Enter 10-digit number" style="flex: 1; border: none; padding: 10px 14px; font-size: 14px; outline: none; background: transparent;">
+          </div>
+        </div>
+
+        <button type="submit" style="width: 100%; height: 46px; background: var(--primary-green); color: #FFFFFF; font-weight: 700; font-size: 14px; border-radius: 12px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 168, 107, 0.3);">
+          SEND OTP
+        </button>
+      </form>
+
+      <div style="text-align: center; font-size: 11.5px; color: #94A3B8; margin-top: 18px;">
+        By continuing, you agree to Matelioverse's <a href="/contact.html" style="color: var(--primary-green);">Terms of Use</a> and <a href="/contact.html" style="color: var(--primary-green);">Privacy Policy</a>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
