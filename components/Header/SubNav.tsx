@@ -1,11 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLocation } from '@/context/LocationContext';
+import { CATEGORIES } from '@/data/categories';
 
 export default function SubNav() {
   const { currentHub } = useLocation();
+  const [activeCategorySlug, setActiveCategorySlug] = useState<string>(CATEGORIES[0]?.slug || 'tmt-bars');
+  const activeCat = CATEGORIES.find((c) => c.slug === activeCategorySlug) || CATEGORIES[0];
 
   return (
     <>
@@ -46,33 +49,84 @@ export default function SubNav() {
             </Link>
 
             <div className="categories-dropdown-menu">
-              <Link href="/categories#cement-ggbs" className="cat-dropdown-item">
-                CemXtra (OPC 53 Cement &amp; GGBS) <span>›</span>
-              </Link>
-              <Link href="/categories#aac-panels" className="cat-dropdown-item">
-                EzyWall (AAC Lightweight Wall Panels) <span>›</span>
-              </Link>
-              <Link href="/categories#tmt-steel" className="cat-dropdown-item">
-                Tuffar (Fe550D TMT Steel Rebars) <span>›</span>
-              </Link>
-              <Link href="/categories#tiles-surfaces" className="cat-dropdown-item">
-                TileTrendz (GVT &amp; Vitrified Tiles) <span>›</span>
-              </Link>
-              <Link href="/categories#plumbing-pipes" className="cat-dropdown-item">
-                HydroLine (CPVC / UPVC Piping) <span>›</span>
-              </Link>
-              <Link href="/categories#sanitaryware" className="cat-dropdown-item">
-                Sanivo (Sanitaryware &amp; CP Fixtures) <span>›</span>
-              </Link>
-              <Link href="/categories#structural-steel" className="cat-dropdown-item">
-                Strongfab (Structural Beams &amp; PEB Steel) <span>›</span>
-              </Link>
-              <Link href="/categories#architectural-glass" className="cat-dropdown-item">
-                ReflectoGlass (Architectural Toughened Glass) <span>›</span>
-              </Link>
-              <Link href="/categories#adhesives-chemicals" className="cat-dropdown-item">
-                Bondex (Tile Adhesives &amp; Waterproofing) <span>›</span>
-              </Link>
+              {/* Left Sidebar: 15 Core Categories */}
+              <div className="cat-dropdown-sidebar">
+                {CATEGORIES.map((cat) => {
+                  const isActive = activeCategorySlug === cat.slug;
+                  return (
+                    <div
+                      key={cat.id}
+                      className={`cat-mega-nav-item ${isActive ? 'active' : ''}`}
+                      onMouseEnter={() => setActiveCategorySlug(cat.slug)}
+                    >
+                      <Link
+                        href={`/categories?category=${cat.slug}#${cat.slug}`}
+                        className="cat-mega-nav-link"
+                      >
+                        <div className="cat-mega-nav-info">
+                          <div className="cat-mega-nav-name">{cat.name}</div>
+                          <div className="cat-mega-nav-brands-preview">
+                            {cat.associatedBrands?.slice(0, 3).join(', ')}
+                            {cat.associatedBrands && cat.associatedBrands.length > 3 ? '...' : ''}
+                          </div>
+                        </div>
+                        <span className="cat-mega-arrow">›</span>
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Right Detail Panel: Active Category Associated Brands */}
+              {activeCat && (
+                <div className="cat-mega-detail-panel">
+                  <div className="cat-mega-detail-header">
+                    <div className="cat-mega-detail-thumb">
+                      <img src={activeCat.image} alt={activeCat.name} />
+                    </div>
+                    <div className="cat-mega-detail-meta">
+                      <div className="cat-mega-detail-badge">{activeCat.tag || 'Verified Direct Plant'}</div>
+                      <h3 className="cat-mega-detail-title">{activeCat.name}</h3>
+                      <p className="cat-mega-detail-desc">{activeCat.description}</p>
+                    </div>
+                  </div>
+
+                  <div className="cat-mega-brands-section">
+                    <div className="cat-mega-brands-label">
+                      <span>ASSOCIATED VERIFIED BRANDS</span>
+                      <span className="cat-mega-brands-count">
+                        {activeCat.associatedBrands?.length || 0} Brands
+                      </span>
+                    </div>
+
+                    <div className="cat-mega-brands-grid">
+                      {activeCat.associatedBrands?.map((brand) => (
+                        <Link
+                          key={brand}
+                          href={`/categories?category=${activeCat.slug}&brand=${encodeURIComponent(brand)}#${activeCat.slug}`}
+                          className="cat-mega-brand-chip"
+                          title={`Browse ${brand} ${activeCat.name}`}
+                        >
+                          <span className="brand-dot">•</span>
+                          <span className="brand-name">{brand}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="cat-mega-bottom-cta">
+                    <Link
+                      href={`/categories?category=${activeCat.slug}#${activeCat.slug}`}
+                      className="cat-mega-explore-btn"
+                    >
+                      Explore All {activeCat.name} ({activeCat.itemCount || 10}) →
+                    </Link>
+                    <div className="cat-mega-sla-pill">
+                      ⚡ 90-Min Dispatch Available
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 

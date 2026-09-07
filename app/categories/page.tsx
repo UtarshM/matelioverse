@@ -18,24 +18,38 @@ export default function CategoriesPage() {
     setSelectedBrand('all');
   };
 
-  // Auto-select category if hash is present in URL or changes dynamically
+  // Auto-select category and brand from URL search params or hash
   useEffect(() => {
-    const handleHash = () => {
+    const syncFromUrl = () => {
       if (typeof window !== 'undefined') {
+        const searchParams = new URLSearchParams(window.location.search);
+        const qCat = searchParams.get('category');
+        const qBrand = searchParams.get('brand');
         const rawHash = (window.location.hash || '').replace(/^#/, '').trim();
-        if (rawHash) {
-          const catExists = CATEGORIES.find((c) => c.slug === rawHash);
+
+        const targetCat = qCat || rawHash;
+        if (targetCat) {
+          const catExists = CATEGORIES.find((c) => c.slug === targetCat);
           if (catExists) {
-            setSelectedCategory(rawHash);
-            setSelectedBrand('all');
+            setSelectedCategory(targetCat);
+            if (qBrand) {
+              setSelectedBrand(qBrand);
+            } else {
+              setSelectedBrand('all');
+            }
+            return;
           }
         }
       }
     };
 
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
+    syncFromUrl();
+    window.addEventListener('hashchange', syncFromUrl);
+    window.addEventListener('popstate', syncFromUrl);
+    return () => {
+      window.removeEventListener('hashchange', syncFromUrl);
+      window.removeEventListener('popstate', syncFromUrl);
+    };
   }, []);
 
   const activeBrands = useMemo(() => {
