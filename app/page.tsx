@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { PRODUCTS } from '@/data/products';
 import ProductCard from '@/components/Commerce/ProductCard';
+import PromoBannerSlider from '@/components/Commerce/PromoBannerSlider';
 import CreditLineBanner from '@/components/B2B/CreditLineBanner';
 import { useLocation } from '@/context/LocationContext';
 
@@ -73,12 +74,12 @@ export default function HomePage() {
               {heroSlides.map((slide, idx) => (
                 <div key={idx} className={`hero-slide ${slide.bgClass}`}>
                   <div className="hero-slide-content">
-                    <div style={{ fontSize: 12, fontWeight: 700, color: '#34D399', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8 }}>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary-orange)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8 }}>
                       {slide.badge}
                     </div>
                     <h1 className="hero-h1">
                       {slide.title.replace(slide.highlight, '')}
-                      <span className="accent-mint">{slide.highlight}</span>
+                      <span className="accent-mint" style={{ color: 'var(--primary-orange)' }}>{slide.highlight}</span>
                     </h1>
                     <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.85)', lineHeight: 1.5, marginBottom: 16, maxWidth: 520 }}>
                       {slide.desc}
@@ -153,19 +154,16 @@ export default function HomePage() {
         <div className="site-container">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ background: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: 8, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 6 }}>
-                <span style={{ fontSize: 16 }}>⚡</span>
-                <span style={{ fontSize: 13, fontWeight: 800, color: '#065F46' }}>
-                  Matelio Fast: {currentHub.instantSla}
+              <div style={{ background: 'var(--secondary-mint)', border: '1px solid var(--secondary-mint-border)', borderRadius: 8, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{ fontSize: 14 }}>📍</span>
+                <span style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--secondary-green)' }}>
+                  Delivery to: <strong>{currentHub.name}</strong> ({pincode})
                 </span>
-              </div>
-              <div style={{ fontSize: 13, color: '#64748B' }}>
-                Delivering to: <strong style={{ color: '#0F172A' }}>{currentHub.name} ({pincode})</strong>
               </div>
               <button
                 type="button"
                 onClick={openLocationModal}
-                style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary-green)', textDecoration: 'underline', border: 'none', background: 'none', cursor: 'pointer' }}
+                style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary-orange)', textDecoration: 'underline', border: 'none', background: 'none', cursor: 'pointer' }}
               >
                 Change Location
               </button>
@@ -185,6 +183,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ==========================================================================
+           PROMOTIONAL OFFER BANNER SLIDER (Exact Brand Offers)
+           ========================================================================== */}
+      <PromoBannerSlider />
 
       {/* ==========================================================================
            FEATURED CATEGORIES (Interactive Grid)
@@ -238,8 +241,8 @@ export default function HomePage() {
         <div className="site-container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 20 }}>
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#ECFDF5', color: '#047857', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4 }}>
-                <span>⚡</span> Matelio Fast Express
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--secondary-mint)', color: 'var(--secondary-green)', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4 }}>
+                ⚡ {currentHub.instantSla} Instant Delivery
               </div>
               <h2 className="section-title-h2" style={{ fontSize: 24, margin: '2px 0 4px 0' }}>
                 Instant Site Essentials ({currentHub.instantSla})
@@ -268,8 +271,8 @@ export default function HomePage() {
         <div className="site-container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 20 }}>
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#FEF3C7', color: '#B45309', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4 }}>
-                <span>🚚</span> Mill &amp; Hub Sourced
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--primary-orange-light)', color: 'var(--primary-orange-active)', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4 }}>
+                🚛 Plant Direct Dispatch
               </div>
               <h2 className="section-title-h2" style={{ fontSize: 24, margin: '2px 0 4px 0' }}>
                 Structural &amp; Foundation Materials (Same-Day Freight)
@@ -306,51 +309,51 @@ export default function HomePage() {
       <section className="section-block" style={{ background: '#F8FAFC', padding: '48px 0' }}>
         <div className="site-container">
           <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 36px' }}>
-            <span style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--primary-green)', textTransform: 'uppercase', letterSpacing: 1 }}>
+            <span style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--primary-orange)', textTransform: 'uppercase', letterSpacing: 1 }}>
               Smart Retail Architecture
             </span>
             <h2 className="section-title-h2" style={{ fontSize: 28, marginTop: 4, marginBottom: 8 }}>
-              Why Choose Matelioverse?
+              Why Choose <span style={{ color: 'var(--primary-orange)' }}>Matelioverse?</span>
             </h2>
             <p style={{ color: '#64748B', fontSize: 14 }}>
               Replacing outdated inventory-led retail with demand-led, data-backed operations across India.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} className="why-matelio-grid">
-            <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 20, overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,0.04)' }}>
-              <div style={{ height: 180, overflow: 'hidden', position: 'relative' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }} className="why-matelio-grid">
+            <div style={{ background: 'linear-gradient(135deg, #0E3128, #133028)', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 24px rgba(14,49,40,0.18)', color: '#FFFFFF', position: 'relative' }} className="card-hover-effect">
+              <div style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
                 <img src="https://api.matelioverse.com/assets/86b3e000-054c-47b6-ba67-c8cb893ce26d" alt="Built on Tech" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 40%, rgba(14,49,40,0.85) 100%)' }}></div>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, #0E3128 100%)' }}></div>
               </div>
-              <div style={{ padding: 24 }}>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: '#ECFDF5', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, marginBottom: 14, fontWeight: 800 }}>⚡</div>
-                <h3 style={{ fontSize: 18, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>Built on Tech. Designed for Scale.</h3>
-                <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.6 }}>Combining digital procurement tools with deep supply chain intelligence to optimize spot pricing, availability, and offloading speed.</p>
+              <div style={{ padding: 26 }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(194, 236, 202, 0.4)', color: '#C2ECCA', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, marginBottom: 16, fontWeight: 800 }}>⚡</div>
+                <h3 style={{ fontSize: 20, fontWeight: 800, color: '#FFFFFF', marginBottom: 10 }}>Built on Tech. Designed for Scale.</h3>
+                <p style={{ fontSize: 13.5, color: '#C2ECCA', lineHeight: 1.6 }}>Combining digital procurement tools with deep supply chain intelligence to optimize spot pricing, availability, and offloading speed.</p>
               </div>
             </div>
 
-            <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 20, overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,0.04)' }}>
-              <div style={{ height: 180, overflow: 'hidden', position: 'relative' }}>
+            <div style={{ background: 'linear-gradient(135deg, #0E3128, #133028)', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 24px rgba(14,49,40,0.18)', color: '#FFFFFF', position: 'relative' }} className="card-hover-effect">
+              <div style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
                 <img src="https://api.matelioverse.com/assets/091a903c-77a1-41d9-ae33-4dc9a7162913" alt="From Hardware to Smart Store" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 40%, rgba(14,49,40,0.85) 100%)' }}></div>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, #0E3128 100%)' }}></div>
               </div>
-              <div style={{ padding: 24 }}>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: '#EFF6FF', color: '#2563EB', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, marginBottom: 14, fontWeight: 800 }}>🏪</div>
-                <h3 style={{ fontSize: 18, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>From Hardware Store to Smart Store.</h3>
-                <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.6 }}>Replacing dead-stock retail with hyper-efficient franchise stores and regional fulfillment depots across Ahmedabad, Surat, Vadodara, and Rajkot.</p>
+              <div style={{ padding: 26 }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(194, 236, 202, 0.4)', color: '#C2ECCA', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, marginBottom: 16, fontWeight: 800 }}>🏪</div>
+                <h3 style={{ fontSize: 20, fontWeight: 800, color: '#FFFFFF', marginBottom: 10 }}>From Hardware Store to Smart Store.</h3>
+                <p style={{ fontSize: 13.5, color: '#C2ECCA', lineHeight: 1.6 }}>Replacing dead-stock retail with hyper-efficient franchise stores and regional fulfillment depots across Ahmedabad, Surat, Vadodara, and Rajkot.</p>
               </div>
             </div>
 
-            <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 20, overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,0.04)' }}>
-              <div style={{ height: 180, overflow: 'hidden', position: 'relative' }}>
+            <div style={{ background: 'linear-gradient(135deg, #0E3128, #133028)', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 24px rgba(14,49,40,0.18)', color: '#FFFFFF', position: 'relative' }} className="card-hover-effect">
+              <div style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
                 <img src="https://api.matelioverse.com/assets/c57b078c-15c5-43f9-a882-e256024915ce" alt="Stronger Margins Stronger Brands" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 40%, rgba(14,49,40,0.85) 100%)' }}></div>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, #0E3128 100%)' }}></div>
               </div>
-              <div style={{ padding: 24 }}>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: '#FEF3C7', color: '#D97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, marginBottom: 14, fontWeight: 800 }}>💎</div>
-                <h3 style={{ fontSize: 18, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>Stronger Margins. Stronger Brands.</h3>
-                <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.6 }}>Own-brands like TileTrendz, Tuffar, EzyWall, Bondex, and Sanivo boost dealer profitability with 20-35% margins and certified quality test sheets.</p>
+              <div style={{ padding: 26 }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(194, 236, 202, 0.4)', color: '#C2ECCA', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, marginBottom: 16, fontWeight: 800 }}>💎</div>
+                <h3 style={{ fontSize: 20, fontWeight: 800, color: '#FFFFFF', marginBottom: 10 }}>Stronger Margins. Stronger Brands.</h3>
+                <p style={{ fontSize: 13.5, color: '#C2ECCA', lineHeight: 1.6 }}>Own-brands like TileTrendz, Tuffar, EzyWall, Bondex, and Sanivo boost dealer profitability with 20-35% margins and certified quality test sheets.</p>
               </div>
             </div>
           </div>
@@ -377,9 +380,9 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', gap: 20 }} className="tech-edge-split-grid">
             <div style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', height: 360 }}>
               <img src="https://api.matelioverse.com/assets/6fc2fbf4-169e-401e-a993-6b5c27a2d02d" alt="Geo-tagged Inventory Tracking" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 30%, rgba(10,37,64,0.92) 100%)' }}></div>
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 30%, rgba(14,49,40,0.92) 100%)' }}></div>
               <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 24, color: '#FFFFFF' }}>
-                <div style={{ fontSize: 11, fontWeight: 800, color: '#34D399', textTransform: 'uppercase', marginBottom: 6 }}>Live Telematics</div>
+                <div style={{ fontSize: 11, fontWeight: 800, color: 'var(--primary-orange)', textTransform: 'uppercase', marginBottom: 6 }}>Live Telematics</div>
                 <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 6 }}>Geo-tagged Inventory Tracking</h3>
                 <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.8)', lineHeight: 1.4 }}>Real-time stock visibility across centralized warehouses, transit hubs, and dealer outlets.</p>
               </div>
@@ -388,7 +391,7 @@ export default function HomePage() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', height: 172 }}>
                 <img src="https://api.matelioverse.com/assets/3b748db5-005d-490e-bb32-d25d199df6e3" alt="Order Management System" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(10,37,64,0.92) 100%)' }}></div>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(14,49,40,0.92) 100%)' }}></div>
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 14, color: '#FFFFFF' }}>
                   <h4 style={{ fontSize: 14, fontWeight: 800 }}>Order Management (OMS)</h4>
                   <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>Automated dispatch &amp; fulfillment</p>
@@ -397,7 +400,7 @@ export default function HomePage() {
 
               <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', height: 172 }}>
                 <img src="https://api.matelioverse.com/assets/ed6cd82e-6bfd-47d9-a7a3-fbe5358134ed" alt="AI Demand Prediction" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(10,37,64,0.92) 100%)' }}></div>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(14,49,40,0.92) 100%)' }}></div>
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 14, color: '#FFFFFF' }}>
                   <h4 style={{ fontSize: 14, fontWeight: 800 }}>AI Demand Prediction</h4>
                   <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>Predictive regional demand spikes</p>
@@ -406,7 +409,7 @@ export default function HomePage() {
 
               <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', height: 172 }}>
                 <img src="https://api.matelioverse.com/assets/86fe988f-3eed-4031-a276-825e407db7f3" alt="Dynamic Pricing Tools" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(10,37,64,0.92) 100%)' }}></div>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(14,49,40,0.92) 100%)' }}></div>
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 14, color: '#FFFFFF' }}>
                   <h4 style={{ fontSize: 14, fontWeight: 800 }}>Dynamic Pricing Tools</h4>
                   <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>Margin-optimized spot rate quotes</p>
@@ -415,7 +418,7 @@ export default function HomePage() {
 
               <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', height: 172 }}>
                 <img src="https://api.matelioverse.com/assets/785bde08-c573-4d8f-abb3-5714bff8cd30" alt="CRM & Dealer Dashboard" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(10,37,64,0.92) 100%)' }}></div>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(14,49,40,0.92) 100%)' }}></div>
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 14, color: '#FFFFFF' }}>
                   <h4 style={{ fontSize: 14, fontWeight: 800 }}>CRM &amp; Dealer Dashboard</h4>
                   <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>End-to-end franchise ledger tools</p>
@@ -535,9 +538,9 @@ export default function HomePage() {
            ========================================================================== */}
       <section className="section-block" style={{ padding: '16px 0 40px 0' }}>
         <div className="site-container">
-          <div style={{ background: 'linear-gradient(105deg, #0A2540 0%, #06192C 100%)', borderRadius: 24, padding: '44px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#FFFFFF' }} className="partner-cta-box">
+          <div style={{ background: 'linear-gradient(135deg, #0E3128 0%, #133028 100%)', borderRadius: 24, padding: '44px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#FFFFFF' }} className="partner-cta-box">
             <div style={{ maxWidth: 600 }}>
-              <span style={{ background: 'rgba(52, 211, 153, 0.2)', color: '#34D399', fontSize: 11.5, fontWeight: 800, padding: '4px 12px', borderRadius: 12, textTransform: 'uppercase' }}>
+              <span style={{ background: 'rgba(249, 121, 56, 0.2)', color: 'var(--primary-orange)', fontSize: 11.5, fontWeight: 800, padding: '4px 12px', borderRadius: 12, textTransform: 'uppercase' }}>
                 Franchise &amp; Dealership Network
               </span>
               <h2 style={{ fontSize: 28, fontWeight: 800, marginTop: 10, marginBottom: 8, lineHeight: 1.25 }}>
@@ -548,7 +551,7 @@ export default function HomePage() {
               </p>
             </div>
             <div>
-              <Link href="/partner" className="hero-white-pill-btn" style={{ background: '#FBBF24', color: '#78350F', fontSize: 14, padding: '14px 36px' }}>
+              <Link href="/partner" className="hero-white-pill-btn" style={{ background: 'var(--primary-orange)', color: '#FFFFFF', fontSize: 14, padding: '14px 36px', boxShadow: '0 4px 16px rgba(249, 121, 56, 0.35)' }}>
                 Partner With Us
               </Link>
             </div>

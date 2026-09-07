@@ -107,7 +107,7 @@ export default function Footer() {
         {/* Bottom Copyright & Legal Row */}
         <div className="footer-bottom-bar">
           <p className="footer-copy-text">
-            © {new Date().getFullYear()} All Rights Reserved by <span style={{ color: '#00A86B', fontWeight: 700 }}>Matelioverse</span> · Powered by BuilditIndia
+            © {new Date().getFullYear()} All Rights Reserved by <span style={{ color: '#F97938', fontWeight: 700 }}>Matelioverse</span> · Powered by BuilditIndia
           </p>
           <div className="footer-legal-links">
             <Link href="/contact">Terms of Trade</Link>

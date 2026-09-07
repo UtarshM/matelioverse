@@ -21,11 +21,11 @@ export default function CreditLineBanner() {
     <>
       <div className="credit-line-box">
         <div style={{ maxWidth: 620 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(52, 211, 153, 0.15)', color: '#34D399', fontSize: 11.5, fontWeight: 800, padding: '4px 12px', borderRadius: 20, marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(249, 121, 56, 0.15)', color: 'var(--primary-orange)', fontSize: 11.5, fontWeight: 800, padding: '4px 12px', borderRadius: 20, marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
             <span>⚡</span> B2B Revolving Working Capital
           </div>
           <h3 style={{ fontSize: 26, fontWeight: 900, color: '#FFFFFF', marginBottom: 10, lineHeight: 1.25 }}>
-            Matelio Credit Line — Up to <span style={{ color: '#FBBF24' }}>₹25 Lakhs</span>
+            Matelio Credit Line — Up to <span style={{ color: 'var(--primary-orange)' }}>₹25 Lakhs</span>
           </h3>
           <p style={{ fontSize: 14, color: 'rgba(255, 255, 255, 0.82)', lineHeight: 1.5, marginBottom: 18 }}>
             0% Collateral. 90-Day Repayment Cycle. Never let cement or steel supply delay your site casting schedule.
@@ -33,13 +33,13 @@ export default function CreditLineBanner() {
 
           <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#E2E8F0' }}>
-              <span style={{ color: '#34D399', fontWeight: 900 }}>✓</span> 10-Minute GST Approval
+              <span style={{ color: 'var(--primary-orange)', fontWeight: 900 }}>✓</span> 10-Minute GST Approval
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#E2E8F0' }}>
-              <span style={{ color: '#34D399', fontWeight: 900 }}>✓</span> Zero Documentation Friction
+              <span style={{ color: 'var(--primary-orange)', fontWeight: 900 }}>✓</span> Zero Documentation Friction
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#E2E8F0' }}>
-              <span style={{ color: '#34D399', fontWeight: 900 }}>✓</span> Dedicated Account Desk
+              <span style={{ color: 'var(--primary-orange)', fontWeight: 900 }}>✓</span> Dedicated Account Desk
             </div>
           </div>
         </div>
@@ -49,15 +49,15 @@ export default function CreditLineBanner() {
             type="button"
             onClick={() => setIsOpen(true)}
             style={{
-              background: '#FBBF24',
-              color: '#78350F',
+              background: 'var(--primary-orange)',
+              color: '#FFFFFF',
               fontSize: 14.5,
               fontWeight: 800,
               padding: '14px 28px',
               borderRadius: 12,
               border: 'none',
               cursor: 'pointer',
-              boxShadow: '0 4px 18px rgba(251, 191, 36, 0.35)',
+              boxShadow: '0 4px 18px rgba(249, 121, 56, 0.35)',
               transition: 'transform 0.15s ease',
             }}
           >
@@ -195,14 +195,14 @@ export default function CreditLineBanner() {
                     style={{
                       width: '100%',
                       height: 48,
-                      background: '#D97706',
+                      background: 'var(--primary-orange)',
                       color: '#FFFFFF',
                       fontWeight: 800,
                       fontSize: 14.5,
                       borderRadius: 12,
                       border: 'none',
                       cursor: 'pointer',
-                      boxShadow: '0 4px 14px rgba(217, 119, 6, 0.3)',
+                      boxShadow: '0 4px 14px rgba(249, 121, 56, 0.3)',
                     }}
                   >
                     SUBMIT FOR 10-MIN APPROVAL →

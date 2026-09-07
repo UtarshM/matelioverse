@@ -95,14 +95,14 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 style={{
                   width: '100%',
                   height: 46,
-                  background: 'var(--primary-green)',
+                  background: 'var(--primary-orange)',
                   color: '#FFFFFF',
                   fontWeight: 700,
                   fontSize: 14,
                   borderRadius: 12,
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(0, 168, 107, 0.3)',
+                  boxShadow: '0 4px 14px rgba(249, 121, 56, 0.3)',
                 }}
               >
                 SEND OTP
@@ -123,7 +123,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
                   style={{
                     width: '100%',
-                    border: '1.5px solid var(--primary-green)',
+                    border: '1.5px solid var(--primary-orange)',
                     borderRadius: 12,
                     padding: '12px',
                     fontSize: 20,
@@ -140,14 +140,14 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 style={{
                   width: '100%',
                   height: 46,
-                  background: 'var(--primary-green)',
+                  background: 'var(--primary-orange)',
                   color: '#FFFFFF',
                   fontWeight: 700,
                   fontSize: 14,
                   borderRadius: 12,
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(0, 168, 107, 0.3)',
+                  boxShadow: '0 4px 14px rgba(249, 121, 56, 0.3)',
                 }}
               >
                 VERIFY &amp; LOGIN

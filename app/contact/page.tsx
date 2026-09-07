@@ -22,12 +22,12 @@ export default function ContactPage() {
   return (
     <div style={{ background: '#F8FAFC', minHeight: '85vh', paddingBottom: 60 }}>
       {/* Hero Banner */}
-      <section style={{ background: 'linear-gradient(135deg, #0A2540 0%, #06192C 100%)', color: '#FFFFFF', padding: '44px 0' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0E3128 0%, #133028 100%)', color: '#FFFFFF', padding: '44px 0' }}>
         <div className="site-container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#94A3B8', marginBottom: 12 }}>
             <Link href="/" style={{ color: '#94A3B8', textDecoration: 'none' }}>Home</Link>
             <span>›</span>
-            <span style={{ color: '#34D399', fontWeight: 700 }}>Contact Us &amp; Fulfillment Hubs</span>
+            <span style={{ color: 'var(--primary-orange)', fontWeight: 700 }}>Contact Us &amp; Fulfillment Hubs</span>
           </div>
           <h1 style={{ fontSize: 34, fontWeight: 900, marginBottom: 8 }}>
             Contact Matelioverse Logistics &amp; Support
@@ -43,7 +43,7 @@ export default function ContactPage() {
           {/* Left: Hub Directory */}
           <div>
             <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 20, padding: 28, marginBottom: 24, boxShadow: '0 2px 12px rgba(0,0,0,0.03)' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#ECFDF5', color: '#047857', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: 8 }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--secondary-mint)', color: 'var(--secondary-green)', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: 8 }}>
                 Corporate Headquarters
               </div>
               <h3 style={{ fontSize: 20, fontWeight: 800, color: '#0F172A', marginBottom: 6 }}>
@@ -57,10 +57,10 @@ export default function ContactPage() {
                 <a href="tel:+919824939888" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#0F172A', fontWeight: 700, fontSize: 13.5, textDecoration: 'none' }}>
                   <span>📞</span> +91 98249 39888
                 </a>
-                <a href="mailto:hello@matelioverse.com" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--primary-green)', fontWeight: 700, fontSize: 13.5, textDecoration: 'none' }}>
+                <a href="mailto:hello@matelioverse.com" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--primary-orange)', fontWeight: 700, fontSize: 13.5, textDecoration: 'none' }}>
                   <span>✉️</span> hello@matelioverse.com
                 </a>
-                <a href="https://wa.me/919824939888" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#059669', fontWeight: 800, fontSize: 13.5, textDecoration: 'none' }}>
+                <a href="https://wa.me/919824939888" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--primary-orange)', fontWeight: 800, fontSize: 13.5, textDecoration: 'none' }}>
                   <span>💬</span> WhatsApp Logistics Desk
                 </a>
               </div>
@@ -199,14 +199,14 @@ export default function ContactPage() {
                     style={{
                       width: '100%',
                       height: 48,
-                      background: 'var(--primary-green)',
+                      background: 'var(--primary-orange)',
                       color: '#FFFFFF',
                       fontWeight: 800,
                       fontSize: 14.5,
                       borderRadius: 12,
                       border: 'none',
                       cursor: 'pointer',
-                      boxShadow: '0 4px 14px rgba(0, 168, 107, 0.35)',
+                      boxShadow: '0 4px 14px rgba(249, 121, 56, 0.35)',
                     }}
                   >
                     SEND MESSAGE →

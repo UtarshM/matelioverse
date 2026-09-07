@@ -11,15 +11,15 @@ export default function AboutPage() {
   return (
     <div style={{ background: '#FFFFFF', minHeight: '85vh', paddingBottom: 60 }}>
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(135deg, #0A2540 0%, #06192C 100%)', color: '#FFFFFF', padding: '52px 0' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0E3128 0%, #133028 100%)', color: '#FFFFFF', padding: '52px 0' }}>
         <div className="site-container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#94A3B8', marginBottom: 12 }}>
             <Link href="/" style={{ color: '#94A3B8', textDecoration: 'none' }}>Home</Link>
             <span>›</span>
-            <span style={{ color: '#34D399', fontWeight: 700 }}>About Us</span>
+            <span style={{ color: 'var(--primary-orange)', fontWeight: 700 }}>About Us</span>
           </div>
           <h1 style={{ fontSize: 36, fontWeight: 900, marginBottom: 12, lineHeight: 1.25 }}>
-            Redefining Retail for the <span style={{ color: '#34D399' }}>Infra Economy</span>
+            Redefining Retail for the <span style={{ color: 'var(--primary-orange)' }}>Infra Economy</span>
           </h1>
           <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', maxWidth: 720, lineHeight: 1.6 }}>
             Matelioverse is India’s first tech-enabled building materials quick-commerce ecosystem. We combine private labels, lean-capital smart stores, and regional digital fulfillment hubs to replace outdated construction retail.
@@ -31,7 +31,7 @@ export default function AboutPage() {
       <div className="site-container" style={{ marginTop: 48 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'center', marginBottom: 60 }} className="about-split-grid">
           <div>
-            <span style={{ fontSize: 12, fontWeight: 800, color: 'var(--primary-green)', textTransform: 'uppercase', letterSpacing: 1 }}>
+            <span style={{ fontSize: 12, fontWeight: 800, color: 'var(--primary-orange)', textTransform: 'uppercase', letterSpacing: 1 }}>
               Backed by BuilditIndia
             </span>
             <h2 style={{ fontSize: 28, fontWeight: 900, color: '#0F172A', marginTop: 6, marginBottom: 16 }}>
@@ -46,7 +46,7 @@ export default function AboutPage() {
 
             <div style={{ display: 'flex', gap: 24 }}>
               <div>
-                <div style={{ fontSize: 28, fontWeight: 900, color: 'var(--primary-green)' }}>₹25L</div>
+                <div style={{ fontSize: 28, fontWeight: 900, color: 'var(--primary-orange)' }}>₹25L</div>
                 <div style={{ fontSize: 12.5, color: '#64748B', fontWeight: 600 }}>Collateral-Free Credit Line</div>
               </div>
               <div>
@@ -82,11 +82,11 @@ export default function AboutPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} className="why-matelio-grid">
             <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 16, padding: 24, textAlign: 'center' }}>
-              <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#ECFDF5', color: 'var(--primary-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, margin: '0 auto 14px auto' }}>
+              <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--secondary-mint)', color: 'var(--secondary-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, margin: '0 auto 14px auto' }}>
                 👨‍💼
               </div>
               <h4 style={{ fontSize: 17, fontWeight: 800, color: '#0F172A', marginBottom: 4 }}>Sandeep Kakkar</h4>
-              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary-green)', textTransform: 'uppercase', marginBottom: 8 }}>Director &amp; Retail Head</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary-orange)', textTransform: 'uppercase', marginBottom: 8 }}>Director &amp; Retail Head</div>
               <p style={{ fontSize: 12.5, color: '#64748B', lineHeight: 1.5 }}>
                 Industry veteran spearheading retail network expansion and omni-channel franchise rollouts across Gujarat&apos;s high-growth industrial and infrastructure corridors.
               </p>

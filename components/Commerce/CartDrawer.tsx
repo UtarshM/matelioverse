@@ -89,7 +89,7 @@ export default function CartDrawer() {
               href="/categories"
               onClick={() => setIsCartOpen(false)}
               style={{
-                background: 'var(--primary-green)',
+                background: 'var(--primary-orange)',
                 color: '#FFFFFF',
                 fontWeight: 700,
                 fontSize: 13.5,
@@ -186,7 +186,7 @@ export default function CartDrawer() {
 
             <div className="cart-summary-row cart-summary-total">
               <span>Payable Amount</span>
-              <span style={{ color: 'var(--primary-green)' }}>₹{totalAmount.toLocaleString('en-IN')}</span>
+              <span style={{ color: 'var(--primary-orange)' }}>₹{totalAmount.toLocaleString('en-IN')}</span>
             </div>
 
             <button

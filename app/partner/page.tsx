@@ -23,14 +23,14 @@ export default function PartnerPage() {
   return (
     <div style={{ background: '#F8FAFC', minHeight: '85vh', paddingBottom: 60 }}>
       {/* Top Hero Banner */}
-      <section style={{ background: 'linear-gradient(135deg, #064E3B 0%, #06192C 100%)', color: '#FFFFFF', padding: '44px 0' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0E3128 0%, #133028 100%)', color: '#FFFFFF', padding: '44px 0' }}>
         <div className="site-container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#A7F3D0', marginBottom: 12 }}>
             <Link href="/" style={{ color: '#A7F3D0', textDecoration: 'none' }}>Home</Link>
             <span>›</span>
-            <span style={{ color: '#FBBF24', fontWeight: 700 }}>Franchise &amp; Dealership Network</span>
+            <span style={{ color: 'var(--primary-orange)', fontWeight: 700 }}>Franchise &amp; Dealership Network</span>
           </div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(251, 191, 36, 0.2)', color: '#FBBF24', padding: '4px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: 12 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(249, 121, 56, 0.2)', color: 'var(--primary-orange)', padding: '4px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: 12 }}>
             <span>⭐</span> matelio STAR Partner Program
           </div>
           <h1 style={{ fontSize: 34, fontWeight: 900, marginBottom: 10, lineHeight: 1.25 }}>
@@ -206,14 +206,14 @@ export default function PartnerPage() {
                   style={{
                     width: '100%',
                     height: 50,
-                    background: 'var(--primary-green)',
+                    background: 'var(--primary-orange)',
                     color: '#FFFFFF',
                     fontWeight: 800,
                     fontSize: 15,
                     borderRadius: 12,
                     border: 'none',
                     cursor: 'pointer',
-                    boxShadow: '0 4px 14px rgba(0, 168, 107, 0.35)',
+                    boxShadow: '0 4px 14px rgba(249, 121, 56, 0.35)',
                   }}
                 >
                   APPLY FOR FRANCHISE ALLOCATION →

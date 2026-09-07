@@ -116,7 +116,7 @@ export default function ProductDetailPage({ params }: Props) {
                 </div>
                 <Link
                   href={`/categories#${product.categorySlug}`}
-                  style={{ fontSize: 13, fontWeight: 700, color: 'var(--primary-green)', textDecoration: 'none' }}
+                  style={{ fontSize: 13, fontWeight: 700, color: 'var(--primary-orange)', textDecoration: 'none' }}
                 >
                   View Category ›
                 </Link>

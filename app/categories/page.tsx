@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { PRODUCTS } from '@/data/products';
@@ -8,13 +8,58 @@ import ProductCard from '@/components/Commerce/ProductCard';
 
 export default function CategoriesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedBrand, setSelectedBrand] = useState<string>('all');
   const [selectedSla, setSelectedSla] = useState<'all' | 'instant' | 'scheduled'>('all');
   const [onlyPrivateLabels, setOnlyPrivateLabels] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
+  const handleSelectCategory = (slug: string) => {
+    setSelectedCategory(slug);
+    setSelectedBrand('all');
+  };
+
+  // Auto-select category if hash is present in URL or changes dynamically
+  useEffect(() => {
+    const handleHash = () => {
+      if (typeof window !== 'undefined') {
+        const rawHash = (window.location.hash || '').replace(/^#/, '').trim();
+        if (rawHash) {
+          const catExists = CATEGORIES.find((c) => c.slug === rawHash);
+          if (catExists) {
+            setSelectedCategory(rawHash);
+            setSelectedBrand('all');
+          }
+        }
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
+  const activeBrands = useMemo(() => {
+    if (selectedCategory === 'all') {
+      const brandSet = new Set<string>();
+      CATEGORIES.forEach((c) => {
+        c.associatedBrands?.forEach((b) => brandSet.add(b));
+      });
+      return Array.from(brandSet).slice(0, 16);
+    }
+    const cat = CATEGORIES.find((c) => c.slug === selectedCategory);
+    return cat?.associatedBrands || [];
+  }, [selectedCategory]);
+
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((p) => {
       if (selectedCategory !== 'all' && p.categorySlug !== selectedCategory) return false;
+      if (selectedBrand !== 'all') {
+        const normBrand = selectedBrand.toLowerCase();
+        const productBrand = p.brand.toLowerCase();
+        if (!productBrand.includes(normBrand) && !normBrand.includes(productBrand)) {
+          return false;
+        }
+      }
       if (selectedSla !== 'all' && p.slaType !== selectedSla) return false;
       if (onlyPrivateLabels && !p.isPrivateLabel) return false;
       if (searchQuery.trim()) {
@@ -26,7 +71,7 @@ export default function CategoriesPage() {
       }
       return true;
     });
-  }, [selectedCategory, selectedSla, onlyPrivateLabels, searchQuery]);
+  }, [selectedCategory, selectedBrand, selectedSla, onlyPrivateLabels, searchQuery]);
 
   return (
     <div style={{ background: '#F8FAFC', minHeight: '80vh', padding: '24px 0 60px 0' }}>
@@ -43,7 +88,7 @@ export default function CategoriesPage() {
             Building Materials Catalog
           </h1>
           <p style={{ fontSize: 14, color: '#64748B' }}>
-            Verified proprietary brands &amp; essential construction supplies with direct-from-plant wholesale pricing
+            Verified proprietary brands &amp; essential construction supplies across 15 core categories with direct-from-plant wholesale pricing
           </p>
         </div>
 
@@ -68,7 +113,7 @@ export default function CategoriesPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search products by brand, grade, or name..."
+                placeholder="Search products by brand (e.g. Hindware, JSW, Dr. Fixit, UltraTech)..."
                 style={{
                   width: '100%',
                   border: '1.5px solid #CBD5E1',
@@ -81,7 +126,7 @@ export default function CategoriesPage() {
             </div>
 
             {/* SLA Toggles */}
-            <div style={{ display: 'flex', gap: 8 }}>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
               <button
                 type="button"
                 onClick={() => setSelectedSla('all')}
@@ -90,9 +135,9 @@ export default function CategoriesPage() {
                   borderRadius: 8,
                   fontSize: 12.5,
                   fontWeight: 700,
-                  border: `1.5px solid ${selectedSla === 'all' ? 'var(--primary-green)' : '#CBD5E1'}`,
-                  background: selectedSla === 'all' ? '#ECFDF5' : '#FFFFFF',
-                  color: selectedSla === 'all' ? '#047857' : '#475569',
+                  border: `1.5px solid ${selectedSla === 'all' ? 'var(--primary-orange)' : '#CBD5E1'}`,
+                  background: selectedSla === 'all' ? 'var(--primary-orange-light)' : '#FFFFFF',
+                  color: selectedSla === 'all' ? 'var(--primary-orange-active)' : '#475569',
                   cursor: 'pointer',
                 }}
               >
@@ -107,9 +152,9 @@ export default function CategoriesPage() {
                   borderRadius: 8,
                   fontSize: 12.5,
                   fontWeight: 700,
-                  border: `1.5px solid ${selectedSla === 'instant' ? 'var(--primary-green)' : '#CBD5E1'}`,
-                  background: selectedSla === 'instant' ? '#ECFDF5' : '#FFFFFF',
-                  color: selectedSla === 'instant' ? '#047857' : '#475569',
+                  border: `1.5px solid ${selectedSla === 'instant' ? 'var(--primary-orange)' : '#CBD5E1'}`,
+                  background: selectedSla === 'instant' ? 'var(--secondary-mint)' : '#FFFFFF',
+                  color: selectedSla === 'instant' ? 'var(--secondary-green)' : '#475569',
                   cursor: 'pointer',
                 }}
               >
@@ -124,9 +169,9 @@ export default function CategoriesPage() {
                   borderRadius: 8,
                   fontSize: 12.5,
                   fontWeight: 700,
-                  border: `1.5px solid ${selectedSla === 'scheduled' ? '#D97706' : '#CBD5E1'}`,
-                  background: selectedSla === 'scheduled' ? '#FEF3C7' : '#FFFFFF',
-                  color: selectedSla === 'scheduled' ? '#B45309' : '#475569',
+                  border: `1.5px solid ${selectedSla === 'scheduled' ? 'var(--primary-orange)' : '#CBD5E1'}`,
+                  background: selectedSla === 'scheduled' ? 'var(--primary-orange-tint)' : '#FFFFFF',
+                  color: selectedSla === 'scheduled' ? 'var(--primary-orange-active)' : '#475569',
                   cursor: 'pointer',
                 }}
               >
@@ -140,7 +185,7 @@ export default function CategoriesPage() {
                 type="checkbox"
                 checked={onlyPrivateLabels}
                 onChange={(e) => setOnlyPrivateLabels(e.target.checked)}
-                style={{ width: 16, height: 16, accentColor: 'var(--primary-green)' }}
+                style={{ width: 16, height: 16, accentColor: 'var(--primary-orange)' }}
               />
               <span>Matelio Brands Only</span>
             </label>
@@ -150,7 +195,10 @@ export default function CategoriesPage() {
           <div style={{ display: 'flex', gap: 8, overflowX: 'auto', paddingBottom: 4 }}>
             <button
               type="button"
-              onClick={() => setSelectedCategory('all')}
+              onClick={() => {
+                setSelectedCategory('all');
+                setSelectedBrand('all');
+              }}
               style={{
                 padding: '6px 14px',
                 borderRadius: 20,
@@ -158,7 +206,7 @@ export default function CategoriesPage() {
                 fontWeight: 700,
                 whiteSpace: 'nowrap',
                 border: 'none',
-                background: selectedCategory === 'all' ? '#0F172A' : '#F1F5F9',
+                background: selectedCategory === 'all' ? 'var(--secondary-green)' : '#F1F5F9',
                 color: selectedCategory === 'all' ? '#FFFFFF' : '#475569',
                 cursor: 'pointer',
               }}
@@ -174,7 +222,10 @@ export default function CategoriesPage() {
                   key={cat.id}
                   id={cat.slug}
                   type="button"
-                  onClick={() => setSelectedCategory(cat.slug)}
+                  onClick={() => {
+                    setSelectedCategory(cat.slug);
+                    setSelectedBrand('all');
+                  }}
                   style={{
                     padding: '6px 14px',
                     borderRadius: 20,
@@ -182,7 +233,7 @@ export default function CategoriesPage() {
                     fontWeight: 700,
                     whiteSpace: 'nowrap',
                     border: 'none',
-                    background: isSelected ? 'var(--primary-green)' : '#F1F5F9',
+                    background: isSelected ? 'var(--primary-orange)' : '#F1F5F9',
                     color: isSelected ? '#FFFFFF' : '#475569',
                     cursor: 'pointer',
                     transition: 'all 0.15s',
@@ -193,16 +244,72 @@ export default function CategoriesPage() {
               );
             })}
           </div>
+
+          {/* Associated Brands Filter Chips */}
+          {activeBrands.length > 0 && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, overflowX: 'auto', paddingTop: 10, borderTop: '1px dashed #E2E8F0' }}>
+              <span style={{ fontSize: 11.5, fontWeight: 700, color: '#64748B', whiteSpace: 'nowrap' }}>
+                🏷️ Brands:
+              </span>
+              <button
+                type="button"
+                onClick={() => setSelectedBrand('all')}
+                style={{
+                  padding: '4px 10px',
+                  borderRadius: 14,
+                  fontSize: 11.5,
+                  fontWeight: selectedBrand === 'all' ? 700 : 500,
+                  whiteSpace: 'nowrap',
+                  border: selectedBrand === 'all' ? '1.5px solid var(--primary-green)' : '1px solid #CBD5E1',
+                  background: selectedBrand === 'all' ? 'var(--secondary-mint)' : '#FFFFFF',
+                  color: selectedBrand === 'all' ? 'var(--secondary-green)' : '#475569',
+                  cursor: 'pointer',
+                }}
+              >
+                All Brands
+              </button>
+              {activeBrands.map((brand) => {
+                const isBrandSelected = selectedBrand === brand;
+                return (
+                  <button
+                    key={brand}
+                    type="button"
+                    onClick={() => setSelectedBrand(isBrandSelected ? 'all' : brand)}
+                    style={{
+                      padding: '4px 10px',
+                      borderRadius: 14,
+                      fontSize: 11.5,
+                      fontWeight: isBrandSelected ? 700 : 500,
+                      whiteSpace: 'nowrap',
+                      border: isBrandSelected ? '1.5px solid var(--primary-orange)' : '1px solid #CBD5E1',
+                      background: isBrandSelected ? 'var(--primary-orange-light)' : '#FFFFFF',
+                      color: isBrandSelected ? 'var(--primary-orange-active)' : '#475569',
+                      cursor: 'pointer',
+                      transition: 'all 0.15s',
+                    }}
+                  >
+                    {brand}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Results Counter */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18, flexWrap: 'wrap', gap: 8 }}>
           <div style={{ fontSize: 14, color: '#64748B' }}>
             Showing <strong>{filteredProducts.length}</strong> verified materials
+            {selectedCategory !== 'all' && (
+              <span> in <em>{CATEGORIES.find((c) => c.slug === selectedCategory)?.name}</em></span>
+            )}
+            {selectedBrand !== 'all' && (
+              <span> by <strong>{selectedBrand}</strong></span>
+            )}
           </div>
           <Link
             href="/rfq"
-            style={{ fontSize: 13, fontWeight: 700, color: '#D97706', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}
+            style={{ fontSize: 13, fontWeight: 700, color: 'var(--primary-orange)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}
           >
             <span>Need Custom Tonnage or Wholesale BOQ? Request Quote →</span>
           </Link>
@@ -214,12 +321,13 @@ export default function CategoriesPage() {
             <span style={{ fontSize: 40, display: 'block', marginBottom: 10 }}>🔍</span>
             <h3 style={{ fontSize: 18, fontWeight: 800, color: '#0F172A', marginBottom: 6 }}>No matching materials found</h3>
             <p style={{ fontSize: 13.5, color: '#64748B', maxWidth: 360, margin: '0 auto 16px auto' }}>
-              Try loosening your filters or search keywords, or submit an RFQ to get custom sourcing.
+              Try loosening your brand or delivery filters, or submit an RFQ to get custom factory sourcing.
             </p>
             <button
               type="button"
               onClick={() => {
                 setSelectedCategory('all');
+                setSelectedBrand('all');
                 setSelectedSla('all');
                 setOnlyPrivateLabels(false);
                 setSearchQuery('');

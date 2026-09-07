@@ -35,6 +35,8 @@ export interface Product {
   datasheetUrl?: string;
   tags?: string[];
   minOrderQty?: number;
+  brandLogo?: string;
+  featuredPromo?: boolean;
 }
 
 export interface Category {
@@ -48,6 +50,7 @@ export interface Category {
   description: string;
   tag?: string;
   itemCount?: number;
+  associatedBrands?: string[];
 }
 
 export interface CartItem {

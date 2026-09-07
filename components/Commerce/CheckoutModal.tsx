@@ -66,7 +66,7 @@ export default function CheckoutModal() {
         <div className="standard-modal-body">
           {isSuccess ? (
             <div style={{ textAlign: 'center', padding: '24px 8px' }}>
-              <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#ECFDF5', color: 'var(--primary-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, margin: '0 auto 16px', fontWeight: 900 }}>
+              <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--secondary-mint)', color: 'var(--secondary-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, margin: '0 auto 16px', fontWeight: 900 }}>
                 ✓
               </div>
               <h4 style={{ fontSize: 20, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>
@@ -194,14 +194,12 @@ export default function CheckoutModal() {
                       <div style={{ fontSize: 11, color: '#64748B' }}>Claim 18% Input Tax Credit on building materials</div>
                     </div>
                   </div>
-                  <label style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', cursor: 'pointer' }}>
                     <input
                       type="checkbox"
                       checked={formData.isB2B}
                       onChange={(e) => setFormData({ ...formData, isB2B: e.target.checked })}
-                      style={{ width: 16, height: 16, accentColor: 'var(--primary-green)' }}
+                      style={{ width: 16, height: 16, accentColor: 'var(--primary-orange)' }}
                     />
-                  </label>
                 </div>
 
                 {formData.isB2B && (
@@ -238,8 +236,8 @@ export default function CheckoutModal() {
                       justifyContent: 'space-between',
                       padding: '12px 14px',
                       borderRadius: 10,
-                      border: `1.5px solid ${formData.paymentMethod === 'pod' ? 'var(--primary-green)' : '#CBD5E1'}`,
-                      background: formData.paymentMethod === 'pod' ? '#ECFDF5' : '#FFFFFF',
+                      border: `1.5px solid ${formData.paymentMethod === 'pod' ? 'var(--primary-orange)' : '#CBD5E1'}`,
+                      background: formData.paymentMethod === 'pod' ? 'var(--primary-orange-light)' : '#FFFFFF',
                       cursor: 'pointer',
                     }}
                   >
@@ -250,7 +248,7 @@ export default function CheckoutModal() {
                         value="pod"
                         checked={formData.paymentMethod === 'pod'}
                         onChange={() => setFormData({ ...formData, paymentMethod: 'pod' })}
-                        style={{ accentColor: 'var(--primary-green)' }}
+                        style={{ accentColor: 'var(--primary-orange)' }}
                       />
                       <div>
                         <div style={{ fontSize: 13.5, fontWeight: 700, color: '#0F172A' }}>Pay on Delivery (POD / Site Cash)</div>
@@ -268,8 +266,8 @@ export default function CheckoutModal() {
                       justifyContent: 'space-between',
                       padding: '12px 14px',
                       borderRadius: 10,
-                      border: `1.5px solid ${formData.paymentMethod === 'online' ? 'var(--primary-green)' : '#CBD5E1'}`,
-                      background: formData.paymentMethod === 'online' ? '#ECFDF5' : '#FFFFFF',
+                      border: `1.5px solid ${formData.paymentMethod === 'online' ? 'var(--primary-orange)' : '#CBD5E1'}`,
+                      background: formData.paymentMethod === 'online' ? 'var(--primary-orange-light)' : '#FFFFFF',
                       cursor: 'pointer',
                     }}
                   >
@@ -280,7 +278,7 @@ export default function CheckoutModal() {
                         value="online"
                         checked={formData.paymentMethod === 'online'}
                         onChange={() => setFormData({ ...formData, paymentMethod: 'online' })}
-                        style={{ accentColor: 'var(--primary-green)' }}
+                        style={{ accentColor: 'var(--primary-orange)' }}
                       />
                       <div>
                         <div style={{ fontSize: 13.5, fontWeight: 700, color: '#0F172A' }}>Instant Online (UPI / Card / NetBanking)</div>

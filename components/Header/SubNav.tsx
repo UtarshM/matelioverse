@@ -77,10 +77,10 @@ export default function SubNav() {
           </div>
 
           <div className="sub-nav-right-links">
-            <Link href="/categories" className="sub-link" style={{ fontWeight: 700, color: 'var(--primary-green)' }}>
+            <Link href="/categories" className="sub-link" style={{ fontWeight: 700, color: 'var(--primary-orange)' }}>
               Explore Catalog
             </Link>
-            <Link href="/rfq" className="sub-link" style={{ fontWeight: 700, color: '#D97706' }}>
+            <Link href="/rfq" className="sub-link" style={{ fontWeight: 700, color: 'var(--primary-orange)' }}>
               ⚡ Bulk BOQ Quote
             </Link>
             <Link href="/about" className="sub-link">

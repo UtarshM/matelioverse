@@ -143,7 +143,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       <div>
         {/* Brand & Category */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-          <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--primary-green)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+          <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--primary-orange)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
             {product.brand}
           </span>
           <span style={{ color: '#CBD5E1' }}>•</span>
@@ -196,7 +196,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           <button
             type="button"
             onClick={openLocationModal}
-            style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary-green)', textDecoration: 'underline', border: 'none', background: 'none', cursor: 'pointer' }}
+            style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary-orange)', textDecoration: 'underline', border: 'none', background: 'none', cursor: 'pointer' }}
           >
             Change Pincode
           </button>
@@ -232,7 +232,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                         <td style={{ padding: '8px 12px' }}>
                           {tier.maxQty ? `${tier.minQty} - ${tier.maxQty}` : `${tier.minQty}+ (Mill Direct)`} {product.unit}s
                         </td>
-                        <td style={{ padding: '8px 12px', color: 'var(--primary-green)', fontWeight: 800 }}>
+                        <td style={{ padding: '8px 12px', color: 'var(--primary-orange)', fontWeight: 800 }}>
                           ₹{tier.pricePerUnit}
                         </td>
                         <td style={{ padding: '8px 12px', color: '#64748B' }}>
@@ -275,7 +275,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
             style={{
               flex: 1,
               height: 48,
-              background: 'var(--primary-green)',
+              background: 'var(--primary-orange)',
               color: '#FFFFFF',
               borderRadius: 12,
               fontWeight: 800,
@@ -346,7 +346,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                   alert(`Downloading official technical datasheet for ${product.name} (PDF).`);
                   setDownloadModal(false);
                 }}
-                style={{ background: 'var(--primary-green)', color: '#fff', padding: '12px 24px', borderRadius: 10, fontWeight: 700, border: 'none', cursor: 'pointer' }}
+                style={{ background: 'var(--primary-orange)', color: '#fff', padding: '12px 24px', borderRadius: 10, fontWeight: 700, border: 'none', cursor: 'pointer' }}
               >
                 Download PDF Specification (2.4 MB)
               </button>

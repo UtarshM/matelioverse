@@ -1,24 +1,41 @@
 /* ==========================================================================
-   MATELIOVERSE — Exact Madoverbuildings (MOB) Design System & Stylesheet
+   MATELIOVERSE — Official Brand Design System & Color Palette
+   Based on live https://matelioverse.com/
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary-green: #00A86B;
-  --primary-green-hover: #008f5b;
-  --primary-green-light: #E6F7F0;
-  --accent-blue: #1890FF;
-  --accent-gold: #D48806;
-  --dark-navy: #0A2540;
-  --text-dark: #141414;
-  --text-body: #262626;
-  --text-muted: #8C8C8C;
-  --border-light: #F0F0F0;
-  --bg-cream: #FEF6E6;
-  --bg-sky: #E6F7FF;
-  --bg-grey: #F5F5F5;
-  --bg-footer: #0B131F;
-  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* ── Core Brand Palette from matelioverse.com ── */
+  --primary-orange: #F97938;
+  --primary-orange-hover: #D65828;
+  --primary-orange-active: #B33B1C;
+  --primary-orange-light: #FEEED7;
+  --primary-orange-tint: #FFF8E1;
+
+  /* Backward Compatibility Aliases */
+  --primary-green: #F97938;
+  --primary-green-hover: #D65828;
+  --primary-green-light: #FEEED7;
+
+  /* Deep Forest Pine & Slate Neutrals */
+  --secondary-green: #0E3128;
+  --secondary-green-mid: #264435;
+  --secondary-mint: #E9FFEC;
+  --secondary-mint-border: #C2ECCA;
+  --secondary-mint-dark: #133028;
+
+  --accent-blue: #3A8DDE;
+  --accent-gold: #EAB308;
+  --dark-navy: #0E3128;
+  --text-dark: #18181B;
+  --text-body: #27272A;
+  --text-muted: #71717A;
+  --border-light: #E4E4E7;
+  --bg-cream: #FFF8E1;
+  --bg-sky: #E9FFEC;
+  --bg-grey: #F4F4F5;
+  --bg-footer: #07201E;
+  --font-main: 'Onest', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --container-max: 1280px;
 }
 
@@ -408,7 +425,7 @@ img {
   position: relative;
   overflow: hidden;
   border-radius: 24px;
-  background: #002B49;
+  background: #0E3128;
 }
 
 .hero-track {
@@ -435,7 +452,7 @@ img {
 
 /* Slide 1: Credit */
 .hero-slide--credit {
-  background: linear-gradient(105deg, #002B49 0%, #011E33 100%);
+  background: linear-gradient(105deg, #0E3128 0%, #133028 100%);
   color: #FFFFFF;
 }
 
@@ -490,7 +507,7 @@ img {
 
 .hero-white-pill-btn {
   background: #FFFFFF;
-  color: #002B49;
+  color: #0E3128;
   font-size: 14px;
   font-weight: 700;
   padding: 12px 36px;
@@ -2228,7 +2245,7 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    background: #0A2540;
+    background: #0E3128;
     color: #FFFFFF;
     font-weight: 700;
     font-size: 11px;
@@ -2304,7 +2321,7 @@ img {
     width: 100%;
     max-width: 100%;
     border-radius: 20px;
-    background: #002B49;
+    background: #0E3128;
   }
 
   .hero-track {
@@ -3081,7 +3098,7 @@ img {
   }
 
   .mob-nav-tab.active {
-    color: #0A2540;
+    color: #F97938;
     font-weight: 700;
   }
 
@@ -3091,7 +3108,7 @@ img {
     top: 0;
     width: 28px;
     height: 3px;
-    background: #0A2540;
+    background: #F97938;
     border-radius: 0 0 3px 3px;
   }
 
@@ -3210,7 +3227,7 @@ img {
 
   .mob-badge-new {
     margin-left: auto;
-    background: #00A86B;
+    background: #F97938;
     color: #FFFFFF;
     font-size: 10px;
     font-weight: 800;
@@ -3250,6 +3267,34 @@ img {
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 168, 107, 0.25);
   }
+}
+
+/* ── Matelioverse Official Interactive Utilities */
+.card-hover-effect {
+  min-width: 355px;
+  transition: min-width .3s, box-shadow .3s, transform .3s;
+  z-index: 1;
+}
+@media (min-width: 1024px) {
+  .card-hover-effect:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    min-width: 430px;
+    transform: translateY(-4px) scale(1.03);
+    z-index: 2;
+  }
+}
+.marquee {
+  animation: marquee 120s linear infinite;
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  0% { transform: translateZ(0); }
+  100% { transform: translate3d(-100%, 0, 0); }
 }
 
 /* ── Matelioverse Responsive Rules (Mobile & Tablet) ── */

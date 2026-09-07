@@ -70,7 +70,7 @@ export default function LocationModal() {
               />
               <button
                 type="submit"
-                style={{ background: 'var(--primary-green)', color: '#fff', fontWeight: 700, fontSize: 13.5, borderRadius: 10, padding: '0 18px', border: 'none', cursor: 'pointer' }}
+                style={{ background: 'var(--primary-orange)', color: '#fff', fontWeight: 700, fontSize: 13.5, borderRadius: 10, padding: '0 18px', border: 'none', cursor: 'pointer' }}
               >
                 Apply
               </button>
@@ -87,7 +87,7 @@ export default function LocationModal() {
             <div>
               <div style={{ fontSize: 11, fontWeight: 700, color: '#64748B', textTransform: 'uppercase' }}>Active Fulfillment Hub</div>
               <div style={{ fontSize: 15, fontWeight: 800, color: '#0F172A' }}>{currentHub.name} ({pincode})</div>
-              <div style={{ fontSize: 12, color: 'var(--primary-green)', fontWeight: 700, marginTop: 2 }}>
+              <div style={{ fontSize: 12, color: 'var(--primary-orange)', fontWeight: 700, marginTop: 2 }}>
                 ⚡ {currentHub.instantSla} · {currentHub.scheduledSla}
               </div>
             </div>
@@ -113,22 +113,22 @@ export default function LocationModal() {
                       justifyContent: 'space-between',
                       padding: '12px 14px',
                       borderRadius: 12,
-                      border: `1.5px solid ${isSelected ? 'var(--primary-green)' : '#E2E8F0'}`,
-                      background: isSelected ? '#ECFDF5' : '#FFFFFF',
+                      border: `1.5px solid ${isSelected ? 'var(--primary-orange)' : '#E2E8F0'}`,
+                      background: isSelected ? 'var(--primary-orange-light)' : '#FFFFFF',
                       textAlign: 'left',
                       cursor: 'pointer',
                       transition: 'all 0.15s',
                     }}
                   >
                     <div>
-                      <div style={{ fontSize: 13.5, fontWeight: 800, color: isSelected ? 'var(--primary-green)' : '#0F172A' }}>
+                      <div style={{ fontSize: 13.5, fontWeight: 800, color: isSelected ? 'var(--primary-orange)' : '#0F172A' }}>
                         {hub.name}
                       </div>
                       <div style={{ fontSize: 11, color: '#64748B', marginTop: 2 }}>
                         {hub.instantSla}
                       </div>
                     </div>
-                    {isSelected && <span style={{ color: 'var(--primary-green)', fontWeight: 800, fontSize: 16 }}>✓</span>}
+                    {isSelected && <span style={{ color: 'var(--primary-orange)', fontWeight: 800, fontSize: 16 }}>✓</span>}
                   </button>
                 );
               })}

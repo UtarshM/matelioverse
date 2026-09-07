@@ -97,13 +97,13 @@ export default function LoyaltyModal({ isOpen, onClose }: LoyaltyModalProps) {
                 }}
               >
                 <span>{referralCode}</span>
-                <span style={{ fontSize: 11, color: 'var(--primary-green)', fontWeight: 700 }}>20% EXTRA</span>
+                <span style={{ fontSize: 11, color: 'var(--primary-orange)', fontWeight: 700 }}>20% EXTRA</span>
               </div>
               <button
                 type="button"
                 onClick={handleCopy}
                 style={{
-                  background: copied ? '#059669' : 'var(--primary-green)',
+                  background: copied ? 'var(--secondary-green)' : 'var(--primary-orange)',
                   color: '#FFFFFF',
                   fontWeight: 700,
                   fontSize: 13,

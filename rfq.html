@@ -6,6 +6,9 @@
   <title>Bulk Procurement &amp; BOQ Quotation | Matelioverse</title>
   <meta name="description" content="Submit your Bill of Quantities (BOQ) or bulk construction material requirement to Matelioverse. Direct manufacturer pricing and transparent supply. Backed by BuilditIndia.">
   <link rel="icon" href="https://matelioverse.com/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&family=Inter:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -101,13 +104,13 @@
 
 <main>
   <!-- TOP SKY BLUE HERO -->
-  <section class="contact-sky-banner" style="background: #FEF3C7;">
+  <section class="contact-sky-banner" style="background: linear-gradient(135deg, #0E3128 0%, #133028 100%); color: #FFFFFF;">
     <div class="site-container">
       <div class="contact-breadcrumbs">
-        <a href="/">Home</a> <span>›</span> <span class="active">Bulk Procurement / RFQ</span>
+        <a href="/" style="color: #94A3B8;">Home</a> <span style="color: #64748B;">›</span> <span class="active" style="color: var(--primary-orange);">Bulk Procurement / RFQ</span>
       </div>
-      <h1 class="contact-banner-h1" style="color: #78350F;">Request for Quotation (RFQ)</h1>
-      <p style="font-size: 14.5px; color: #92400E; margin-top: 6px;">Share your project BOQ or wholesale requirements for competitive direct-from-manufacturer pricing.</p>
+      <h1 class="contact-banner-h1" style="color: #FFFFFF;">Request for <span style="color: var(--primary-orange);">Quotation (RFQ)</span></h1>
+      <p style="font-size: 14.5px; color: #C2ECCA; margin-top: 6px;">Share your project BOQ or wholesale requirements for competitive direct-from-manufacturer pricing.</p>
     </div>
   </section>
 
@@ -139,40 +142,47 @@
             <div class="contact-detail-row">
               <div class="contact-icon-bubble">⚡</div>
               <div>
-                <div class="contact-lbl">Dedicated Key Account Manager</div>
-                <div class="contact-val">Single point of contact from quotation to site offloading.</div>
+                <div class="contact-lbl">Dynamic Credit &amp; Logistics</div>
+                <div class="contact-val">Credit line facilities via partner NBFCs, accompanied by GPS-tracked project dispatch.</div>
               </div>
             </div>
 
-            <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #E2E8F0;">
-              <h4 style="font-size: 14px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">Need Instant WhatsApp Assistance?</h4>
-              <a href="https://wa.me/919824939888" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; color: #059669; font-weight: 700; text-decoration: none; font-size: 14px;">
-                <span>💬</span> <span>Share BOQ on WhatsApp (+91 98249 39888)</span>
-              </a>
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble">🤝</div>
+              <div>
+                <div class="contact-lbl">Key Account Management</div>
+                <div class="contact-val">Dedicated civil engineer assigned to your project for BOQ takeoff &amp; billing clarity.</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Right: Form -->
+        <!-- Right: Inquiry Form Card -->
         <div class="contact-form-panel">
           <div class="contact-form-card">
-            <h3 class="contact-panel-h3">Submit Project BOQ</h3>
-            <p style="font-size: 13.5px; color: #64748B; margin-bottom: 20px;">Upload your spreadsheet, PDF, or type your required materials below.</p>
+            <h3 class="contact-panel-h3">Submit your BOQ for Spot Quotation</h3>
+            <p style="font-size: 13.5px; color: #64748B; margin-bottom: 20px;">Upload or paste your item specifications. Instant response within 2 hours.</p>
 
-            <form onsubmit="event.preventDefault(); alert('Thank you! Your RFQ has been logged. Our pricing team will revert within 4 hours with an official quote.'); this.reset();">
+            <form onsubmit="event.preventDefault(); alert('BOQ Request logged! Our commercial pricing desk will call you with live quotes.'); this.reset();">
               <div style="margin-bottom: 14px;">
-                <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Company / Project Name *</label>
-                <input type="text" required placeholder="e.g. Apex Infra Projects" style="width: 100%; border: 1.5px solid #CBD5E1; padding: 10px 14px; border-radius: 10px; font-size: 14px;">
+                <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Contact Person / Company *</label>
+                <input type="text" required placeholder="Name / Construction firm" style="width: 100%; border: 1.5px solid #CBD5E1; padding: 10px 14px; border-radius: 10px; font-size: 14px;">
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
                 <div>
-                  <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Contact Person *</label>
-                  <input type="text" required placeholder="Full Name" style="width: 100%; border: 1.5px solid #CBD5E1; padding: 10px 14px; border-radius: 10px; font-size: 14px;">
+                  <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">WhatsApp / Phone Number *</label>
+                  <input type="tel" required pattern="[0-9]{10}" placeholder="98249 XXXXX" style="width: 100%; border: 1.5px solid #CBD5E1; padding: 10px 14px; border-radius: 10px; font-size: 14px;">
                 </div>
                 <div>
-                  <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Mobile Number *</label>
-                  <input type="tel" required pattern="[0-9]{10}" placeholder="98249 XXXXX" style="width: 100%; border: 1.5px solid #CBD5E1; padding: 10px 14px; border-radius: 10px; font-size: 14px;">
+                  <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Project Type</label>
+                  <select style="width: 100%; border: 1.5px solid #CBD5E1; padding: 10px 14px; border-radius: 10px; font-size: 14px; background: #fff;">
+                    <option>Residential Project / Villa</option>
+                    <option>Commercial Complex / Mall</option>
+                    <option>Industrial Shed / Warehouse</option>
+                    <option>Infrastructure / Road / Bridge</option>
+                    <option>Retail Store Stocking</option>
+                  </select>
                 </div>
               </div>
 
@@ -200,7 +210,7 @@
                 <textarea rows="4" placeholder="Mention item grades, sizes, approximate quantities, and expected delivery timeline..." style="width: 100%; border: 1.5px solid #CBD5E1; padding: 10px 14px; border-radius: 10px; font-size: 14px;"></textarea>
               </div>
 
-              <button type="submit" style="width: 100%; height: 48px; background: var(--primary-green); color: #FFFFFF; font-weight: 800; font-size: 14.5px; border-radius: 12px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(0,168,107,0.3);">
+              <button type="submit" style="width: 100%; height: 48px; background: var(--primary-orange); color: #FFFFFF; font-weight: 800; font-size: 14.5px; border-radius: 12px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(249, 121, 56, 0.3);">
                 REQUEST SPOT QUOTATION
               </button>
             </form>
@@ -223,7 +233,7 @@
           Designed to scale globally. We’re creating a borderless infrastructure commerce engine.
         </p>
         <div style="font-size: 12.5px; color: #64748B;">Powered By</div>
-        <div style="color: #34D399; font-weight: 800; font-size: 15px; margin-top: 2px;">BuilditIndia.com</div>
+        <div style="color: var(--primary-orange); font-weight: 800; font-size: 15px; margin-top: 2px;">BuilditIndia.com</div>
       </div>
 
       <div>
@@ -267,7 +277,7 @@
     </div>
 
     <div class="footer-bottom-bar">
-      <p class="footer-copy-text">© Copyright 2025, All Rights Reserved by <span style="color:#00A86B; font-weight:700;">Matelioverse</span> · Powered by BuilditIndia</p>
+      <p class="footer-copy-text">© Copyright 2025, All Rights Reserved by <span style="color:var(--primary-orange); font-weight:700;">Matelioverse</span> · Powered by BuilditIndia</p>
       <div class="footer-legal-links">
         <a href="/contact.html">Terms of Use</a>
         <span>·</span>
@@ -329,7 +339,7 @@
         <div style="margin-bottom: 16px;">
           <input type="tel" required pattern="[0-9]{10}" placeholder="Enter 10-digit number" style="width: 100%; border: 1.5px solid #E2E8F0; padding: 12px 14px; font-size: 14px; border-radius: 10px;">
         </div>
-        <button type="submit" style="width: 100%; height: 46px; background: var(--primary-green); color: #FFFFFF; font-weight: 700; border-radius: 12px; border: none; cursor: pointer;">SEND OTP</button>
+        <button type="submit" style="width: 100%; height: 46px; background: var(--primary-orange); color: #FFFFFF; font-weight: 700; border-radius: 12px; border: none; cursor: pointer;">SEND OTP</button>
       </form>
     </div>
   </div>

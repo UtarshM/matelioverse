@@ -26,12 +26,12 @@ export default function RFQPage() {
   return (
     <div style={{ background: '#F8FAFC', minHeight: '85vh', paddingBottom: 60 }}>
       {/* Top Banner */}
-      <section style={{ background: 'linear-gradient(135deg, #0A2540 0%, #06192C 100%)', color: '#FFFFFF', padding: '40px 0' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0E3128 0%, #133028 100%)', color: '#FFFFFF', padding: '40px 0' }}>
         <div className="site-container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#94A3B8', marginBottom: 12 }}>
             <Link href="/" style={{ color: '#94A3B8', textDecoration: 'none' }}>Home</Link>
             <span>›</span>
-            <span style={{ color: '#FBBF24', fontWeight: 700 }}>Bulk Procurement &amp; BOQ Quote</span>
+            <span style={{ color: 'var(--primary-orange)', fontWeight: 700 }}>Bulk Procurement &amp; BOQ Quote</span>
           </div>
           <h1 style={{ fontSize: 32, fontWeight: 900, marginBottom: 8 }}>
             Matelio BOQ Quote — Direct Plant Commercial Rates
@@ -232,14 +232,14 @@ export default function RFQPage() {
                       style={{
                         width: '100%',
                         height: 50,
-                        background: 'var(--primary-green)',
+                        background: 'var(--primary-orange)',
                         color: '#FFFFFF',
                         fontWeight: 800,
                         fontSize: 15,
                         borderRadius: 12,
                         border: 'none',
                         cursor: 'pointer',
-                        boxShadow: '0 4px 14px rgba(0, 168, 107, 0.35)',
+                        boxShadow: '0 4px 14px rgba(249, 121, 56, 0.35)',
                       }}
                     >
                       REQUEST SPOT QUOTATION →

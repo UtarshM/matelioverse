@@ -28,7 +28,7 @@ export default function BulkPricingModal({
       <div className="standard-modal-card" style={{ maxWidth: 480 }}>
         <div className="standard-modal-header">
           <div>
-            <div style={{ fontSize: 11, fontWeight: 800, color: 'var(--primary-green)', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: 11, fontWeight: 800, color: 'var(--primary-orange)', textTransform: 'uppercase' }}>
               Wholesale Slabs &amp; Tier Rates
             </div>
             <h3 style={{ fontSize: 16, fontWeight: 800, color: '#0F172A', margin: '2px 0 0 0' }}>
@@ -82,10 +82,10 @@ export default function BulkPricingModal({
                     : `${tier.minQty}+ ${product.unit}s (Direct Plant)`;
                   const saving = product.sellingPrice - tier.pricePerUnit;
                   return (
-                    <tr key={idx} style={{ borderBottom: '1px solid #F1F5F9', background: '#F0FDF4' }}>
-                      <td style={{ padding: '10px 14px', fontWeight: 700, color: '#065F46' }}>{label}</td>
-                      <td style={{ padding: '10px 14px', fontWeight: 900, color: 'var(--primary-green)' }}>₹{tier.pricePerUnit}</td>
-                      <td style={{ padding: '10px 14px', color: '#047857', fontWeight: 700, fontSize: 12 }}>
+                    <tr key={idx} style={{ borderBottom: '1px solid #F1F5F9', background: 'var(--secondary-mint)' }}>
+                      <td style={{ padding: '10px 14px', fontWeight: 700, color: 'var(--secondary-green)' }}>{label}</td>
+                      <td style={{ padding: '10px 14px', fontWeight: 900, color: 'var(--primary-orange)' }}>₹{tier.pricePerUnit}</td>
+                      <td style={{ padding: '10px 14px', color: 'var(--secondary-green)', fontWeight: 700, fontSize: 12 }}>
                         Save ₹{saving}/{product.unit}
                       </td>
                       <td style={{ padding: '10px 14px', textAlign: 'right' }}>
@@ -95,7 +95,7 @@ export default function BulkPricingModal({
                             onSelectTier(product, tier.minQty);
                             onClose();
                           }}
-                          style={{ background: 'var(--primary-green)', color: '#FFFFFF', fontSize: 12, fontWeight: 700, padding: '4px 10px', borderRadius: 6, border: 'none', cursor: 'pointer' }}
+                          style={{ background: 'var(--primary-orange)', color: '#FFFFFF', fontSize: 12, fontWeight: 700, padding: '4px 10px', borderRadius: 6, border: 'none', cursor: 'pointer' }}
                         >
                           Add {tier.minQty}
                         </button>

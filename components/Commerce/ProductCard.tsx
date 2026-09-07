@@ -107,8 +107,8 @@ export default function ProductCard({ product }: ProductCardProps) {
                 position: 'absolute',
                 top: 10,
                 right: 10,
-                background: 'rgba(6, 78, 59, 0.85)',
-                color: '#34D399',
+                background: 'var(--secondary-green)',
+                color: 'var(--secondary-mint)',
                 fontSize: 10,
                 fontWeight: 800,
                 padding: '2px 6px',
@@ -126,7 +126,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <div>
             {/* Brand and Unit */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
-              <span style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--primary-green)', textTransform: 'uppercase' }}>
+              <span style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--primary-orange)', textTransform: 'uppercase' }}>
                 {product.brand}
               </span>
               <span style={{ fontSize: 11, color: '#64748B', fontWeight: 600 }}>
@@ -145,7 +145,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 10 }}>
               {product.qrBatchVerified && (
                 <span className="trust-badge-pill" title="Lab Tested Batch Verification">
-                  <span style={{ color: 'var(--primary-green)' }}>✓</span> QR Verified
+                  <span style={{ color: 'var(--primary-orange)' }}>✓</span> QR Verified
                 </span>
               )}
               {product.bisCertified && (

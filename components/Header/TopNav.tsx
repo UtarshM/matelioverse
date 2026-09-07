@@ -81,13 +81,13 @@ export default function TopNav({
             <div className="delivery-lightning" style={{ animation: 'pulse 1.5s infinite' }}>⚡</div>
             <div className="delivery-text-wrap">
               <div className="delivery-title-row" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                <span style={{ fontWeight: 800, color: 'var(--primary-green)' }}>Matelio Fast</span>
-                <span style={{ fontSize: 10, background: '#ECFDF5', color: '#047857', padding: '1px 5px', borderRadius: 4, fontWeight: 800 }}>
+                <span style={{ fontWeight: 800, color: 'var(--primary-orange)' }}>Matelio Fast</span>
+                <span style={{ fontSize: 10, background: 'var(--secondary-mint)', color: 'var(--secondary-green)', padding: '1px 5px', borderRadius: 4, fontWeight: 800 }}>
                   {currentHub.instantSla.includes('90') ? '90 Mins' : '2 Hours'}
                 </span>
               </div>
               <div className="delivery-location-row" style={{ fontSize: 11.5, color: '#475569', fontWeight: 600 }}>
-                {currentHub.name} · {pincode} <span style={{ color: '#00A86B' }}>▾</span>
+                {currentHub.name} · {pincode} <span style={{ color: 'var(--primary-orange)' }}>▾</span>
               </div>
             </div>
           </button>
