@@ -105,6 +105,24 @@ export default function LoginModal(props: LoginModalProps = {}) {
   return (
     <div
       className={`login-modal-overlay active`}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: '100vw',
+        height: '100vh',
+        background: 'rgba(10, 25, 41, 0.75)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        zIndex: 999999,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '16px',
+        boxSizing: 'border-box',
+      }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           closeModal();
@@ -112,7 +130,21 @@ export default function LoginModal(props: LoginModalProps = {}) {
         }
       }}
     >
-      <div className="login-modal-card" style={{ maxWidth: 460, borderRadius: 20, overflow: 'hidden', padding: 0 }}>
+      <div
+        className="login-modal-card"
+        style={{
+          position: 'relative',
+          width: '100%',
+          maxWidth: 460,
+          maxHeight: '90vh',
+          overflowY: 'auto',
+          borderRadius: 20,
+          background: '#FFFFFF',
+          boxShadow: '0 25px 60px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.15)',
+          padding: 0,
+          margin: 'auto',
+        }}
+      >
         <button
           type="button"
           className="modal-close-btn"
@@ -121,7 +153,25 @@ export default function LoginModal(props: LoginModalProps = {}) {
             closeModal();
             setStep('form');
           }}
-          style={{ top: 14, right: 14, zIndex: 10 }}
+          style={{
+            position: 'absolute',
+            top: 14,
+            right: 14,
+            width: 32,
+            height: 32,
+            borderRadius: '50%',
+            background: 'rgba(255, 255, 255, 0.2)',
+            border: '1px solid rgba(255, 255, 255, 0.35)',
+            color: '#FFFFFF',
+            fontSize: 16,
+            fontWeight: 700,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            zIndex: 20,
+            transition: 'all 0.15s ease',
+          }}
         >
           ✕
         </button>
