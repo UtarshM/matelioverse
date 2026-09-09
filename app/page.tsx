@@ -29,7 +29,7 @@ export default function HomePage() {
       title: 'Brick & Click Strategy for Infra Entrepreneurs',
       highlight: 'Infra Entrepreneurs',
       desc: 'Replacing outdated inventory-led retail with demand-led, data-backed operations across franchise smart stores and online fulfillment hubs.',
-      img: 'https://api.matelioverse.com/assets/3b42937e-6a9d-4e89-a3f7-e260a72a51d3',
+      img: 'https://api.matelioverse.com/assets/27e3d555-7957-497d-b77c-031ffb8931ac',
       bgClass: 'hero-slide--refer',
       ctaText: 'Join Franchise Network',
       ctaLink: '/partner',
@@ -100,12 +100,13 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 12 }}>
+                    <div className="hero-buttons-flex" style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 12, flexWrap: 'wrap' }}>
                       <Link href={slide.ctaLink} className="hero-white-pill-btn">
                         {slide.ctaText}
                       </Link>
                       <Link
                         href="/rfq"
+                        className="hero-boq-btn"
                         style={{
                           color: '#FFFFFF',
                           border: '1.5px solid rgba(255,255,255,0.4)',
@@ -297,9 +298,215 @@ export default function HomePage() {
       {/* ==========================================================================
            B2B REVOLVING CREDIT LINE BANNER
            ========================================================================== */}
-      <section style={{ padding: '16px 0 40px 0' }}>
+      <section style={{ padding: '16px 0 32px 0' }}>
         <div className="site-container">
           <CreditLineBanner />
+        </div>
+      </section>
+
+      {/* ==========================================================================
+           MATELIOVERSE PROPRIETARY PRIVATE LABELS (HIGHLIGHT COLOR #FCEFD2)
+           ========================================================================== */}
+      <section style={{ padding: '16px 0 48px 0', background: '#F8FAFC' }}>
+        <div className="site-container">
+          <div
+            style={{
+              background: '#FCEFD2',
+              border: '2px solid #F59E0B',
+              borderRadius: 24,
+              padding: '36px 32px',
+              boxShadow: '0 8px 30px rgba(180, 83, 9, 0.09)',
+            }}
+            className="pvt-showcase-box"
+          >
+            {/* Header */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16, marginBottom: 28 }}>
+              <div style={{ maxWidth: 680 }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#F59E0B', color: '#FFFFFF', padding: '4px 12px', borderRadius: 20, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 10 }}>
+                  <span>⭐</span> PROPRIETARY PRIVATE LABELS · 20%–35% DEALER MARGINS
+                </div>
+                <h2 style={{ fontSize: 28, fontWeight: 900, color: '#78350F', lineHeight: 1.25, marginBottom: 8 }}>
+                  Our Own Brands. Engineered for High Margins &amp; Factory Precision.
+                </h2>
+                <p style={{ fontSize: 14, color: '#92400E', lineHeight: 1.55 }}>
+                  Replacing generic low-margin supplies with high-recall, certified own-brands. Backed by computerized mill test certificates, 100% direct-from-plant logistics, and exclusive pincode territory dealership rights.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                <Link
+                  href="/categories"
+                  style={{
+                    background: '#D97706',
+                    color: '#FFFFFF',
+                    padding: '10px 20px',
+                    borderRadius: 20,
+                    fontSize: 13,
+                    fontWeight: 800,
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    boxShadow: '0 4px 12px rgba(217, 119, 6, 0.3)',
+                  }}
+                >
+                  <span>⭐</span> Explore Own Brands Catalog
+                </Link>
+                <Link
+                  href="/partner"
+                  style={{
+                    background: '#FFFFFF',
+                    border: '1.5px solid #D97706',
+                    color: '#78350F',
+                    padding: '10px 20px',
+                    borderRadius: 20,
+                    fontSize: 13,
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                  }}
+                >
+                  Franchise Territory Dealership →
+                </Link>
+              </div>
+            </div>
+
+            {/* 9 Private Label Brands Grid */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: 16,
+              }}
+              className="pvt-brands-grid"
+            >
+              {[
+                {
+                  name: 'TileTrendz',
+                  category: 'Vitrified & GVT Tiles',
+                  highlight: '28% Margin · Morbi Direct',
+                  spec: 'GVT, PGVT, Full Body, High-gloss 600x1200mm & 800x1600mm slabs with zero curvature tolerance.',
+                  slug: 'tiles-surfaces',
+                  icon: '✨',
+                },
+                {
+                  name: 'Tuffar®',
+                  category: 'Fe550D TMT Steel Rebars',
+                  highlight: '20% Margin · BIS 1786',
+                  spec: 'Primary billet manufactured Fe550D earthquake-resistant TMT rebars with computerized mill test sheets.',
+                  slug: 'tmt-steel',
+                  icon: '🔩',
+                },
+                {
+                  name: 'EzyWall',
+                  category: 'AAC Wall Panels & Blocks',
+                  highlight: '32% Margin · 3x Fast Speed',
+                  spec: 'Lightweight reinforced autoclaved aerated concrete wall panels. 0% wall seepage with acoustic barrier.',
+                  slug: 'aac-panels',
+                  icon: '🧱',
+                },
+                {
+                  name: 'Bondex',
+                  category: 'Tile Adhesives & Waterproofing',
+                  highlight: '35% Margin · EN 12004 C2TE',
+                  spec: 'Polymer-modified high grab tile adhesives, epoxy grouts, and crack-bridging waterproofing coatings.',
+                  slug: 'adhesives-chemicals',
+                  icon: '🧪',
+                },
+                {
+                  name: 'Sanivo',
+                  category: 'Sanitaryware & Bathware',
+                  highlight: '30% Margin · Nano Glaze',
+                  spec: 'Rimless wall-hung commodes, vanity basins, and certified CP brass bath fittings with 10-year warranty.',
+                  slug: 'sanitaryware',
+                  icon: '🚿',
+                },
+                {
+                  name: 'HydroLine',
+                  category: 'CPVC & UPVC Piping Systems',
+                  highlight: '28% Margin · ASTM D2846',
+                  spec: 'Lead-free hot & cold water plumbing systems, pressure-rated UPVC conduit & fittings with leak-lock design.',
+                  slug: 'plumbing-pipes',
+                  icon: '🚰',
+                },
+                {
+                  name: 'CemXtra',
+                  category: 'OPC 53 & PPC Plant Cement',
+                  highlight: '22% Margin · 53 MPa Tested',
+                  spec: 'Direct clinker plant dispatch, high early compressive strength for structural casting and heavy slabs.',
+                  slug: 'cement-ggbs',
+                  icon: '🏗️',
+                },
+                {
+                  name: 'Strongfab',
+                  category: 'Structural Steel & Heavy Beams',
+                  highlight: '24% Margin · IS 2062 Tested',
+                  spec: 'Fabricated I-beams, MS channels, angles, and tubular hollow sections with computerized cut lengths.',
+                  slug: 'structural-steel',
+                  icon: '📐',
+                },
+                {
+                  name: 'ReflectoGlass',
+                  category: 'Architectural & Facade Glass',
+                  highlight: '30% Margin · High U-Value',
+                  spec: 'Toughened solar-control low-E safety glass, double glazed insulated acoustic panels for modern facades.',
+                  slug: 'architectural-glass',
+                  icon: '🏢',
+                },
+              ].map((b) => (
+                <Link
+                  key={b.name}
+                  href={`/categories?category=${b.slug}&brand=${encodeURIComponent(b.name)}#${b.slug}`}
+                  style={{
+                    background: '#FFFFFF',
+                    border: '1px solid #FCD34D',
+                    borderRadius: 16,
+                    padding: '18px 20px',
+                    textDecoration: 'none',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 2px 8px rgba(180, 83, 9, 0.05)',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                  }}
+                  className="pvt-brand-card-item"
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ fontSize: 20 }}>{b.icon}</span>
+                        <h3 style={{ fontSize: 17, fontWeight: 900, color: '#0F172A', margin: 0 }}>
+                          {b.name}
+                        </h3>
+                      </div>
+                      <span
+                        style={{
+                          fontSize: 10.5,
+                          fontWeight: 800,
+                          background: '#FEF3C7',
+                          color: '#B45309',
+                          border: '1px solid #FDE68A',
+                          padding: '2px 8px',
+                          borderRadius: 6,
+                        }}
+                      >
+                        {b.highlight}
+                      </span>
+                    </div>
+                    <div style={{ fontSize: 11.5, fontWeight: 700, color: 'var(--primary-orange)', textTransform: 'uppercase', marginBottom: 6 }}>
+                      {b.category}
+                    </div>
+                    <p style={{ fontSize: 12.5, color: '#64748B', lineHeight: 1.45, margin: 0 }}>
+                      {b.spec}
+                    </p>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 14, paddingTop: 10, borderTop: '1px dashed #F1F5F9', fontSize: 12, fontWeight: 700, color: '#B45309' }}>
+                    <span>Browse Products</span>
+                    <span>→</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

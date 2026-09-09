@@ -57,19 +57,42 @@ export default function MobileDrawer({ isOpen, onClose, onOpenLogin }: MobileDra
 
           <div className="mob-drawer-divider"></div>
 
-          <div className="mob-drawer-section-title">PRIVATE LABELS</div>
-          <Link href="/categories#cement-ggbs" className="mob-drawer-link" onClick={onClose}>
-            <span>🏗️</span> <span>CemXtra Cement</span>
-          </Link>
-          <Link href="/categories#tmt-steel" className="mob-drawer-link" onClick={onClose}>
-            <span>🔩</span> <span>Tuffar TMT Steel</span>
-          </Link>
-          <Link href="/categories#aac-panels" className="mob-drawer-link" onClick={onClose}>
-            <span>🧱</span> <span>EzyWall AAC Panels</span>
-          </Link>
-          <Link href="/categories#tiles-surfaces" className="mob-drawer-link" onClick={onClose}>
-            <span>✨</span> <span>TileTrendz Vitrified Tiles</span>
-          </Link>
+          <div
+            style={{
+              background: '#FCEFD2',
+              border: '1px solid #F59E0B',
+              borderRadius: 14,
+              padding: '12px 10px',
+              marginBottom: 12,
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8, padding: '0 4px' }}>
+              <span style={{ fontSize: 11, fontWeight: 800, color: '#92400E', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                ⭐ Matelio Private Labels
+              </span>
+              <span style={{ fontSize: 9.5, fontWeight: 800, background: '#F59E0B', color: '#FFFFFF', padding: '1px 5px', borderRadius: 4 }}>
+                20-35% Margin
+              </span>
+            </div>
+            <Link href="/categories?category=cement-ggbs&brand=CemXtra#cement-ggbs" className="mob-drawer-link" onClick={onClose} style={{ padding: '7px 8px', fontSize: 13, color: '#78350F' }}>
+              <span>🏗️</span> <span>CemXtra Cement</span>
+            </Link>
+            <Link href="/categories?category=tmt-steel&brand=Tuffar#tmt-steel" className="mob-drawer-link" onClick={onClose} style={{ padding: '7px 8px', fontSize: 13, color: '#78350F' }}>
+              <span>🔩</span> <span>Tuffar Fe550D Steel</span>
+            </Link>
+            <Link href="/categories?category=aac-panels&brand=EzyWall#aac-panels" className="mob-drawer-link" onClick={onClose} style={{ padding: '7px 8px', fontSize: 13, color: '#78350F' }}>
+              <span>🧱</span> <span>EzyWall AAC Panels</span>
+            </Link>
+            <Link href="/categories?category=tiles-surfaces&brand=TileTrendz#tiles-surfaces" className="mob-drawer-link" onClick={onClose} style={{ padding: '7px 8px', fontSize: 13, color: '#78350F' }}>
+              <span>✨</span> <span>TileTrendz Vitrified Tiles</span>
+            </Link>
+            <Link href="/categories?category=adhesives-chemicals&brand=Bondex#adhesives-chemicals" className="mob-drawer-link" onClick={onClose} style={{ padding: '7px 8px', fontSize: 13, color: '#78350F' }}>
+              <span>🧪</span> <span>Bondex Tile Adhesives</span>
+            </Link>
+            <Link href="/categories?category=sanitaryware&brand=Sanivo#sanitaryware" className="mob-drawer-link" onClick={onClose} style={{ padding: '7px 8px', fontSize: 13, color: '#78350F' }}>
+              <span>🚿</span> <span>Sanivo Bathware &amp; CP</span>
+            </Link>
+          </div>
 
           <div className="mob-drawer-divider"></div>
 

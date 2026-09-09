@@ -6,6 +6,20 @@ import { CATEGORIES } from '@/data/categories';
 import { PRODUCTS } from '@/data/products';
 import ProductCard from '@/components/Commerce/ProductCard';
 
+const PVT_BRANDS = [
+  'TileTrendz',
+  'Tuffar',
+  'EzyWall',
+  'Bondex',
+  'Sanivo',
+  'HydroLine',
+  'Hydrolines',
+  'CemXtra',
+  'Xtra-Cam',
+  'Strongfab',
+  'ReflectoGlass',
+];
+
 export default function CategoriesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedBrand, setSelectedBrand] = useState<string>('all');
@@ -106,6 +120,57 @@ export default function CategoriesPage() {
           </p>
         </div>
 
+        {/* Matelio Private Label Brands Highlight Banner (#FCEFD2) */}
+        <div
+          style={{
+            background: '#FCEFD2',
+            border: '1.5px solid #F59E0B',
+            borderRadius: 16,
+            padding: '16px 20px',
+            marginBottom: 20,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: 12,
+            boxShadow: '0 2px 10px rgba(180, 83, 9, 0.08)',
+          }}
+        >
+          <div style={{ maxWidth: 700 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+              <span style={{ fontSize: 11, background: '#F59E0B', color: '#FFFFFF', padding: '2px 8px', borderRadius: 6, fontWeight: 800 }}>
+                ⭐ PROPRIETARY PRIVATE LABELS
+              </span>
+              <span style={{ fontSize: 12, fontWeight: 800, color: '#92400E' }}>
+                Higher Margins (20–35%) · Direct Plant Supply
+              </span>
+            </div>
+            <p style={{ fontSize: 12.5, color: '#78350F', margin: 0, lineHeight: 1.4 }}>
+              Boost retail profitability with Matelioverse certified own-brands: <strong>TileTrendz, Tuffar Steel, EzyWall Panels, Bondex, Sanivo, HydroLine, CemXtra, Strongfab, ReflectoGlass</strong>.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setOnlyPrivateLabels(!onlyPrivateLabels)}
+            style={{
+              padding: '8px 18px',
+              borderRadius: 20,
+              fontSize: 12.5,
+              fontWeight: 800,
+              border: '1.5px solid #D97706',
+              background: onlyPrivateLabels ? '#D97706' : '#FFFFFF',
+              color: onlyPrivateLabels ? '#FFFFFF' : '#92400E',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 6,
+              boxShadow: '0 2px 6px rgba(180, 83, 9, 0.15)',
+            }}
+          >
+            <span>{onlyPrivateLabels ? '✓ Showing Own Brands' : '⭐ View Own Brands Only'}</span>
+          </button>
+        </div>
+
         {/* Filter Controls Bar */}
         <div
           style={{
@@ -122,7 +187,7 @@ export default function CategoriesPage() {
         >
           {/* Top Row: Search & Quick Toggles */}
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ flex: 1, minWidth: 260 }}>
+            <div style={{ flex: 1, minWidth: 'min(260px, 100%)' }}>
               <input
                 type="text"
                 value={searchQuery}
@@ -284,6 +349,9 @@ export default function CategoriesPage() {
               </button>
               {activeBrands.map((brand) => {
                 const isBrandSelected = selectedBrand === brand;
+                const isPvt = PVT_BRANDS.some(
+                  (b) => b.toLowerCase() === brand.toLowerCase() || brand.toLowerCase().includes(b.toLowerCase())
+                );
                 return (
                   <button
                     key={brand}
@@ -293,15 +361,28 @@ export default function CategoriesPage() {
                       padding: '4px 10px',
                       borderRadius: 14,
                       fontSize: 11.5,
-                      fontWeight: isBrandSelected ? 700 : 500,
+                      fontWeight: isBrandSelected || isPvt ? 700 : 500,
                       whiteSpace: 'nowrap',
-                      border: isBrandSelected ? '1.5px solid var(--primary-orange)' : '1px solid #CBD5E1',
-                      background: isBrandSelected ? 'var(--primary-orange-light)' : '#FFFFFF',
-                      color: isBrandSelected ? 'var(--primary-orange-active)' : '#475569',
+                      border: isBrandSelected
+                        ? '1.5px solid var(--primary-orange)'
+                        : isPvt
+                        ? '1px solid #F59E0B'
+                        : '1px solid #CBD5E1',
+                      background: isBrandSelected
+                        ? 'var(--primary-orange-light)'
+                        : isPvt
+                        ? '#FCEFD2'
+                        : '#FFFFFF',
+                      color: isBrandSelected
+                        ? 'var(--primary-orange-active)'
+                        : isPvt
+                        ? '#92400E'
+                        : '#475569',
                       cursor: 'pointer',
                       transition: 'all 0.15s',
                     }}
                   >
+                    {isPvt && <span style={{ marginRight: 3 }}>⭐</span>}
                     {brand}
                   </button>
                 );
@@ -361,7 +442,7 @@ export default function CategoriesPage() {
             </button>
           </div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 20 }}>
+          <div className="categories-product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 20 }}>
             {filteredProducts.map((prod) => (
               <ProductCard key={prod.id} product={prod} />
             ))}

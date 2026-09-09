@@ -5,6 +5,18 @@ import Link from 'next/link';
 import { useLocation } from '@/context/LocationContext';
 import { CATEGORIES } from '@/data/categories';
 
+const PRIVATE_LABEL_BRANDS = [
+  { name: 'TileTrendz', desc: 'Vitrified & GVT Tiles', slug: 'tiles-surfaces' },
+  { name: 'Tuffar', desc: 'Fe550D TMT Steel', slug: 'tmt-steel' },
+  { name: 'EzyWall', desc: 'AAC Wall Panels', slug: 'aac-panels' },
+  { name: 'Bondex', desc: 'Tile Adhesives & Grouts', slug: 'adhesives-chemicals' },
+  { name: 'Sanivo', desc: 'Sanitaryware & Bath', slug: 'sanitaryware' },
+  { name: 'HydroLine', desc: 'CPVC & UPVC Pipes', slug: 'plumbing-pipes' },
+  { name: 'CemXtra', desc: 'OPC 53 Grade Cement', slug: 'cement-ggbs' },
+  { name: 'Strongfab', desc: 'Structural Steel', slug: 'structural-steel' },
+  { name: 'ReflectoGlass', desc: 'Architectural Glass', slug: 'architectural-glass' },
+];
+
 export default function SubNav() {
   const { currentHub } = useLocation();
   const [activeCategorySlug, setActiveCategorySlug] = useState<string>(CATEGORIES[0]?.slug || 'tmt-bars');
@@ -80,6 +92,54 @@ export default function SubNav() {
               {/* Right Detail Panel: Active Category Associated Brands */}
               {activeCat && (
                 <div className="cat-mega-detail-panel">
+                  {/* Matelio Private Label Brands Showcase Highlight (#FCEFD2) */}
+                  <div
+                    style={{
+                      background: '#FCEFD2',
+                      border: '1.5px solid #F59E0B',
+                      borderRadius: 12,
+                      padding: '12px 14px',
+                      marginBottom: 16,
+                      boxShadow: '0 2px 8px rgba(180, 83, 9, 0.08)',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8, flexWrap: 'wrap', gap: 6 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ fontSize: 11, background: '#F59E0B', color: '#FFFFFF', padding: '2px 6px', borderRadius: 4, fontWeight: 800 }}>⭐ PVT LABEL</span>
+                        <span style={{ fontSize: 12, fontWeight: 800, color: '#92400E', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Matelioverse Proprietary Brands
+                        </span>
+                      </div>
+                      <span style={{ fontSize: 11, fontWeight: 700, color: '#B45309', background: 'rgba(255,255,255,0.8)', padding: '2px 8px', borderRadius: 10 }}>
+                        20–35% Dealer Margins
+                      </span>
+                    </div>
+                    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                      {PRIVATE_LABEL_BRANDS.map((pvt) => (
+                        <Link
+                          key={pvt.name}
+                          href={`/categories?category=${pvt.slug}&brand=${encodeURIComponent(pvt.name)}#${pvt.slug}`}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 4,
+                            background: '#FFFFFF',
+                            border: '1px solid #FCD34D',
+                            color: '#78350F',
+                            fontSize: 11.5,
+                            fontWeight: 700,
+                            padding: '3px 8px',
+                            borderRadius: 6,
+                            textDecoration: 'none',
+                          }}
+                        >
+                          <span>★</span>
+                          <span>{pvt.name}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
                   <div className="cat-mega-detail-header">
                     <div className="cat-mega-detail-thumb">
                       <img src={activeCat.image} alt={activeCat.name} />
@@ -100,17 +160,49 @@ export default function SubNav() {
                     </div>
 
                     <div className="cat-mega-brands-grid">
-                      {activeCat.associatedBrands?.map((brand) => (
-                        <Link
-                          key={brand}
-                          href={`/categories?category=${activeCat.slug}&brand=${encodeURIComponent(brand)}#${activeCat.slug}`}
-                          className="cat-mega-brand-chip"
-                          title={`Browse ${brand} ${activeCat.name}`}
-                        >
-                          <span className="brand-dot">•</span>
-                          <span className="brand-name">{brand}</span>
-                        </Link>
-                      ))}
+                      {activeCat.associatedBrands?.map((brand) => {
+                        const isPvt = PRIVATE_LABEL_BRANDS.some(
+                          (b) => b.name.toLowerCase() === brand.toLowerCase() || brand.toLowerCase().includes(b.name.toLowerCase())
+                        );
+                        return (
+                          <Link
+                            key={brand}
+                            href={`/categories?category=${activeCat.slug}&brand=${encodeURIComponent(brand)}#${activeCat.slug}`}
+                            className="cat-mega-brand-chip"
+                            title={`Browse ${brand} ${activeCat.name}`}
+                            style={
+                              isPvt
+                                ? {
+                                    background: '#FCEFD2',
+                                    borderColor: '#F59E0B',
+                                    color: '#92400E',
+                                    fontWeight: 700,
+                                  }
+                                : undefined
+                            }
+                          >
+                            <span className="brand-dot" style={isPvt ? { color: '#D97706' } : undefined}>
+                              {isPvt ? '★' : '•'}
+                            </span>
+                            <span className="brand-name">{brand}</span>
+                            {isPvt && (
+                              <span
+                                style={{
+                                  fontSize: 9.5,
+                                  background: '#F59E0B',
+                                  color: '#FFFFFF',
+                                  padding: '1px 5px',
+                                  borderRadius: 4,
+                                  marginLeft: 4,
+                                  fontWeight: 800,
+                                }}
+                              >
+                                PVT
+                              </span>
+                            )}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
 

@@ -3509,6 +3509,10 @@ img {
 
 /* ── Matelioverse Responsive Rules (Mobile & Tablet) ── */
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
   .tech-edge-split-grid {
     grid-template-columns: 1fr !important;
   }
@@ -3527,6 +3531,49 @@ img {
     gap: 20px !important;
     padding: 28px 20px !important;
   }
+  /* Product Detail Page Mobile Fix */
+  .pdp-layout-grid {
+    grid-template-columns: 1fr !important;
+    padding: 20px 16px !important;
+    gap: 24px !important;
+    border-radius: 16px !important;
+  }
+  .pdp-action-buttons {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .pdp-action-buttons button {
+    width: 100% !important;
+  }
+  /* Private Label Showcase Responsive */
+  .pvt-showcase-box {
+    padding: 24px 16px !important;
+    border-radius: 18px !important;
+  }
+  .pvt-brands-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  /* Hero Slider Buttons & Mobile Scaling */
+  .hero-buttons-flex {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+  .hero-buttons-flex a {
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    display: block !important;
+  }
+  .hero-slide-content {
+    max-width: 100% !important;
+  }
+  .hero-credit-graphic {
+    opacity: 0.25 !important;
+    pointer-events: none !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3535,6 +3582,19 @@ img {
   }
   .news-media-grid {
     grid-template-columns: 1fr !important;
+  }
+  .categories-product-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .hero-credit-graphic {
+    display: none !important;
+  }
+  .hero-slide .hero-h1 {
+    font-size: 18px !important;
+  }
+  .hero-slide p {
+    font-size: 12.5px !important;
   }
 }
 

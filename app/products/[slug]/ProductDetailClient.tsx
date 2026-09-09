@@ -77,22 +77,24 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 position: 'absolute',
                 top: 14,
                 right: 14,
-                background: '#064E3B',
-                color: '#34D399',
+                background: '#FCEFD2',
+                color: '#92400E',
+                border: '1px solid #F59E0B',
                 fontSize: 11,
                 fontWeight: 800,
                 padding: '4px 10px',
-                borderRadius: 6,
+                borderRadius: 8,
                 letterSpacing: '0.5px',
+                boxShadow: '0 2px 8px rgba(180, 83, 9, 0.15)',
               }}
             >
-              PROPRIETARY BRAND
+              ⭐ PROPRIETARY OWN BRAND
             </span>
           )}
         </div>
 
         {/* Action Buttons: Datasheet & QR Batch */}
-        <div style={{ display: 'flex', gap: 12, marginTop: 16 }}>
+        <div className="pdp-action-buttons" style={{ display: 'flex', gap: 12, marginTop: 16 }}>
           <button
             type="button"
             onClick={() => setDownloadModal(true)}

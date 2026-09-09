@@ -107,16 +107,18 @@ export default function ProductCard({ product }: ProductCardProps) {
                 position: 'absolute',
                 top: 10,
                 right: 10,
-                background: 'var(--secondary-green)',
-                color: 'var(--secondary-mint)',
+                background: '#FCEFD2',
+                color: '#92400E',
+                border: '1px solid #F59E0B',
                 fontSize: 10,
                 fontWeight: 800,
-                padding: '2px 6px',
-                borderRadius: 4,
+                padding: '3px 7px',
+                borderRadius: 6,
                 letterSpacing: '0.5px',
+                boxShadow: '0 2px 6px rgba(180, 83, 9, 0.12)',
               }}
             >
-              OWN LABEL
+              ⭐ PVT LABEL
             </span>
           )}
         </div>
