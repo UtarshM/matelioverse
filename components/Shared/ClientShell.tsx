@@ -37,7 +37,7 @@ export default function ClientShell({ children }: { children: React.ReactNode })
       <LocationModal />
       <CartDrawer />
       <CheckoutModal />
-      <LoginModal />
+      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
       <LoyaltyModal isOpen={isLoyaltyModalOpen} onClose={() => setIsLoyaltyModalOpen(false)} />
       <MobileDrawer
         isOpen={isMobileDrawerOpen}

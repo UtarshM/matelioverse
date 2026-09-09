@@ -3627,6 +3627,7 @@ img {
    AUTHENTICATION POPUP MODAL (FIXED CENTERED OVERLAY)
    ========================================================================== */
 .login-modal-overlay {
+  display: none !important;
   position: fixed !important;
   inset: 0 !important;
   top: 0 !important;
@@ -3637,20 +3638,14 @@ img {
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
   z-index: 999999 !important;
-  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 16px !important;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
+  box-sizing: border-box !important;
 }
 
 .login-modal-overlay.active {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
+  display: flex !important;
 }
 
 .login-modal-card {

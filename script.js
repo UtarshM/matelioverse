@@ -274,11 +274,13 @@ function initLoginModal() {
     // If already logged in, do not re-open login modal
     if (localStorage.getItem('matelio_auth_user')) return;
     modal.classList.add('active');
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
     modal.classList.remove('active');
+    modal.style.display = 'none';
     document.body.style.overflow = '';
     window.handleBackToAuthForm();
   }

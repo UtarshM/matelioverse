@@ -901,7 +901,7 @@
 <!-- ==========================================================================
      LOGIN / SIGN UP MODAL (Exact MOB Modal Structure)
      ========================================================================== -->
-<div class="login-modal-overlay" id="login-modal" onclick="if(event.target === this){ this.classList.remove('active'); document.body.style.overflow=''; window.handleBackToAuthForm && window.handleBackToAuthForm(); }">
+<div class="login-modal-overlay" id="login-modal" style="display: none;" onclick="if(event.target === this){ this.classList.remove('active'); this.style.display='none'; document.body.style.overflow=''; window.handleBackToAuthForm && window.handleBackToAuthForm(); }">
   <div class="login-modal-card" style="max-width: 460px; border-radius: 20px; overflow: hidden; padding: 0;">
     <button type="button" class="modal-close-btn" id="login-modal-close" aria-label="Close modal" onclick="document.getElementById('login-modal').classList.remove('active'); document.body.style.overflow=''; window.handleBackToAuthForm && window.handleBackToAuthForm();">✕</button>
     

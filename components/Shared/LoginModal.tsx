@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useAuth, UserProfile } from '@/context/AuthContext';
 import { HUBS } from '@/data/hubs';
 
@@ -10,6 +11,7 @@ interface LoginModalProps {
 }
 
 export default function LoginModal(props: LoginModalProps = {}) {
+  const [mounted, setMounted] = useState(false);
   const auth = useAuth();
   const isModalOpen = props.isOpen !== undefined ? props.isOpen : auth.isLoginModalOpen;
   const closeModal = () => {
@@ -19,6 +21,21 @@ export default function LoginModal(props: LoginModalProps = {}) {
   const modalMode = auth.modalMode;
   const setModalMode = auth.setModalMode;
   const login = auth.login;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isModalOpen]);
 
   // Login form state
   const [loginPhone, setLoginPhone] = useState('');
@@ -36,7 +53,7 @@ export default function LoginModal(props: LoginModalProps = {}) {
   // Pending user to complete login upon OTP verification
   const [pendingUser, setPendingUser] = useState<UserProfile | null>(null);
 
-  if (!isModalOpen) return null;
+  if (!mounted || !isModalOpen) return null;
 
   const handleSendLoginOtp = (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,7 +119,7 @@ export default function LoginModal(props: LoginModalProps = {}) {
 
   const currentPhone = modalMode === 'login' ? loginPhone : signupPhone;
 
-  return (
+  return createPortal(
     <div
       className={`login-modal-overlay active`}
       style={{
@@ -616,6 +633,7 @@ export default function LoginModal(props: LoginModalProps = {}) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
