@@ -85,15 +85,194 @@ function initSearchPlaceholder() {
   }, 2800);
 }
 
-/* ── Login / Sign Up Modal Trigger ── */
+/* ── Login / Sign Up Modal Trigger & Auth Controller ── */
+let currentAuthTab = 'login';
+let pendingAuthUser = null;
+
+function renderAuthHeader() {
+  try {
+    const savedUser = localStorage.getItem('matelio_auth_user');
+    const loginBtns = document.querySelectorAll('#nav-login-btn, .nav-login-pill');
+    const mobLoginBtns = document.querySelectorAll('.mob-drawer-login-btn');
+
+    if (savedUser) {
+      const user = JSON.parse(savedUser);
+      loginBtns.forEach((btn) => {
+        btn.innerHTML = `👤 ${user.name.split(' ')[0]} ▾`;
+        btn.style.background = '#0E3128';
+        btn.style.border = '1px solid #1C5A4A';
+        btn.title = `${user.name} (${user.role}) - Click to Log Out`;
+        btn.onclick = (e) => {
+          e.preventDefault();
+          if (confirm(`Logged in as ${user.name} (${user.phone}). Do you want to sign out?`)) {
+            localStorage.removeItem('matelio_auth_user');
+            location.reload();
+          }
+        };
+      });
+
+      mobLoginBtns.forEach((btn) => {
+        btn.innerHTML = `<span>👤</span> <span>${user.name} (Log out)</span>`;
+        btn.onclick = (e) => {
+          e.preventDefault();
+          if (confirm(`Sign out from ${user.name}?`)) {
+            localStorage.removeItem('matelio_auth_user');
+            location.reload();
+          }
+        };
+      });
+    }
+  } catch (err) {
+    console.error('Auth state error', err);
+  }
+}
+
+window.switchAuthTab = function (tab) {
+  currentAuthTab = tab;
+  const loginBtn = document.getElementById('tab-login-btn');
+  const signupBtn = document.getElementById('tab-signup-btn');
+  const loginSec = document.getElementById('auth-login-section');
+  const signupSec = document.getElementById('auth-signup-section');
+  const otpSec = document.getElementById('auth-otp-section');
+
+  if (otpSec) otpSec.style.display = 'none';
+
+  if (tab === 'login') {
+    if (loginBtn) {
+      loginBtn.style.background = '#0E3128';
+      loginBtn.style.color = '#FFFFFF';
+    }
+    if (signupBtn) {
+      signupBtn.style.background = 'transparent';
+      signupBtn.style.color = '#64748B';
+    }
+    if (loginSec) loginSec.style.display = 'block';
+    if (signupSec) signupSec.style.display = 'none';
+  } else {
+    if (signupBtn) {
+      signupBtn.style.background = '#0E3128';
+      signupBtn.style.color = '#FFFFFF';
+    }
+    if (loginBtn) {
+      loginBtn.style.background = 'transparent';
+      loginBtn.style.color = '#64748B';
+    }
+    if (signupSec) signupSec.style.display = 'block';
+    if (loginSec) loginSec.style.display = 'none';
+  }
+};
+
+window.handleAuthLogin = function (e) {
+  e.preventDefault();
+  const phone = document.getElementById('login-phone-input')?.value.trim();
+  if (phone && phone.length === 10) {
+    pendingAuthUser = {
+      name: `User +91 ${phone.slice(-4)}`,
+      phone: phone,
+      businessName: 'Matelioverse Pro Member',
+      role: 'contractor',
+      city: 'Ahmedabad',
+    };
+    showOtpScreen(phone);
+  }
+};
+
+window.handleAuthSignup = function (e) {
+  e.preventDefault();
+  const name = document.getElementById('signup-name-input')?.value.trim();
+  const firm = document.getElementById('signup-firm-input')?.value.trim();
+  const phone = document.getElementById('signup-phone-input')?.value.trim();
+  const role = document.getElementById('signup-role-input')?.value || 'contractor';
+  const city = document.getElementById('signup-city-input')?.value || 'Ahmedabad';
+  const gstin = document.getElementById('signup-gstin-input')?.value.trim();
+
+  if (name && phone && phone.length === 10) {
+    pendingAuthUser = {
+      name: name,
+      phone: phone,
+      businessName: firm || undefined,
+      role: role,
+      city: city,
+      gstin: gstin || undefined,
+    };
+    showOtpScreen(phone);
+  }
+};
+
+function showOtpScreen(phone) {
+  const loginSec = document.getElementById('auth-login-section');
+  const signupSec = document.getElementById('auth-signup-section');
+  const otpSec = document.getElementById('auth-otp-section');
+  const phoneDisp = document.getElementById('otp-phone-display');
+
+  if (loginSec) loginSec.style.display = 'none';
+  if (signupSec) signupSec.style.display = 'none';
+  if (otpSec) otpSec.style.display = 'block';
+  if (phoneDisp) phoneDisp.textContent = `+91 ${phone}`;
+
+  const otpInput = document.getElementById('otp-input');
+  if (otpInput) {
+    otpInput.value = '';
+    otpInput.focus();
+  }
+}
+
+window.handleVerifyAuthOtp = function () {
+  if (pendingAuthUser) {
+    localStorage.setItem('matelio_auth_user', JSON.stringify(pendingAuthUser));
+    const modal = document.getElementById('login-modal');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    renderAuthHeader();
+    window.handleBackToAuthForm();
+  }
+};
+
+window.handleBackToAuthForm = function () {
+  window.switchAuthTab(currentAuthTab);
+};
+
+window.handleDemoAuth = function (role) {
+  const demoUser = role === 'contractor'
+    ? {
+        name: 'Utkarsh Makwana',
+        phone: '9824939888',
+        businessName: 'Makwana Infra Projects LLP',
+        role: 'contractor',
+        city: 'Ahmedabad',
+        gstin: '24AAAAA0000A1Z5',
+      }
+    : {
+        name: 'Sandeep Kakkar',
+        phone: '9825001234',
+        businessName: 'Buildit Smart Franchise Store',
+        role: 'dealer',
+        city: 'Ahmedabad',
+        gstin: '24BBBBB1111B2Z6',
+      };
+
+  localStorage.setItem('matelio_auth_user', JSON.stringify(demoUser));
+  const modal = document.getElementById('login-modal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  renderAuthHeader();
+};
+
 function initLoginModal() {
   const modal = document.getElementById('login-modal');
   const closeBtn = document.getElementById('login-modal-close');
+  renderAuthHeader();
   if (!modal) return;
 
   const triggers = document.querySelectorAll('#login-trigger-btn, #nav-login-btn, .btn-solid-green-login, .nav-login-pill');
 
   function openModal() {
+    // If already logged in, do not re-open login modal
+    if (localStorage.getItem('matelio_auth_user')) return;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -101,6 +280,7 @@ function initLoginModal() {
   function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    window.handleBackToAuthForm();
   }
 
   triggers.forEach(btn => btn.addEventListener('click', openModal));

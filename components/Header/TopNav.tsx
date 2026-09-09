@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useLocation } from '@/context/LocationContext';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 
 interface TopNavProps {
   onOpenMobileDrawer: () => void;
@@ -18,7 +19,20 @@ export default function TopNav({
 }: TopNavProps) {
   const { currentHub, pincode, openLocationModal } = useLocation();
   const { cartCount, setIsCartOpen } = useCart();
+  const { user, isLoggedIn, logout, openLoginModal } = useAuth();
   const [searchPlaceholder, setSearchPlaceholder] = useState('Search "TileTrendz"');
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const searchPhrases = [
     'Search "TileTrendz GVT Tiles"',
@@ -135,15 +149,181 @@ export default function TopNav({
             </div>
           </button>
 
-          {/* Login Button */}
-          <button
-            type="button"
-            className="nav-login-pill"
-            id="nav-login-btn"
-            onClick={onOpenLoginModal}
-          >
-            Login
-          </button>
+          {/* User Profile Dropdown or Login Button */}
+          {isLoggedIn && user ? (
+            <div ref={userMenuRef} style={{ position: 'relative' }}>
+              <button
+                type="button"
+                onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  background: '#0E3128',
+                  color: '#FFFFFF',
+                  padding: '5px 12px 5px 6px',
+                  borderRadius: 24,
+                  border: '1.5px solid #1C5A4A',
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px rgba(14, 49, 40, 0.2)',
+                  transition: 'all 0.2s ease',
+                }}
+                aria-expanded={isUserMenuOpen}
+                aria-label="User Account Menu"
+              >
+                <div
+                  style={{
+                    width: 26,
+                    height: 26,
+                    borderRadius: '50%',
+                    background: 'var(--primary-orange)',
+                    color: '#FFFFFF',
+                    fontWeight: 800,
+                    fontSize: 12,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {user.name.charAt(0)}
+                </div>
+                <div style={{ textAlign: 'left', lineHeight: 1.15 }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: '#FFFFFF', maxWidth: 100, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {user.name.split(' ')[0]}
+                  </div>
+                  <div style={{ fontSize: 9, fontWeight: 700, color: '#FCEFD2', textTransform: 'capitalize' }}>
+                    {user.role}
+                  </div>
+                </div>
+                <span style={{ fontSize: 10, color: '#C2ECCA', marginLeft: 2 }}>▾</span>
+              </button>
+
+              {/* Dropdown Menu */}
+              {isUserMenuOpen && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 'calc(100% + 8px)',
+                    right: 0,
+                    width: 240,
+                    background: '#FFFFFF',
+                    borderRadius: 14,
+                    boxShadow: '0 12px 32px rgba(0,0,0,0.18)',
+                    border: '1px solid #E2E8F0',
+                    zIndex: 1000,
+                    overflow: 'hidden',
+                  }}
+                >
+                  <div style={{ padding: '12px 14px', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
+                    <div style={{ fontWeight: 800, fontSize: 13, color: '#0F172A' }}>{user.name}</div>
+                    {user.businessName && (
+                      <div style={{ fontSize: 11, color: '#64748B', marginTop: 1 }}>{user.businessName}</div>
+                    )}
+                    <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 3 }}>+91 {user.phone}</div>
+                    {user.gstin && (
+                      <div style={{ fontSize: 10, color: '#059669', fontWeight: 700, marginTop: 4 }}>
+                        GSTIN: {user.gstin}
+                      </div>
+                    )}
+                  </div>
+
+                  <div style={{ padding: '6px 0' }}>
+                    <Link
+                      href="/rfq"
+                      onClick={() => setIsUserMenuOpen(false)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 10,
+                        padding: '9px 14px',
+                        fontSize: 12.5,
+                        fontWeight: 600,
+                        color: '#334155',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <span>📋</span>
+                      <span>My BOQ / RFQ Quotes</span>
+                    </Link>
+                    <Link
+                      href="/partner"
+                      onClick={() => setIsUserMenuOpen(false)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 10,
+                        padding: '9px 14px',
+                        fontSize: 12.5,
+                        fontWeight: 600,
+                        color: '#334155',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <span>🤝</span>
+                      <span>Partner Hub &amp; Margins</span>
+                    </Link>
+                    <Link
+                      href="/categories"
+                      onClick={() => setIsUserMenuOpen(false)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 10,
+                        padding: '9px 14px',
+                        fontSize: 12.5,
+                        fontWeight: 600,
+                        color: '#334155',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <span>🛒</span>
+                      <span>Order Materials</span>
+                    </Link>
+                  </div>
+
+                  <div style={{ borderTop: '1px solid #F1F5F9', padding: '6px 0' }}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        logout();
+                        setIsUserMenuOpen(false);
+                      }}
+                      style={{
+                        width: '100%',
+                        textAlign: 'left',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 10,
+                        padding: '9px 14px',
+                        fontSize: 12.5,
+                        fontWeight: 700,
+                        color: '#EF4444',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <span>🚪</span>
+                      <span>Sign Out / Logout</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <button
+              type="button"
+              className="nav-login-pill"
+              id="nav-login-btn"
+              onClick={() => {
+                openLoginModal('login');
+                onOpenLoginModal();
+              }}
+            >
+              Login
+            </button>
+          )}
 
           {/* Quick-Commerce Persistent Cart Button */}
           <button

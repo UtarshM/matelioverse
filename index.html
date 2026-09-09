@@ -901,34 +901,145 @@
 <!-- ==========================================================================
      LOGIN / SIGN UP MODAL (Exact MOB Modal Structure)
      ========================================================================== -->
-<div class="login-modal-overlay" id="login-modal" onclick="if(event.target === this){ this.classList.remove('active'); document.body.style.overflow=''; }">
-  <div class="login-modal-card">
-    <button type="button" class="modal-close-btn" aria-label="Close modal" onclick="document.getElementById('login-modal').classList.remove('active'); document.body.style.overflow='';">✕</button>
-    <div class="login-modal-content">
-      <div style="text-align: center; margin-bottom: 20px;">
-        <img src="https://api.matelioverse.com/assets/e0847d46-2489-475e-8dfc-e7b520e1df15" alt="Matelioverse" style="height: 28px; width: auto; margin-bottom: 12px;">
-        <h3 style="font-size: 20px; font-weight: 800; color: #0F172A;">Log in or sign up</h3>
-        <p style="font-size: 13px; color: #64748B; margin-top: 4px;">Access dealer pricing, order tracking, and franchise tools</p>
+<div class="login-modal-overlay" id="login-modal" onclick="if(event.target === this){ this.classList.remove('active'); document.body.style.overflow=''; window.handleBackToAuthForm && window.handleBackToAuthForm(); }">
+  <div class="login-modal-card" style="max-width: 460px; border-radius: 20px; overflow: hidden; padding: 0;">
+    <button type="button" class="modal-close-btn" id="login-modal-close" aria-label="Close modal" onclick="document.getElementById('login-modal').classList.remove('active'); document.body.style.overflow=''; window.handleBackToAuthForm && window.handleBackToAuthForm();">✕</button>
+    
+    <!-- Header Branding -->
+    <div style="background: linear-gradient(135deg, #0E3128 0%, #174237 100%); padding: 22px 24px 16px; text-align: center; color: #FFFFFF;">
+      <img src="https://api.matelioverse.com/assets/e0847d46-2489-475e-8dfc-e7b520e1df15" alt="Matelioverse" style="height: 26px; width: auto; margin: 0 auto 6px; filter: brightness(0) invert(1);">
+      <h3 style="font-size: 18px; font-weight: 900; margin: 4px 0 2px; color: #FFFFFF;">Access Matelioverse</h3>
+      <p style="font-size: 12px; color: #C2ECCA; margin: 0;">Direct plant pricing, 20-35% own-brand margins &amp; instant dispatch</p>
+    </div>
+
+    <div class="login-modal-content" style="padding: 20px 24px 24px;">
+      <!-- Tab Switcher: Login vs Sign Up -->
+      <div style="display: flex; background: #F1F5F9; border-radius: 12px; padding: 4px; margin-bottom: 18px;">
+        <button type="button" id="tab-login-btn" onclick="window.switchAuthTab('login')" style="flex: 1; padding: 8px 12px; font-size: 13px; font-weight: 800; border: none; border-radius: 8px; cursor: pointer; background: #0E3128; color: #FFFFFF;">
+          Log In
+        </button>
+        <button type="button" id="tab-signup-btn" onclick="window.switchAuthTab('signup')" style="flex: 1; padding: 8px 12px; font-size: 13px; font-weight: 800; border: none; border-radius: 8px; cursor: pointer; background: transparent; color: #64748B;">
+          Sign Up / Register
+        </button>
       </div>
 
-      <form onsubmit="event.preventDefault(); alert('Demo: Verification OTP has been dispatched.'); document.getElementById('login-modal').classList.remove('active'); document.body.style.overflow='';">
-        <div style="margin-bottom: 16px;">
-          <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Mobile Number</label>
-          <div style="display: flex; border: 1.5px solid #E2E8F0; border-radius: 12px; overflow: hidden; background: #F8FAFC;">
-            <div style="padding: 10px 14px; background: #EDF2F7; font-size: 14px; font-weight: 600; color: #475569; display: flex; align-items: center; gap: 4px; border-right: 1px solid #CBD5E1;">
-              <span>🇮🇳</span> <span>+91</span>
+      <!-- Tab 1: Log In -->
+      <div id="auth-login-section">
+        <form id="auth-login-form" onsubmit="window.handleAuthLogin(event)">
+          <div style="margin-bottom: 14px;">
+            <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Mobile Number</label>
+            <div style="display: flex; border: 1.5px solid #CBD5E1; border-radius: 12px; overflow: hidden; background: #F8FAFC;">
+              <div style="padding: 10px 14px; background: #EDF2F7; font-size: 13.5px; font-weight: 700; color: #475569; display: flex; align-items: center; gap: 4px; border-right: 1px solid #CBD5E1;">
+                <span>🇮🇳</span> <span>+91</span>
+              </div>
+              <input type="tel" id="login-phone-input" required maxlength="10" placeholder="Enter 10-digit mobile" style="flex: 1; border: none; padding: 10px 12px; font-size: 14px; outline: none; background: transparent;">
             </div>
-            <input type="tel" required pattern="[0-9]{10}" placeholder="Enter 10-digit number" style="flex: 1; border: none; padding: 10px 14px; font-size: 14px; outline: none; background: transparent;">
           </div>
+
+          <button type="submit" style="width: 100%; height: 46px; background: var(--primary-orange); color: #FFFFFF; font-weight: 800; font-size: 14px; border-radius: 12px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(249, 121, 56, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>Continue with OTP</span>
+            <span>→</span>
+          </button>
+
+          <!-- Quick 1-Click Fast Demo Logins -->
+          <div style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed #E2E8F0; text-align: center;">
+            <span style="font-size: 10.5px; font-weight: 700; color: #94A3B8; text-transform: uppercase;">Quick 1-Click Test Login:</span>
+            <div style="display: flex; gap: 8px; margin-top: 6px;">
+              <button type="button" onclick="window.handleDemoAuth('contractor')" style="flex: 1; padding: 7px 8px; border-radius: 8px; font-size: 11.5px; font-weight: 700; border: 1px solid #CBD5E1; background: #F8FAFC; color: #334155; cursor: pointer;">
+                🏗️ Contractor Demo
+              </button>
+              <button type="button" onclick="window.handleDemoAuth('dealer')" style="flex: 1; padding: 7px 8px; border-radius: 8px; font-size: 11.5px; font-weight: 700; border: 1px solid #CBD5E1; background: #F8FAFC; color: #334155; cursor: pointer;">
+                🏪 Franchise Dealer
+              </button>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 14px; font-size: 12.5px; color: #64748B;">
+            Don&apos;t have an account? <a href="javascript:void(0)" onclick="window.switchAuthTab('signup')" style="color: var(--primary-orange); font-weight: 800;">Sign Up here</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Tab 2: Sign Up -->
+      <div id="auth-signup-section" style="display: none;">
+        <form id="auth-signup-form" onsubmit="window.handleAuthSignup(event)">
+          <div style="margin-bottom: 10px;">
+            <label style="display: block; font-size: 11.5px; font-weight: 700; color: #334155; margin-bottom: 4px;">I am registering as:</label>
+            <select id="signup-role-input" style="width: 100%; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 8px 10px; font-size: 12.5px; outline: none; background: #FFFFFF;">
+              <option value="contractor">🏗️ Contractor / Infra Builder</option>
+              <option value="dealer">🏪 Retail Dealer / Franchisee</option>
+              <option value="architect">📐 Architect / Engineer</option>
+              <option value="individual">🏠 Home Owner</option>
+            </select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+            <div>
+              <label style="display: block; font-size: 11.5px; font-weight: 700; color: #334155; margin-bottom: 4px;">Full Name *</label>
+              <input type="text" id="signup-name-input" required placeholder="Your Name" style="width: 100%; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 8px 10px; font-size: 12.5px; outline: none;">
+            </div>
+            <div>
+              <label style="display: block; font-size: 11.5px; font-weight: 700; color: #334155; margin-bottom: 4px;">Firm / Business</label>
+              <input type="text" id="signup-firm-input" placeholder="Company Name" style="width: 100%; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 8px 10px; font-size: 12.5px; outline: none;">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 10px;">
+            <label style="display: block; font-size: 11.5px; font-weight: 700; color: #334155; margin-bottom: 4px;">Mobile Number *</label>
+            <div style="display: flex; border: 1.5px solid #CBD5E1; border-radius: 10px; overflow: hidden; background: #F8FAFC;">
+              <div style="padding: 8px 10px; background: #EDF2F7; font-size: 12px; font-weight: 700; color: #475569; border-right: 1px solid #CBD5E1;">+91</div>
+              <input type="tel" id="signup-phone-input" required maxlength="10" placeholder="10-digit number" style="flex: 1; border: none; padding: 8px 10px; font-size: 12.5px; outline: none; background: transparent;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px;">
+            <div>
+              <label style="display: block; font-size: 11.5px; font-weight: 700; color: #334155; margin-bottom: 4px;">City / Hub</label>
+              <select id="signup-city-input" style="width: 100%; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 8px 10px; font-size: 12.5px; outline: none; background: #FFFFFF;">
+                <option value="Ahmedabad">Ahmedabad (Central Hub)</option>
+                <option value="Surat">Surat Hub</option>
+                <option value="Vadodara">Vadodara Hub</option>
+                <option value="Rajkot">Rajkot Hub</option>
+                <option value="Mumbai">Mumbai MMR Hub</option>
+                <option value="Pune">Pune Hub</option>
+                <option value="Delhi NCR">Delhi NCR Hub</option>
+                <option value="Bengaluru">Bengaluru Hub</option>
+              </select>
+            </div>
+            <div>
+              <label style="display: block; font-size: 11.5px; font-weight: 700; color: #334155; margin-bottom: 4px;">GSTIN (Optional)</label>
+              <input type="text" id="signup-gstin-input" placeholder="24AAAAA0000A1Z5" style="width: 100%; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 8px 10px; font-size: 12.5px; outline: none; text-transform: uppercase;">
+            </div>
+          </div>
+
+          <button type="submit" style="width: 100%; height: 44px; background: var(--primary-orange); color: #FFFFFF; font-weight: 800; font-size: 14px; border-radius: 12px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(249, 121, 56, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>Create Account &amp; Continue</span>
+            <span>→</span>
+          </button>
+
+          <div style="text-align: center; margin-top: 12px; font-size: 12.5px; color: #64748B;">
+            Already have an account? <a href="javascript:void(0)" onclick="window.switchAuthTab('login')" style="color: var(--primary-orange); font-weight: 800;">Log In here</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- OTP Step -->
+      <div id="auth-otp-section" style="display: none; text-align: center;">
+        <div style="font-size: 13px; color: #475569; margin-bottom: 12px;">
+          Enter the 6-digit OTP sent to <strong id="otp-phone-display">+91 XXXXXXXXXX</strong>
         </div>
-
-        <button type="submit" style="width: 100%; height: 46px; background: var(--primary-green); color: #FFFFFF; font-weight: 700; font-size: 14px; border-radius: 12px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 168, 107, 0.3);">
-          SEND OTP
+        <input type="text" id="otp-input" maxlength="6" placeholder="• • • • • •" style="width: 100%; max-width: 240px; margin: 0 auto 10px; display: block; border: 2px solid var(--primary-orange); border-radius: 12px; padding: 10px; font-size: 20px; letter-spacing: 6px; text-align: center; outline: none; font-weight: 800; background: #FFF7ED;">
+        <div style="font-size: 11px; color: #94A3B8; margin-bottom: 14px;">💡 Demo: Enter any 6 digits (e.g. 123456)</div>
+        <button type="button" onclick="window.handleVerifyAuthOtp()" style="width: 100%; height: 46px; background: var(--primary-orange); color: #FFFFFF; font-weight: 800; font-size: 14px; border-radius: 12px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(249, 121, 56, 0.3);">
+          VERIFY &amp; CONTINUE
         </button>
-      </form>
+        <button type="button" onclick="window.handleBackToAuthForm()" style="width: 100%; margin-top: 10px; font-size: 12px; color: #64748B; background: none; border: none; cursor: pointer; text-decoration: underline;">
+          ← Change Phone Number / Details
+        </button>
+      </div>
 
-      <div style="text-align: center; font-size: 11.5px; color: #94A3B8; margin-top: 18px;">
-        By continuing, you agree to Matelioverse's <a href="/contact.html" style="color: var(--primary-green);">Terms of Use</a> and <a href="/contact.html" style="color: var(--primary-green);">Privacy Policy</a>.
+      <div style="text-align: center; font-size: 11px; color: #94A3B8; margin-top: 16px;">
+        By continuing, you agree to Matelioverse&apos;s Terms of Trade and Privacy Policy.
       </div>
     </div>
   </div>

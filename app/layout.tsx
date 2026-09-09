@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { LocationProvider } from '@/context/LocationContext';
 import { CartProvider } from '@/context/CartContext';
+import { AuthProvider } from '@/context/AuthContext';
 import ClientShell from '@/components/Shared/ClientShell';
 
 export const metadata: Metadata = {
@@ -114,7 +115,9 @@ export default function RootLayout({
       <body>
         <LocationProvider>
           <CartProvider>
-            <ClientShell>{children}</ClientShell>
+            <AuthProvider>
+              <ClientShell>{children}</ClientShell>
+            </AuthProvider>
           </CartProvider>
         </LocationProvider>
       </body>

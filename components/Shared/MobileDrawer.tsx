@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useAuth } from '@/context/AuthContext';
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface MobileDrawerProps {
 }
 
 export default function MobileDrawer({ isOpen, onClose, onOpenLogin }: MobileDrawerProps) {
+  const { user, isLoggedIn, logout, openLoginModal } = useAuth();
   if (!isOpen) return null;
 
   return (
@@ -109,16 +111,85 @@ export default function MobileDrawer({ isOpen, onClose, onOpenLogin }: MobileDra
         </div>
 
         <div className="mob-drawer-footer">
-          <button
-            type="button"
-            className="mob-drawer-login-btn"
-            onClick={() => {
-              onClose();
-              onOpenLogin();
-            }}
-          >
-            <span>👤</span> <span>Log in or Sign up</span>
-          </button>
+          {isLoggedIn && user ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  background: '#0E3128',
+                  color: '#FFFFFF',
+                  padding: '10px 14px',
+                  borderRadius: 14,
+                  border: '1px solid #1C5A4A',
+                }}
+              >
+                <div
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: '50%',
+                    background: 'var(--primary-orange)',
+                    color: '#FFFFFF',
+                    fontWeight: 800,
+                    fontSize: 14,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  {user.name.charAt(0)}
+                </div>
+                <div style={{ flex: 1, minWidth: 0, textAlign: 'left' }}>
+                  <div style={{ fontSize: 13, fontWeight: 800, color: '#FFFFFF', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {user.name}
+                  </div>
+                  <div style={{ fontSize: 10.5, color: '#FCEFD2', fontWeight: 700, textTransform: 'capitalize' }}>
+                    {user.role} · +91 {user.phone}
+                  </div>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  logout();
+                  onClose();
+                }}
+                style={{
+                  width: '100%',
+                  height: 40,
+                  borderRadius: 12,
+                  border: '1px solid #EF4444',
+                  background: '#FEF2F2',
+                  color: '#EF4444',
+                  fontWeight: 700,
+                  fontSize: 13,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 6,
+                }}
+              >
+                <span>🚪</span>
+                <span>Sign Out / Logout</span>
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              className="mob-drawer-login-btn"
+              onClick={() => {
+                onClose();
+                openLoginModal('login');
+                onOpenLogin();
+              }}
+            >
+              <span>👤</span> <span>Log in or Sign up</span>
+            </button>
+          )}
         </div>
       </div>
     </div>
