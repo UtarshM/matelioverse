@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </radialGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  <!-- Studio Backdrop -->
+  <rect width="400" height="300" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Main Illustration with Shadow -->
+  <g filter="url(#dropShadow)">
+    
+      <g transform="translate(70, 40)">
+        <!-- Waterproofing Canister -->
+        <rect x="20" y="50" width="90" height="130" rx="12" fill="#0284C7" stroke="#0369A1" stroke-width="2.5"/>
+        <rect x="45" y="30" width="40" height="22" rx="4" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+        <path d="M40,50 L40,38 L90,38 L90,50" fill="none" stroke="#D97706" stroke-width="4"/>
+        <rect x="25" y="85" width="80" height="50" fill="#FFFFFF" rx="4"/>
+        <text x="65" y="105" font-family="Arial, sans-serif" font-size="10" font-weight="900" fill="#0284C7" text-anchor="middle">WATERPROOF</text>
+        <text x="65" y="122" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#F59E0B" text-anchor="middle">LW+ LIQUID</text>
+        <!-- Tile Adhesive Bag -->
+        <path d="M130,70 L220,55 L240,180 L140,195 Z" fill="#DC2626" stroke="#991B1B" stroke-width="2.5"/>
+        <polygon points="145,85 215,72 230,170 155,182" fill="#FFFFFF"/>
+        <text x="190" y="115" font-family="Arial, sans-serif" font-size="11" font-weight="900" fill="#DC2626" text-anchor="middle">TILE</text>
+        <text x="190" y="132" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E293B" text-anchor="middle">ADHESIVE</text>
+        <text x="190" y="152" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#64748B" text-anchor="middle">20 KG</text>
+      </g>
+    
+  </g>
+  
+  <!-- Category Info Bottom Strip -->
+  <g transform="translate(20, 255)">
+    <rect width="360" height="32" rx="8" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="14" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Adhesive & Waterproofing</text>
+    <rect x="250" y="6" width="96" height="20" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="298" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle">Chemicals & Sealants</text>
+  </g>
+</svg>

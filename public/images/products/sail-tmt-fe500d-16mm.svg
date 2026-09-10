@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="prodBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="url(#prodBg)" />
+  
+  <!-- Subtle Brand Watermark -->
+  <text x="200" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" fill="#0F172A" opacity="0.03" text-anchor="middle">SAIL</text>
+
+  <!-- Product Illustration -->
+  <g filter="url(#cardShadow)">
+    
+      <g transform="translate(50, 40)">
+        <defs>
+          <linearGradient id="sailSteel" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#334155" />
+            <stop offset="40%" stop-color="#94A3B8" />
+            <stop offset="70%" stop-color="#CBD5E1" />
+            <stop offset="100%" stop-color="#0F172A" />
+          </linearGradient>
+        </defs>
+        <!-- 16mm Heavy Bars -->
+        <rect x="5" y="35" width="290" height="30" rx="15" fill="url(#sailSteel)" stroke="#0F172A" stroke-width="2"/>
+        <rect x="0" y="75" width="300" height="34" rx="17" fill="url(#sailSteel)" stroke="#0F172A" stroke-width="2.5"/>
+        <rect x="10" y="120" width="280" height="32" rx="16" fill="url(#sailSteel)" stroke="#0F172A" stroke-width="2"/>
+        
+        <!-- Cross-Rib Lug Pattern -->
+        
+          <line x1="30" y1="73" x2="45" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="55" y1="73" x2="70" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="80" y1="73" x2="95" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="105" y1="73" x2="120" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="130" y1="73" x2="145" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="155" y1="73" x2="170" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="180" y1="73" x2="195" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="205" y1="73" x2="220" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="230" y1="73" x2="245" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="255" y1="73" x2="270" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+          <line x1="280" y1="73" x2="295" y2="110" stroke="#0F172A" stroke-width="4" opacity="0.65"/>
+        
+
+        <!-- SAIL Official Tag -->
+        <g transform="translate(160, 65)">
+          <rect width="120" height="52" rx="6" fill="#004B87" stroke="#F58220" stroke-width="2"/>
+          <text x="60" y="24" font-family="Arial, sans-serif" font-size="13" font-weight="900" fill="#FFFFFF" text-anchor="middle">SAIL TMT</text>
+          <text x="60" y="40" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#F58220" text-anchor="middle">Fe500D · 16mm Heavy</text>
+        </g>
+      </g>
+    
+  </g>
+
+  <!-- Product Bottom Quality & Spec Bar -->
+  <g transform="translate(16, 256)">
+    <rect width="368" height="30" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="8" y="5" width="6" height="20" rx="3" fill="#004B87"/>
+    <text x="22" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#004B87">SAIL</text>
+    <text x="358" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#64748B" text-anchor="end">Govt. PSU Primary Steel · IS 1786</text>
+  </g>
+</svg>

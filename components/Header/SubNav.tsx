@@ -6,15 +6,15 @@ import { useLocation } from '@/context/LocationContext';
 import { CATEGORIES } from '@/data/categories';
 
 const PRIVATE_LABEL_BRANDS = [
-  { name: 'TileTrendz', desc: 'Vitrified & GVT Tiles', slug: 'tiles-surfaces' },
-  { name: 'Tuffar', desc: 'Fe550D TMT Steel', slug: 'tmt-steel' },
-  { name: 'EzyWall', desc: 'AAC Wall Panels', slug: 'aac-panels' },
-  { name: 'Bondex', desc: 'Tile Adhesives & Grouts', slug: 'adhesives-chemicals' },
-  { name: 'Sanivo', desc: 'Sanitaryware & Bath', slug: 'sanitaryware' },
-  { name: 'HydroLine', desc: 'CPVC & UPVC Pipes', slug: 'plumbing-pipes' },
-  { name: 'CemXtra', desc: 'OPC 53 Grade Cement', slug: 'cement-ggbs' },
+  { name: 'TileTrendz', desc: 'Vitrified & GVT Tiles', slug: 'tiles' },
+  { name: 'Tuffar', desc: 'Fe550D TMT Steel', slug: 'tmt-bars' },
+  { name: 'EzyWall', desc: 'AAC Wall Panels', slug: 'aac-wall-panel' },
+  { name: 'Bondex', desc: 'Tile Adhesives & Grouts', slug: 'adhesive-waterproofing' },
+  { name: 'Sanivo', desc: 'Sanitaryware & Bath', slug: 'bath-fittings-sanitary' },
+  { name: 'HydroLine', desc: 'CPVC & UPVC Pipes', slug: 'plumbing' },
+  { name: 'CemXtra', desc: 'OPC 53 Grade Cement', slug: 'cement' },
   { name: 'Strongfab', desc: 'Structural Steel', slug: 'structural-steel' },
-  { name: 'ReflectoGlass', desc: 'Architectural Glass', slug: 'architectural-glass' },
+  { name: 'ReflectoGlass', desc: 'Architectural Glass', slug: 'tiles' },
 ];
 
 export default function SubNav() {

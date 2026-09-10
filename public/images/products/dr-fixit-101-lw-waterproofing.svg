@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="prodBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="url(#prodBg)" />
+  
+  <!-- Subtle Brand Watermark -->
+  <text x="200" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" fill="#0F172A" opacity="0.03" text-anchor="middle">DR. FIXIT</text>
+
+  <!-- Product Illustration -->
+  <g filter="url(#cardShadow)">
+    
+      <g transform="translate(110, 35)">
+        <!-- Canister Body -->
+        <rect x="20" y="45" width="140" height="160" rx="16" fill="#0284C7" stroke="#0369A1" stroke-width="3"/>
+        <rect x="65" y="20" width="50" height="28" rx="6" fill="#F59E0B" stroke="#D97706" stroke-width="2.5"/>
+        <path d="M45,45 L45,28 L135,28 L135,45" fill="none" stroke="#D97706" stroke-width="5" stroke-linecap="round"/>
+        
+        <!-- Front Label -->
+        <rect x="30" y="80" width="120" height="95" rx="8" fill="#FFFFFF"/>
+        <rect x="30" y="80" width="120" height="24" fill="#F59E0B"/>
+        <text x="90" y="97" font-family="Arial, sans-serif" font-size="11" font-weight="900" fill="#000" text-anchor="middle">DR. FIXIT</text>
+        
+        <text x="90" y="125" font-family="Arial, sans-serif" font-size="14" font-weight="900" fill="#0284C7" text-anchor="middle">101 LW+</text>
+        <text x="90" y="142" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#0F172A" text-anchor="middle">PIDIPROOF LIQUID</text>
+        <text x="90" y="162" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#DC2626" text-anchor="middle">20 LITRES</text>
+      </g>
+    
+  </g>
+
+  <!-- Product Bottom Quality & Spec Bar -->
+  <g transform="translate(16, 256)">
+    <rect width="368" height="30" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="8" y="5" width="6" height="20" rx="3" fill="#0284C7"/>
+    <text x="22" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#0284C7">DR. FIXIT</text>
+    <text x="358" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#64748B" text-anchor="end">Integral Waterproofing Liquid Compound</text>
+  </g>
+</svg>

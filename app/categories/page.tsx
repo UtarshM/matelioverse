@@ -20,6 +20,21 @@ const PVT_BRANDS = [
   'ReflectoGlass',
 ];
 
+const CATEGORY_ALIASES: Record<string, { categorySlug: string; brand?: string }> = {
+  'tmt-steel': { categorySlug: 'tmt-bars', brand: 'Tuffar' },
+  'tmt': { categorySlug: 'tmt-bars' },
+  'steel': { categorySlug: 'tmt-bars' },
+  'cement-ggbs': { categorySlug: 'cement', brand: 'CemXtra' },
+  'aac-panels': { categorySlug: 'aac-wall-panel', brand: 'EzyWall' },
+  'tiles-surfaces': { categorySlug: 'tiles', brand: 'TileTrendz' },
+  'plumbing-pipes': { categorySlug: 'plumbing', brand: 'HydroLine' },
+  'sanitaryware': { categorySlug: 'bath-fittings-sanitary', brand: 'Sanivo' },
+  'adhesives-chemicals': { categorySlug: 'adhesive-waterproofing', brand: 'Bondex' },
+  'structural-steel': { categorySlug: 'structural-steel', brand: 'Strongfab' },
+  'safety-equipment': { categorySlug: 'safety-equipment', brand: 'SafeSite' },
+  'architectural-glass': { categorySlug: 'tiles' },
+};
+
 export default function CategoriesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedBrand, setSelectedBrand] = useState<string>('all');
@@ -32,20 +47,26 @@ export default function CategoriesPage() {
     setSelectedBrand('all');
   };
 
-  // Auto-select category and brand from URL search params or hash
+  // Auto-select category, brand, and search query from URL search params or hash
   useEffect(() => {
     const syncFromUrl = () => {
       if (typeof window !== 'undefined') {
         const searchParams = new URLSearchParams(window.location.search);
         const qCat = searchParams.get('category');
         const qBrand = searchParams.get('brand');
+        const qSearch = searchParams.get('q') || searchParams.get('search');
         const rawHash = (window.location.hash || '').replace(/^#/, '').trim();
 
-        const targetCat = qCat || rawHash;
-        if (targetCat) {
-          const catExists = CATEGORIES.find((c) => c.slug === targetCat);
+        if (qSearch !== null && qSearch !== undefined) {
+          setSearchQuery(qSearch);
+        }
+
+        const target = qCat || rawHash;
+        if (target) {
+          // Direct Category match
+          const catExists = CATEGORIES.find((c) => c.slug === target);
           if (catExists) {
-            setSelectedCategory(targetCat);
+            setSelectedCategory(target);
             if (qBrand) {
               setSelectedBrand(qBrand);
             } else {
@@ -53,6 +74,32 @@ export default function CategoriesPage() {
             }
             return;
           }
+
+          // Alias match
+          if (CATEGORY_ALIASES[target]) {
+            const alias = CATEGORY_ALIASES[target];
+            setSelectedCategory(alias.categorySlug);
+            if (qBrand) {
+              setSelectedBrand(qBrand);
+            } else if (alias.brand) {
+              setSelectedBrand(alias.brand);
+            } else {
+              setSelectedBrand('all');
+            }
+            return;
+          }
+
+          // Direct Brand match
+          const isBrand = PRODUCTS.find((p) => p.brand.toLowerCase() === target.toLowerCase());
+          if (isBrand) {
+            setSelectedCategory('all');
+            setSelectedBrand(isBrand.brand);
+            return;
+          }
+        }
+
+        if (qBrand) {
+          setSelectedBrand(qBrand);
         }
       }
     };
@@ -95,11 +142,15 @@ export default function CategoriesPage() {
         const matchName = p.name.toLowerCase().includes(query);
         const matchBrand = p.brand.toLowerCase().includes(query);
         const matchCategory = p.category.toLowerCase().includes(query);
-        if (!matchName && !matchBrand && !matchCategory) return false;
+        const matchSubCategory = p.subCategory ? p.subCategory.toLowerCase().includes(query) : false;
+        const matchDesc = p.description.toLowerCase().includes(query);
+        const matchSpecs = p.specs ? Object.values(p.specs).some((v) => v.toLowerCase().includes(query)) : false;
+        if (!matchName && !matchBrand && !matchCategory && !matchSubCategory && !matchDesc && !matchSpecs) return false;
       }
       return true;
     });
   }, [selectedCategory, selectedBrand, selectedSla, onlyPrivateLabels, searchQuery]);
+
 
   return (
     <div style={{ background: '#F8FAFC', minHeight: '80vh', padding: '24px 0 60px 0' }}>

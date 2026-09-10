@@ -29,7 +29,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 142,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Hardware_and_Fittings.webp',
+    image: '/images/products/jsw-neosteel-fe550d-12mm.svg',
     specs: {
       'Steel Grade': 'Fe 550D (IS 1786:2008)',
       'Diameter': '12 mm',
@@ -39,7 +39,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 2,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Hardware_and_Fittings.webp',
+    brandLogo: '/images/brands/jsw.svg',
     featuredPromo: true,
   },
   {
@@ -66,7 +66,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 98,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Hardware_and_Fittings.webp',
+    image: '/images/products/sail-tmt-fe500d-16mm.svg',
     specs: {
       'Steel Grade': 'Fe 500D (IS 1786)',
       'Diameter': '16 mm',
@@ -101,7 +101,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 96,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Hardware_and_Fittings.webp',
+    image: '/images/products/tuffar-tmt-12mm.svg',
     specs: {
       'Steel Grade': 'Fe 550D (IS 1786:2008)',
       'Diameter': '12 mm',
@@ -141,7 +141,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 65,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Plywood_and_Boards.webp',
+    image: '/images/products/jk-smartblox-600x200x150.svg',
     specs: {
       'Dimensions': '600 x 200 x 150 mm',
       'Dry Density': '550 - 650 kg/m³',
@@ -175,7 +175,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 51,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Plywood_and_Boards.webp',
+    image: '/images/products/nxt-bloc-lightweight-aac.svg',
     specs: {
       'Dimensions': '600 x 200 x 200 mm',
       'Dry Density': '600 kg/m³',
@@ -213,7 +213,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 215,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Building_Materials.webp',
+    image: '/images/products/ultratech-super-cement-ppc.svg',
     specs: {
       'Grade': 'PPC (IS 1489 Part 1: 2015)',
       'Strength at 28 Days': '48+ MPa',
@@ -222,7 +222,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 10,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Building_Materials.webp',
+    brandLogo: '/images/brands/sail.svg',
     featuredPromo: true,
   },
   {
@@ -249,7 +249,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 78,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Building_Materials.webp',
+    image: '/images/products/wonder-cement-opc-53.svg',
     specs: {
       'Grade': 'OPC 53 (IS 269:2015)',
       'Compressive Strength': '58+ MPa',
@@ -284,7 +284,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 84,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Building_Materials.webp',
+    image: '/images/products/cemxtra-opc-53.svg',
     specs: {
       'Grade': 'OPC 53 (IS 269:2015)',
       'Compressive Strength (28 Days)': '58+ MPa',
@@ -324,7 +324,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 39,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Plywood_and_Boards.webp',
+    image: '/images/products/zmartbuild-wall-panel-nxt-bloc.svg',
     specs: {
       'Dimensions': '3000 x 600 x 100 mm',
       'Internal Reinforcement': 'Double Layer Welded Steel Mesh',
@@ -359,7 +359,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 43,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Plywood_and_Boards.webp',
+    image: '/images/products/ezywall-aac-panel-100.svg',
     specs: {
       'Dimensions': '3000 x 600 x 100 mm',
       'Dry Density': '550 - 650 kg/m³',
@@ -399,7 +399,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 184,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    image: '/images/products/dr-fixit-101-lw-waterproofing.svg',
     specs: {
       'Dosage': '200 ml per 50kg bag of cement',
       'Chloride Content': 'Nil (Zero steel corrosion)',
@@ -408,7 +408,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 1,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    brandLogo: '/images/brands/wonder-cement.svg',
     featuredPromo: true,
   },
   {
@@ -436,7 +436,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 92,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    image: '/images/products/roff-t01-nca-tile-adhesive.svg',
     specs: {
       'Classification': 'Type 1 / IS 15477:2019',
       'Bed Thickness': '3 - 6 mm',
@@ -470,7 +470,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 61,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    image: '/images/products/sika-latex-power-waterproofing.svg',
     specs: {
       'Polymer Base': 'Styrene Butadiene Rubber (SBR)',
       'Bond Strength': '> 2.0 N/mm²',
@@ -504,7 +504,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 88,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    image: '/images/products/bondex-gold-adhesive.svg',
     specs: {
       'Classification': 'Type 2 / C2TE (IS 15477:2019)',
       'Bed Thickness': '3 - 12 mm',
@@ -544,7 +544,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 164,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Plumbing.webp',
+    image: '/images/products/astral-cpvc-pro-pipe-1inch.svg',
     specs: {
       'Nominal Diameter': '1 Inch (25 mm)',
       'Pressure Class': 'SDR 11 (Class 1)',
@@ -553,7 +553,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 1,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Plumbing.webp',
+    brandLogo: '/images/brands/roff.svg',
     featuredPromo: true,
   },
   {
@@ -580,7 +580,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 95,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Plumbing.webp',
+    image: '/images/products/ashirvad-flowguard-cpvc-pipe-34inch.svg',
     specs: {
       'Diameter': '3/4 Inch (20 mm)',
       'Rating': 'SDR 11',
@@ -613,7 +613,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 71,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Plumbing.webp',
+    image: '/images/products/supreme-lifeline-cpvc-pipe.svg',
     specs: {
       'Size': '1 Inch',
       'Standard': 'IS 15778',
@@ -647,7 +647,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 77,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Plumbing.webp',
+    image: '/images/products/hydroline-cpvc-pipe-1inch.svg',
     specs: {
       'Nominal Diameter': '1 Inch (25 mm)',
       'Standard Dimension Ratio': 'SDR 11 (Class 1)',
@@ -687,7 +687,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 126,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    image: '/images/products/hindware-elegance-aura-wall-hung-toilet.svg',
     specs: {
       'Collection': 'Hindware Italian Collection',
       'Flushing': '360° Tornado Rimless',
@@ -697,7 +697,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 1,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    brandLogo: '/images/brands/ashirvad.svg',
     featuredPromo: true,
   },
   {
@@ -724,7 +724,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 88,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    image: '/images/products/jaquar-queen-single-lever-diverter.svg',
     specs: {
       'Material': 'Grade A Solid Forged Brass',
       'Plating': 'Nickel 12 Micron + Chrome 0.3 Micron',
@@ -758,7 +758,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 42,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    image: '/images/products/duravit-me-by-starck-washbasin.svg',
     specs: {
       'Dimensions': '600 x 400 x 140 mm',
       'Finish': 'WonderGliss Alpine White',
@@ -792,7 +792,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 54,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    image: '/images/products/sanivo-rimless-ewc.svg',
     specs: {
       'Dimensions': '530 x 365 x 350 mm',
       'Flushing Technology': 'Tornado 360° Rimless Washdown',
@@ -831,7 +831,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 79,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Tiles.webp',
+    image: '/images/products/qutone-marmo-royal-vitrified-tile.svg',
     specs: {
       'Size': '600 x 1200 mm (2x4 ft)',
       'Thickness': '9.0 mm',
@@ -840,7 +840,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 2,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Tiles.webp',
+    brandLogo: '/images/brands/jaquar.svg',
     featuredPromo: true,
   },
   {
@@ -867,7 +867,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 48,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Tiles.webp',
+    image: '/images/products/varmora-carving-matt-vitrified-tile.svg',
     specs: {
       'Size': '600 x 600 mm (2x2 ft)',
       'Finish': 'Micro Carving Satin Matte',
@@ -901,7 +901,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 112,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Tiles.webp',
+    image: '/images/products/tiletrendz-calacatta-gold.svg',
     specs: {
       'Size': '600 x 1200 mm (2x4 ft)',
       'Thickness': '9.0 mm',
@@ -941,7 +941,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 52,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    image: '/images/products/geberit-sigma-concealed-cistern.svg',
     specs: {
       'Brand Origin': 'Geberit Switzerland',
       'Flush Volume': '3 Litre (Half) / 6 Litre (Full)',
@@ -951,7 +951,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 1,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    brandLogo: '/images/brands/varmora.svg',
     featuredPromo: true,
   },
   {
@@ -978,7 +978,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 33,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    image: '/images/products/tece-base-concealed-cistern-module.svg',
     specs: {
       'Country of Design': 'Germany',
       'Load Capacity': '400 kg Load Tested',
@@ -1015,7 +1015,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 67,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Kitchen.webp',
+    image: '/images/products/franke-maris-ss304-undermount-sink.svg',
     specs: {
       'Steel Grade': 'AISI SS 304 Food Grade (1.2mm Heavy Gauge)',
       'Dimensions': '610 x 457 x 228 mm (24x18x9 Inch)',
@@ -1024,7 +1024,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 1,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Kitchen.webp',
+    brandLogo: '/images/brands/tece.svg',
     featuredPromo: true,
   },
   {
@@ -1051,7 +1051,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 41,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Kitchen.webp',
+    image: '/images/products/hindware-quadra-satin-ss-sink.svg',
     specs: {
       'Material': 'SS 304 Stainless Steel',
       'Size': '940 x 460 x 200 mm',
@@ -1089,7 +1089,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 29,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Heating_and_AC.webp',
+    image: '/images/products/giacomini-hydronic-underfloor-pex-cooling-pipe.svg',
     specs: {
       'Manufacturer': 'Giacomini S.p.A. Italy',
       'Diameter': '16 mm OD x 2.0 mm Wall',
@@ -1099,7 +1099,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 1,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Heating_and_AC.webp',
+    brandLogo: '/images/brands/hindware.svg',
     featuredPromo: true,
   },
 
@@ -1130,7 +1130,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 19,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    image: '/images/products/acquaviva-whirlpool-hydro-massage-bathtub.svg',
     specs: {
       'Dimensions': '1700 x 800 x 650 mm',
       'Pump Power': '1.5 HP Silent Water Hydro Pump',
@@ -1139,7 +1139,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 1,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    brandLogo: '/images/brands/acquaviva.svg',
     featuredPromo: true,
   },
 
@@ -1171,7 +1171,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 148,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    image: '/images/products/birla-opus-style-perfect-start-primer.svg',
     specs: {
       'Sheen Level': 'Soft Velvety Sheen',
       'Coverage': '140 - 160 sq.ft/Litre for 2 coats',
@@ -1180,7 +1180,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 1,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    brandLogo: '/images/brands/birla-opus.svg',
     featuredPromo: true,
   },
   {
@@ -1207,7 +1207,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 82,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    image: '/images/products/birla-opus-calista-luxury-emulsion.svg',
     specs: {
       'Heat Reflectance': 'SRI > 105 (Cool Wall Tech)',
       'Monsoon Warranty': '10 Years Performance Guarantee',
@@ -1245,7 +1245,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 167,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Building_Materials.webp',
+    image: '/images/products/birla-white-wallcare-putty-40kg.svg',
     specs: {
       'Material': 'White Cement + Redispersible HP Polymers',
       'Tensile Adhesion': '> 1.1 N/mm²',
@@ -1254,7 +1254,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 2,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Building_Materials.webp',
+    brandLogo: '/images/brands/birla-opus.svg',
     featuredPromo: true,
   },
   {
@@ -1281,7 +1281,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 54,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Building_Materials.webp',
+    image: '/images/products/jk-lakshmiplast-gypsum-putty.svg',
     specs: {
       'Setting Time': '15 - 20 Minutes',
       'Dry Bulk Density': '800 kg/m³',
@@ -1318,7 +1318,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 64,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Plumbing.webp',
+    image: '/images/products/lidco-ss304-linear-floor-drain-channel.svg',
     specs: {
       'Steel Grade': 'AISI 304 Stainless Steel (1.5mm Channel)',
       'Dimensions': '600 mm Length x 70 mm Width x 25 mm Depth',
@@ -1327,7 +1327,7 @@ export const PRODUCTS: Product[] = [
     },
     datasheetUrl: '#',
     minOrderQty: 1,
-    brandLogo: 'https://cdn.madoverbuildings.com/category/category/Plumbing.webp',
+    brandLogo: '/images/brands/jk-lakshmiplast.svg',
     featuredPromo: true,
   },
 
@@ -1340,8 +1340,8 @@ export const PRODUCTS: Product[] = [
     name: 'Strongfab Structural ISMB I-Beam (150 x 75 mm)',
     brand: 'Strongfab',
     isPrivateLabel: true,
-    category: 'TMT Bars',
-    categorySlug: 'tmt-bars',
+    category: 'Structural Steel',
+    categorySlug: 'structural-steel',
     subCategory: 'I-Beams & Channels',
     description: 'Hot-rolled structural steel joist/beam for warehouse PEB frames, mezzanine floors, and crane runways. Certified carbon content under 0.22% with laser-straight flange tolerances.',
     unit: 'Meter Length (15 kg/m)',
@@ -1359,7 +1359,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 31,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Tools_Equipment_and_Safety.webp',
+    image: '/images/products/strongfab-i-beam-150.svg',
     specs: {
       'Grade': 'IS 2062 E250BR / Fe410WA',
       'Web Thickness': '5.0 mm',
@@ -1375,8 +1375,8 @@ export const PRODUCTS: Product[] = [
     name: 'SafeSite Heavy-Duty Industrial Safety Helmet with Ratchet Suspension',
     brand: 'SafeSite',
     isPrivateLabel: false,
-    category: 'Drainage Solution',
-    categorySlug: 'drainage-solution',
+    category: 'Safety & Site Equipment',
+    categorySlug: 'safety-equipment',
     subCategory: 'Head Protection',
     description: 'Impact-resistant ABS shell safety helmet with adjustable 6-point textile harness, sweatband, and quick-turn ratchet wheel. Meets IS 2925 electrical insulation requirements.',
     unit: 'Piece',
@@ -1394,7 +1394,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 92,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Tools_Equipment_and_Safety.webp',
+    image: '/images/products/safesite-helmet-ratchet.svg',
     specs: {
       'Material': 'Virgin Virgin Acrylonitrile Butadiene Styrene (ABS)',
       'Standard': 'IS 2925:1984 & CE EN 397',
@@ -1427,7 +1427,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 45,
     qrBatchVerified: true,
     bisCertified: true,
-    image: 'https://cdn.madoverbuildings.com/category/category/Hardware_and_Fittings.webp',
+    image: '/images/products/gripfit-anchor-bolt-m12.svg',
     specs: {
       'Size': 'M12 Diameter x 100 mm Length',
       'Finish': 'Yellow Zinc Plated (5-8 Micron)',

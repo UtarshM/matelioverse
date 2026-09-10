@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="prodBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="url(#prodBg)" />
+  
+  <!-- Subtle Brand Watermark -->
+  <text x="200" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" fill="#0F172A" opacity="0.03" text-anchor="middle">ROFF</text>
+
+  <!-- Product Illustration -->
+  <g filter="url(#cardShadow)">
+    
+      <g transform="translate(115, 30)">
+        <path d="M20,30 Q85,15 150,30 L160,195 Q85,210 10,195 Z" fill="#F8FAFC" stroke="#DC2626" stroke-width="3"/>
+        <line x1="15" y1="28" x2="155" y2="28" stroke="#DC2626" stroke-width="5" stroke-dasharray="6,3"/>
+
+        <rect x="18" y="70" width="134" height="65" fill="#DC2626"/>
+        <text x="85" y="97" font-family="Arial, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" text-anchor="middle">ROFF</text>
+        <text x="85" y="115" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FEF08A" text-anchor="middle">T01 NCA ADHESIVE</text>
+        <text x="85" y="128" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF" text-anchor="middle">NEW CONSTRUCTION · 20 KG</text>
+
+        <!-- Tile pattern icon -->
+        <rect x="70" y="150" width="30" height="30" fill="#E2E8F0" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="85" y1="150" x2="85" y2="180" stroke="#DC2626" stroke-width="2"/>
+        <line x1="70" y1="165" x2="100" y2="165" stroke="#DC2626" stroke-width="2"/>
+      </g>
+    
+  </g>
+
+  <!-- Product Bottom Quality & Spec Bar -->
+  <g transform="translate(16, 256)">
+    <rect width="368" height="30" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="8" y="5" width="6" height="20" rx="3" fill="#DC2626"/>
+    <text x="22" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#DC2626">ROFF</text>
+    <text x="358" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#64748B" text-anchor="end">Polymer Modified Tile Adhesive Bag</text>
+  </g>
+</svg>

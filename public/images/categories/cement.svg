@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </radialGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  <!-- Studio Backdrop -->
+  <rect width="400" height="300" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Main Illustration with Shadow -->
+  <g filter="url(#dropShadow)">
+    
+      <g transform="translate(120, 35)">
+        <!-- Cement Sack Body -->
+        <path d="M20,30 Q80,15 140,30 L150,190 Q80,205 10,190 Z" fill="#E2E8F0" stroke="#64748B" stroke-width="3"/>
+        <path d="M15,35 L145,35 L140,185 L20,185 Z" fill="#F8FAFC"/>
+        <!-- Stitched Top -->
+        <line x1="15" y1="28" x2="145" y2="28" stroke="#DC2626" stroke-width="4" stroke-dasharray="6,3"/>
+        <!-- Brand Band -->
+        <rect x="18" y="70" width="124" height="60" fill="#DC2626"/>
+        <text x="80" y="96" font-family="Arial, sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle">CEMENT</text>
+        <text x="80" y="116" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FEF08A" text-anchor="middle">50 KG NET</text>
+        <rect x="50" y="145" width="60" height="22" rx="4" fill="#E2E8F0" stroke="#64748B"/>
+        <text x="80" y="160" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E293B" text-anchor="middle">OPC 53 / PPC</text>
+      </g>
+    
+  </g>
+  
+  <!-- Category Info Bottom Strip -->
+  <g transform="translate(20, 255)">
+    <rect width="360" height="32" rx="8" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="14" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Cement & GGBS</text>
+    <rect x="250" y="6" width="96" height="20" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="298" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle">OPC 53 / PPC</text>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="prodBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="url(#prodBg)" />
+  
+  <!-- Subtle Brand Watermark -->
+  <text x="200" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" fill="#0F172A" opacity="0.03" text-anchor="middle">BIRLA WHITE</text>
+
+  <!-- Product Illustration -->
+  <g filter="url(#cardShadow)">
+    
+      <g transform="translate(110, 30)">
+        <path d="M20,30 L160,30 L150,195 L30,195 Z" fill="#FFFFFF" stroke="#16A34A" stroke-width="3"/>
+        <line x1="15" y1="28" x2="165" y2="28" stroke="#16A34A" stroke-width="4" stroke-dasharray="6,3"/>
+
+        <rect x="25" y="70" width="130" height="55" fill="#16A34A"/>
+        <text x="90" y="96" font-family="Arial, sans-serif" font-size="13" font-weight="900" fill="#FFFFFF" text-anchor="middle">BIRLA WHITE</text>
+        <text x="90" y="114" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#DCFCE7" text-anchor="middle">WALLCARE PUTTY</text>
+
+        <circle cx="90" cy="155" r="18" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/>
+        <text x="90" y="159" font-family="Arial, sans-serif" font-size="10" font-weight="900" fill="#16A34A" text-anchor="middle">40 KG</text>
+      </g>
+    
+  </g>
+
+  <!-- Product Bottom Quality & Spec Bar -->
+  <g transform="translate(16, 256)">
+    <rect width="368" height="30" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="8" y="5" width="6" height="20" rx="3" fill="#16A34A"/>
+    <text x="22" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#16A34A">BIRLA WHITE</text>
+    <text x="358" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#64748B" text-anchor="end">Water-Resistant White Cement Wall Putty</text>
+  </g>
+</svg>

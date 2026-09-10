@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </radialGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  <!-- Studio Backdrop -->
+  <rect width="400" height="300" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Main Illustration with Shadow -->
+  <g filter="url(#dropShadow)">
+    
+      <g transform="translate(100, 35)">
+        <!-- Paint Bucket -->
+        <path d="M30,60 L45,180 Q100,195 155,180 L170,60 Z" fill="#F8FAFC" stroke="#64748B" stroke-width="2.5"/>
+        <!-- Metal Rim & Handle -->
+        <ellipse cx="100" cy="60" rx="70" ry="16" fill="#E2E8F0" stroke="#475569" stroke-width="3"/>
+        <path d="M25,60 Q100,0 175,60" fill="none" stroke="#334155" stroke-width="4"/>
+        <!-- Paint Splash Banner -->
+        <path d="M35,100 L165,100 L158,150 L42,150 Z" fill="#3B82F6"/>
+        <text x="100" y="130" font-family="Arial, sans-serif" font-size="13" font-weight="900" fill="#FFFFFF" text-anchor="middle">LUXURY PAINT</text>
+        <!-- Dripping Paint Drop -->
+        <path d="M140,150 Q140,170 145,170 Q150,170 150,150 Z" fill="#3B82F6"/>
+      </g>
+    
+  </g>
+  
+  <!-- Category Info Bottom Strip -->
+  <g transform="translate(20, 255)">
+    <rect width="360" height="32" rx="8" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="14" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Paints & Coatings</text>
+    <rect x="250" y="6" width="96" height="20" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="298" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle">Interior / Exterior</text>
+  </g>
+</svg>

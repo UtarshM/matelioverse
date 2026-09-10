@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </radialGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  <!-- Studio Backdrop -->
+  <rect width="400" height="300" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Main Illustration with Shadow -->
+  <g filter="url(#dropShadow)">
+    
+      <g transform="translate(60, 45)">
+        <!-- Pipe bundle -->
+        <rect x="20" y="50" width="240" height="24" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+        <line x1="20" y1="62" x2="260" y2="62" stroke="#DC2626" stroke-width="3"/>
+        <rect x="30" y="85" width="240" height="28" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+        <line x1="30" y1="99" x2="270" y2="99" stroke="#DC2626" stroke-width="3"/>
+        <rect x="10" y="125" width="250" height="34" rx="17" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+        <line x1="10" y1="142" x2="260" y2="142" stroke="#DC2626" stroke-width="3"/>
+        <!-- Brass Elbow / Fitting -->
+        <path d="M210,105 L260,105 Q285,105 285,130 L285,180" fill="none" stroke="#F59E0B" stroke-width="18" stroke-linecap="round"/>
+        <path d="M210,105 L260,105 Q285,105 285,130 L285,180" fill="none" stroke="#B45309" stroke-width="6" stroke-linecap="round"/>
+      </g>
+    
+  </g>
+  
+  <!-- Category Info Bottom Strip -->
+  <g transform="translate(20, 255)">
+    <rect width="360" height="32" rx="8" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="14" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Plumbing & Pipes</text>
+    <rect x="250" y="6" width="96" height="20" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="298" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle">CPVC / UPVC / SWR</text>
+  </g>
+</svg>

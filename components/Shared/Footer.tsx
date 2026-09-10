@@ -89,20 +89,28 @@ export default function Footer() {
         </div>
 
         {/* Category Pills in Footer */}
+        {/* Category & Brand Pills in Footer */}
         <div className="footer-categories-block">
-          <h4 className="footer-col-h4" style={{ marginBottom: 0 }}>Active Categories</h4>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 10 }}>
+            <h4 className="footer-col-h4" style={{ margin: 0 }}>Active Categories &amp; Direct-from-Plant Brands</h4>
+            <Link href="/categories" style={{ fontSize: 12.5, color: '#F97938', fontWeight: 700, textDecoration: 'none' }}>
+              Explore Full Catalog ›
+            </Link>
+          </div>
           <div className="footer-cat-pills-flex">
-            <Link href="/categories#cement-ggbs" className="footer-cat-pill">CemXtra Cement</Link>
-            <Link href="/categories#aac-panels" className="footer-cat-pill">EzyWall AAC Panels</Link>
-            <Link href="/categories#tmt-steel" className="footer-cat-pill">Tuffar TMT Steel</Link>
-            <Link href="/categories#tiles-surfaces" className="footer-cat-pill">TileTrendz Tiles</Link>
-            <Link href="/categories#plumbing-pipes" className="footer-cat-pill">HydroLine Plumbing</Link>
-            <Link href="/categories#sanitaryware" className="footer-cat-pill">Sanivo Sanitaryware</Link>
-            <Link href="/categories#adhesives-chemicals" className="footer-cat-pill">Bondex Adhesives</Link>
-            <Link href="/categories#structural-steel" className="footer-cat-pill">Strongfab Steel</Link>
-            <Link href="/categories#architectural-glass" className="footer-cat-pill">ReflectoGlass</Link>
+            <Link href="/categories?category=tmt-bars&brand=Tuffar#tmt-bars" className="footer-cat-pill">Tuffar TMT Steel</Link>
+            <Link href="/categories?category=cement&brand=CemXtra#cement" className="footer-cat-pill">CemXtra Cement</Link>
+            <Link href="/categories?category=aac-wall-panel&brand=EzyWall#aac-wall-panel" className="footer-cat-pill">EzyWall AAC Panels</Link>
+            <Link href="/categories?category=aac-blocks#aac-blocks" className="footer-cat-pill">AAC Blocks (JK &amp; NXT)</Link>
+            <Link href="/categories?category=tiles&brand=TileTrendz#tiles" className="footer-cat-pill">TileTrendz GVT Tiles</Link>
+            <Link href="/categories?category=plumbing&brand=HydroLine#plumbing" className="footer-cat-pill">HydroLine CPVC Pipes</Link>
+            <Link href="/categories?category=bath-fittings-sanitary&brand=Sanivo#bath-fittings-sanitary" className="footer-cat-pill">Sanivo Sanitaryware</Link>
+            <Link href="/categories?category=adhesive-waterproofing&brand=Bondex#adhesive-waterproofing" className="footer-cat-pill">Bondex Adhesives</Link>
+            <Link href="/categories?category=structural-steel&brand=Strongfab#structural-steel" className="footer-cat-pill">Strongfab Structural Steel</Link>
+            <Link href="/categories?category=safety-equipment#safety-equipment" className="footer-cat-pill">SafeSite Safety PPE</Link>
           </div>
         </div>
+
 
         {/* Bottom Copyright & Legal Row */}
         <div className="footer-bottom-bar">

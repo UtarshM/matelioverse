@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="prodBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="url(#prodBg)" />
+  
+  <!-- Subtle Brand Watermark -->
+  <text x="200" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" fill="#0F172A" opacity="0.03" text-anchor="middle">DURAVIT</text>
+
+  <!-- Product Illustration -->
+  <g filter="url(#cardShadow)">
+    
+      <g transform="translate(70, 50)">
+        <!-- Countertop Ceramic Basin -->
+        <polygon points="30,70 230,70 210,160 50,160" fill="#FFFFFF" stroke="#64748B" stroke-width="3"/>
+        <ellipse cx="130" cy="70" rx="100" ry="25" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2"/>
+        <circle cx="130" cy="115" r="12" fill="#E2E8F0" stroke="#64748B" stroke-width="2"/>
+        <circle cx="130" cy="115" r="6" fill="#334155"/>
+        <text x="130" y="55" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#475569" text-anchor="middle">DURAVIT ME BY STARCK</text>
+      </g>
+    
+  </g>
+
+  <!-- Product Bottom Quality & Spec Bar -->
+  <g transform="translate(16, 256)">
+    <rect width="368" height="30" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="8" y="5" width="6" height="20" rx="3" fill="#1E293B"/>
+    <text x="22" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#1E293B">DURAVIT</text>
+    <text x="358" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#64748B" text-anchor="end">Ceramic Countertop Vanity Basin</text>
+  </g>
+</svg>

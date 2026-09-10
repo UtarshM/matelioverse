@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="prodBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="url(#prodBg)" />
+  
+  <!-- Subtle Brand Watermark -->
+  <text x="200" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" fill="#0F172A" opacity="0.03" text-anchor="middle">ASHIRVAD BY ALIAXIS</text>
+
+  <!-- Product Illustration -->
+  <g filter="url(#cardShadow)">
+    
+      <g transform="translate(50, 45)">
+        <rect x="10" y="45" width="280" height="26" rx="13" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+        <line x1="10" y1="58" x2="290" y2="58" stroke="#2563EB" stroke-width="3.5"/>
+        
+        <rect x="20" y="85" width="280" height="30" rx="15" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+        <line x1="20" y1="100" x2="300" y2="100" stroke="#2563EB" stroke-width="4"/>
+
+        <rect x="0" y="130" width="290" height="28" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+        <line x1="0" y1="144" x2="290" y2="144" stroke="#DC2626" stroke-width="3.5"/>
+
+        <g transform="translate(130, 85)">
+          <text x="30" y="18" font-family="Arial, sans-serif" font-size="10.5" font-weight="900" fill="#2563EB">ASHIRVAD FLOWGUARD</text>
+          <text x="30" y="27" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#DC2626">3/4 INCH · 3 METERS</text>
+        </g>
+      </g>
+    
+  </g>
+
+  <!-- Product Bottom Quality & Spec Bar -->
+  <g transform="translate(16, 256)">
+    <rect width="368" height="30" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="8" y="5" width="6" height="20" rx="3" fill="#2563EB"/>
+    <text x="22" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#2563EB">ASHIRVAD BY ALIAXIS</text>
+    <text x="358" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#64748B" text-anchor="end">FlowGuard Gold Technology · Hot & Cold</text>
+  </g>
+</svg>

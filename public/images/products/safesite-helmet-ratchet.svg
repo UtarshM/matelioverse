@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="prodBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="url(#prodBg)" />
+  
+  <!-- Subtle Brand Watermark -->
+  <text x="200" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" fill="#0F172A" opacity="0.03" text-anchor="middle">SAFESITE</text>
+
+  <!-- Product Illustration -->
+  <g filter="url(#cardShadow)">
+    
+      <g transform="translate(100, 45)">
+        <!-- Industrial Safety Helmet (High Visibility Yellow) -->
+        <path d="M20,130 Q20,40 100,40 Q180,40 180,130 Q195,135 195,145 L5,145 Q5,135 20,130 Z" fill="#EAB308" stroke="#CA8A04" stroke-width="3"/>
+        <!-- Brim and Peak -->
+        <path d="M5,145 Q100,165 195,145 L200,150 Q100,175 0,150 Z" fill="#CA8A04"/>
+        <!-- Center Crown Ridge -->
+        <path d="M100,40 L100,135" stroke="#CA8A04" stroke-width="5"/>
+        <circle cx="100" cy="100" r="14" fill="#1E293B"/>
+        <text x="100" y="104" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">CE</text>
+      </g>
+    
+  </g>
+
+  <!-- Product Bottom Quality & Spec Bar -->
+  <g transform="translate(16, 256)">
+    <rect width="368" height="30" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="8" y="5" width="6" height="20" rx="3" fill="#EAB308"/>
+    <text x="22" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#EAB308">SAFESITE</text>
+    <text x="358" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#64748B" text-anchor="end">ABS Shell · 6-Point Suspension · IS 2925</text>
+  </g>
+</svg>

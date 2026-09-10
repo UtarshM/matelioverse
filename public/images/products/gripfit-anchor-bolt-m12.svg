@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="prodBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="url(#prodBg)" />
+  
+  <!-- Subtle Brand Watermark -->
+  <text x="200" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" fill="#0F172A" opacity="0.03" text-anchor="middle">GRIPFIT</text>
+
+  <!-- Product Illustration -->
+  <g filter="url(#cardShadow)">
+    
+      <g transform="translate(65, 45)">
+        <!-- Wedge Anchor Bolt with Nut & Washer -->
+        <rect x="30" y="80" width="220" height="18" rx="4" fill="#EAB308" stroke="#B45309" stroke-width="2"/>
+        <!-- Threading lines -->
+        
+          <line x1="40" y1="80" x2="45" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="50" y1="80" x2="55" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="60" y1="80" x2="65" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="70" y1="80" x2="75" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="80" y1="80" x2="85" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="90" y1="80" x2="95" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="100" y1="80" x2="105" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="110" y1="80" x2="115" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="120" y1="80" x2="125" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="130" y1="80" x2="135" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="140" y1="80" x2="145" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+          <line x1="150" y1="80" x2="155" y2="98" stroke="#B45309" stroke-width="2.5"/>
+        
+        <!-- Hex Nut -->
+        <polygon points="160,70 180,70 190,89 180,108 160,108 150,89" fill="#CA8A04" stroke="#78350F" stroke-width="2"/>
+        <!-- Washer -->
+        <rect x="190" y="72" width="8" height="34" fill="#78350F" rx="2"/>
+        <!-- Expansion Wedge Clip -->
+        <polygon points="230,76 255,89 230,102" fill="#CA8A04" stroke="#78350F" stroke-width="2"/>
+        <g transform="translate(70, 130)">
+          <rect width="120" height="28" rx="4" fill="#1E293B"/>
+          <text x="60" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FDE047" text-anchor="middle">GRIPFIT M12x100mm</text>
+        </g>
+      </g>
+    
+  </g>
+
+  <!-- Product Bottom Quality & Spec Bar -->
+  <g transform="translate(16, 256)">
+    <rect width="368" height="30" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="8" y="5" width="6" height="20" rx="3" fill="#EAB308"/>
+    <text x="22" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#EAB308">GRIPFIT</text>
+    <text x="358" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#64748B" text-anchor="end">High-Strength Yellow Zinc Plated Concrete Bolts</text>
+  </g>
+</svg>
