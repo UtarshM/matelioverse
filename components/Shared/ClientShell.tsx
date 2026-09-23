@@ -8,6 +8,7 @@ import CartDrawer from '@/components/Commerce/CartDrawer';
 import CheckoutModal from '@/components/Commerce/CheckoutModal';
 import LoginModal from '@/components/Shared/LoginModal';
 import LoyaltyModal from '@/components/B2B/LoyaltyModal';
+import OrderTrackingModal from '@/components/Commerce/OrderTrackingModal';
 import MobileDrawer from '@/components/Shared/MobileDrawer';
 import MobileBottomNav from '@/components/Shared/MobileBottomNav';
 import Footer from '@/components/Shared/Footer';
@@ -16,6 +17,7 @@ import { useAuth } from '@/context/AuthContext';
 export default function ClientShell({ children }: { children: React.ReactNode }) {
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const [isLoyaltyModalOpen, setIsLoyaltyModalOpen] = useState(false);
+  const [isTrackingModalOpen, setIsTrackingModalOpen] = useState(false);
   const { isLoginModalOpen, openLoginModal, closeLoginModal } = useAuth();
 
   return (
@@ -25,6 +27,7 @@ export default function ClientShell({ children }: { children: React.ReactNode })
           onOpenMobileDrawer={() => setIsMobileDrawerOpen(true)}
           onOpenLoginModal={() => openLoginModal('login')}
           onOpenLoyaltyModal={() => setIsLoyaltyModalOpen(true)}
+          onOpenTrackingModal={() => setIsTrackingModalOpen(true)}
         />
         <SubNav />
       </header>
@@ -39,6 +42,7 @@ export default function ClientShell({ children }: { children: React.ReactNode })
       <CheckoutModal />
       <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
       <LoyaltyModal isOpen={isLoyaltyModalOpen} onClose={() => setIsLoyaltyModalOpen(false)} />
+      <OrderTrackingModal isOpen={isTrackingModalOpen} onClose={() => setIsTrackingModalOpen(false)} />
       <MobileDrawer
         isOpen={isMobileDrawerOpen}
         onClose={() => setIsMobileDrawerOpen(false)}

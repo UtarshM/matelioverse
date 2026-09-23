@@ -13,12 +13,14 @@ interface TopNavProps {
   onOpenMobileDrawer: () => void;
   onOpenLoginModal: () => void;
   onOpenLoyaltyModal: () => void;
+  onOpenTrackingModal: () => void;
 }
 
 export default function TopNav({
   onOpenMobileDrawer,
   onOpenLoginModal,
   onOpenLoyaltyModal,
+  onOpenTrackingModal,
 }: TopNavProps) {
   const router = useRouter();
   const { currentHub, pincode, openLocationModal } = useLocation();
@@ -46,14 +48,14 @@ export default function TopNav({
   }, []);
 
   const searchPhrases = [
-    'Search "TileTrendz GVT Tiles"',
-    'Search "EzyWall AAC Panels"',
-    'Search "Tuffar Fe550D TMT"',
-    'Search "CemXtra OPC 53 Cement"',
-    'Search "Sanivo Sanitaryware"',
-    'Search "HydroLine CPVC Pipes"',
+    'Search "Fe550D TMT Steel Rebar"',
     'Search "Bondex Tile Adhesives"',
-    'Search "Strongfab Structural Steel"',
+    'Search "EzyWall AAC Panels"',
+    'Search "Dr Fixit / Waterproofing"',
+    'Search "TileTrendz 600x1200mm Tiles"',
+    'Search "HydroLine CPVC 1-Inch Pipes"',
+    'Search "CemXtra OPC 53 Grade Cement"',
+    'Search "Fasteners, Blades & Tools"',
   ];
 
   useEffect(() => {
@@ -435,6 +437,31 @@ export default function TopNav({
 
         {/* Right: Referral/Cashback, Login, Cart */}
         <div className="top-nav-actions">
+          {/* Track Order Direct Button */}
+          <button
+            type="button"
+            onClick={onOpenTrackingModal}
+            className="track-order-top-btn"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 6,
+              background: '#F1F5F9',
+              border: '1.5px solid #CBD5E1',
+              borderRadius: 20,
+              padding: '6px 12px',
+              fontSize: 12.5,
+              fontWeight: 800,
+              color: '#0F172A',
+              cursor: 'pointer',
+              transition: 'all 0.15s ease',
+            }}
+            title="Track live site delivery & telematics"
+          >
+            <span style={{ fontSize: 14 }}>🚚</span>
+            <span>Track Order</span>
+          </button>
+
           {/* Matelio Cash / Refer & Earn */}
           <button
             type="button"

@@ -1,236 +1,429 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { PRODUCTS } from '@/data/products';
+import { HUBS } from '@/data/hubs';
 import ProductCard from '@/components/Commerce/ProductCard';
 import PromoBannerSlider from '@/components/Commerce/PromoBannerSlider';
 import CreditLineBanner from '@/components/B2B/CreditLineBanner';
 import { useLocation } from '@/context/LocationContext';
 
 export default function HomePage() {
-  const { currentHub, pincode, openLocationModal } = useLocation();
-  const [activeSlide, setActiveSlide] = useState(0);
+  const { currentHub, pincode, setPincode, openLocationModal } = useLocation();
+  const [inputPincode, setInputPincode] = useState(pincode);
+  const [pincodeMessage, setPincodeMessage] = useState<string | null>(null);
+  const [selectedStage, setSelectedStage] = useState<'all' | 'urgent' | 'foundation' | 'masonry' | 'finishing'>('all');
+  const [activeCityHub, setActiveCityHub] = useState<string>('ahmedabad');
 
-  const heroSlides = [
-    {
-      badge: 'Backed by BuilditIndia',
-      title: "India’s Smartest Building Materials Platform",
-      highlight: 'Building Materials',
-      desc: 'Reshaping how India sources, supplies, and scales construction material needs — with tech-first operations, powerful private labels, and a next-gen retail footprint.',
-      img: 'https://api.matelioverse.com/assets/abe9ee82-b583-4b77-add9-8ca1b4f92d5f',
-      bgClass: 'hero-slide--credit',
-      ctaText: 'Explore Catalog',
-      ctaLink: '/categories',
-    },
-    {
-      badge: 'India First · World Ready',
-      title: 'Brick & Click Strategy for Infra Entrepreneurs',
-      highlight: 'Infra Entrepreneurs',
-      desc: 'Replacing outdated inventory-led retail with demand-led, data-backed operations across franchise smart stores and online fulfillment hubs.',
-      img: 'https://api.matelioverse.com/assets/27e3d555-7957-497d-b77c-031ffb8931ac',
-      bgClass: 'hero-slide--refer',
-      ctaText: 'Join Franchise Network',
-      ctaLink: '/partner',
-    },
-    {
-      badge: 'Proprietary Private Labels',
-      title: 'Stronger Margins. Stronger Brands.',
-      highlight: 'Stronger Brands.',
-      desc: 'Own-brands like TileTrendz, Tuffar, EzyWall, CemXtra, Bondex, and Sanivo give dealers 20-35% higher margins while buyers get verified quality.',
-      img: 'https://api.matelioverse.com/assets/c57b078c-15c5-43f9-a882-e256024915ce',
-      bgClass: 'hero-slide--materials',
-      ctaText: 'Explore Private Labels',
-      ctaLink: '/categories',
-    },
-  ];
+  const handleCheckPincode = (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleanPin = inputPincode.trim();
+    if (cleanPin.length === 6) {
+      setPincode(cleanPin);
+      setPincodeMessage(`⚡ 90-Minute Express Delivery is Active for Pincode ${cleanPin}!`);
+    } else {
+      setPincodeMessage('Please enter a valid 6-digit postal code.');
+    }
+  };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 4800);
-    return () => clearInterval(timer);
-  }, [heroSlides.length]);
-
+  // Filter products by SLA type & project stage
   const instantProducts = PRODUCTS.filter((p) => p.slaType === 'instant');
   const heavyMaterials = PRODUCTS.filter((p) => p.slaType === 'scheduled');
+
+  const filteredInstantProducts = instantProducts.filter((p) => {
+    if (selectedStage === 'all' || selectedStage === 'urgent') return true;
+    if (selectedStage === 'foundation') return p.categorySlug.includes('cement') || p.categorySlug.includes('steel');
+    if (selectedStage === 'masonry') return p.categorySlug.includes('aac') || p.categorySlug.includes('adhesive');
+    if (selectedStage === 'finishing') return p.categorySlug.includes('tile') || p.categorySlug.includes('sanitary') || p.categorySlug.includes('plumbing');
+    return true;
+  });
 
   return (
     <div>
       {/* ==========================================================================
-           HERO SLIDER
+           URGENT QUICK-COMMERCE SPLIT HERO (CONSUMER & CONTRACTOR FOCUS)
            ========================================================================== */}
-      <section className="hero-wrapper">
+      <section style={{ background: '#081D17', color: '#FFFFFF', padding: '28px 0 36px 0', borderBottom: '1px solid #1C5A4A' }}>
         <div className="site-container">
-          <div className="hero-slider-container" id="hero-slider">
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 24, alignItems: 'stretch' }} className="hero-split-grid">
+            
+            {/* HERO CARD 1: PRIMARY 90-MIN SITE ESSENTIALS */}
             <div
-              className="hero-track"
               style={{
-                transform: `translateX(-${activeSlide * 100}%)`,
-                transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                background: 'linear-gradient(145deg, #0E3128 0%, #133D32 100%)',
+                border: '1.5px solid #236E5A',
+                borderRadius: 24,
+                padding: '32px 28px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.35)',
               }}
             >
-              {heroSlides.map((slide, idx) => (
-                <div key={idx} className={`hero-slide ${slide.bgClass}`}>
-                  <div className="hero-slide-content">
-                    <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary-orange)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8 }}>
-                      {slide.badge}
-                    </div>
-                    <h1 className="hero-h1">
-                      {slide.title.replace(slide.highlight, '')}
-                      <span className="accent-mint" style={{ color: 'var(--primary-orange)' }}>{slide.highlight}</span>
-                    </h1>
-                    <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.85)', lineHeight: 1.5, marginBottom: 16, maxWidth: 520 }}>
-                      {slide.desc}
-                    </p>
+              {/* Background Glow */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: -60,
+                  right: -60,
+                  width: 220,
+                  height: 220,
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle, rgba(249, 121, 56, 0.25) 0%, transparent 70%)',
+                  pointerEvents: 'none',
+                }}
+              />
 
-                    <div className="credit-features-row">
-                      <div className="credit-feat-item">
-                        <div className="feat-circle-icon">✓</div>
-                        <span>100% Verified<br />Products</span>
-                      </div>
-                      <div className="credit-feat-item">
-                        <div className="feat-circle-icon">📈</div>
-                        <span>Built for<br />Scale</span>
-                      </div>
-                      <div className="credit-feat-item">
-                        <div className="feat-circle-icon">🌐</div>
-                        <span>Smart Dealer<br />Network</span>
-                      </div>
-                    </div>
+              <div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(249, 121, 56, 0.2)', color: 'var(--primary-orange)', padding: '4px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 14 }}>
+                  <span>⚡</span> 90-Minute Job-Site Delivery Guarantee
+                </div>
 
-                    <div className="hero-buttons-flex" style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 12, flexWrap: 'wrap' }}>
-                      <Link href={slide.ctaLink} className="hero-white-pill-btn">
-                        {slide.ctaText}
-                      </Link>
-                      <Link
-                        href="/rfq"
-                        className="hero-boq-btn"
-                        style={{
-                          color: '#FFFFFF',
-                          border: '1.5px solid rgba(255,255,255,0.4)',
-                          padding: '10px 22px',
-                          borderRadius: 24,
-                          textDecoration: 'none',
-                          fontSize: 13,
-                          fontWeight: 700,
-                          transition: 'background 0.15s',
-                        }}
-                      >
-                        ⚡ Instant BOQ Quote
-                      </Link>
-                    </div>
+                <h1 style={{ fontSize: 32, fontWeight: 900, lineHeight: 1.2, color: '#FFFFFF', marginBottom: 12 }}>
+                  Hardware Store to Your Doorstep in <span style={{ color: 'var(--primary-orange)' }}>90 Minutes.</span>
+                </h1>
+
+                <p style={{ fontSize: 14, color: 'rgba(255, 255, 255, 0.86)', lineHeight: 1.55, marginBottom: 20 }}>
+                  Never halt your site workforce. Get CPVC pipes, tile adhesives, drill bits, waterproof coatings, cutting blades, and safety gear delivered straight to your site gate before lunch.
+                </p>
+
+                {/* Live Pincode Quick Eligibility Checker */}
+                <form
+                  onSubmit={handleCheckPincode}
+                  style={{
+                    background: 'rgba(0, 0, 0, 0.3)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    borderRadius: 14,
+                    padding: 8,
+                    display: 'flex',
+                    gap: 8,
+                    marginBottom: 14,
+                    alignItems: 'center',
+                  }}
+                >
+                  <span style={{ fontSize: 16, paddingLeft: 8 }}>📍</span>
+                  <input
+                    type="text"
+                    value={inputPincode}
+                    onChange={(e) => setInputPincode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                    placeholder="Enter your Site Pincode (e.g. 382421)"
+                    style={{
+                      flex: 1,
+                      background: 'transparent',
+                      border: 'none',
+                      color: '#FFFFFF',
+                      fontSize: 13.5,
+                      fontWeight: 700,
+                      outline: 'none',
+                    }}
+                  />
+                  <button
+                    type="submit"
+                    style={{
+                      background: 'var(--primary-orange)',
+                      color: '#FFFFFF',
+                      border: 'none',
+                      borderRadius: 10,
+                      padding: '9px 18px',
+                      fontSize: 12.5,
+                      fontWeight: 800,
+                      cursor: 'pointer',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    Check Speed ⚡
+                  </button>
+                </form>
+
+                {pincodeMessage && (
+                  <div style={{ fontSize: 12, color: '#A7F3D0', fontWeight: 700, marginBottom: 14 }}>
+                    {pincodeMessage}
                   </div>
+                )}
 
-                  <div className="hero-credit-graphic">
-                    <img src={slide.img} alt="Matelioverse Platform" />
+                {/* 4 Micro Trust Badges */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10, marginBottom: 20 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#E2E8F0', fontWeight: 600 }}>
+                    <span style={{ color: 'var(--primary-orange)' }}>✓</span> No Minimum Order
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#E2E8F0', fontWeight: 600 }}>
+                    <span style={{ color: 'var(--primary-orange)' }}>✓</span> Live GPS Fleet Tracking
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#E2E8F0', fontWeight: 600 }}>
+                    <span style={{ color: 'var(--primary-orange)' }}>✓</span> Pay on Delivery / UPI
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#E2E8F0', fontWeight: 600 }}>
+                    <span style={{ color: 'var(--primary-orange)' }}>✓</span> QR Batch BIS Grade
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
-          {/* Capsule Indicator Dots */}
-          <div className="hero-dots-wrap">
-            <div className="hero-dots-capsule">
-              {heroSlides.map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  className={`hero-dot-btn ${idx === activeSlide ? 'active' : ''}`}
-                  onClick={() => setActiveSlide(idx)}
-                  aria-label={`Slide ${idx + 1}`}
-                />
-              ))}
+              {/* CTAs and Delivery Image */}
+              <div>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', marginBottom: 16 }}>
+                  <Link
+                    href="/categories"
+                    style={{
+                      background: 'var(--primary-orange)',
+                      color: '#FFFFFF',
+                      fontWeight: 800,
+                      fontSize: 14,
+                      padding: '12px 24px',
+                      borderRadius: 24,
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      boxShadow: '0 4px 14px rgba(249, 121, 56, 0.4)',
+                    }}
+                  >
+                    <span>Order Site Essentials (90 Mins)</span>
+                    <span>→</span>
+                  </Link>
+                  <Link
+                    href="/rfq"
+                    style={{
+                      color: '#FFFFFF',
+                      border: '1.5px solid rgba(255,255,255,0.4)',
+                      padding: '11px 20px',
+                      borderRadius: 24,
+                      textDecoration: 'none',
+                      fontSize: 13,
+                      fontWeight: 700,
+                    }}
+                  >
+                    ⚡ Instant AI Quote
+                  </Link>
+                </div>
+
+                {/* Generated Quick Delivery Image */}
+                <div style={{ borderRadius: 14, overflow: 'hidden', height: 160, position: 'relative', border: '1px solid rgba(255,255,255,0.15)' }}>
+                  <img
+                    src="/images/quick-delivery-van.jpg"
+                    alt="Matelioverse 90-Minute Quick Site Delivery Fleet"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(180deg, transparent 0%, rgba(14,49,40,0.95) 100%)', padding: '8px 14px', fontSize: 11.5, color: '#A7F3D0', fontWeight: 700 }}>
+                    ⚡ Dispatched from {currentHub.name} Hub · Next delivery slot in 20 mins
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {/* HERO CARD 2: PLANT-DIRECT HEAVY STRUCTURAL FREIGHT */}
+            <div
+              style={{
+                background: 'linear-gradient(145deg, #122B23 0%, #1B3F35 100%)',
+                border: '1.5px solid #2A6E59',
+                borderRadius: 24,
+                padding: '32px 28px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.35)',
+              }}
+            >
+              <div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(16, 185, 129, 0.2)', color: '#34D399', padding: '4px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 14 }}>
+                  <span>🚛</span> Plant-Direct Bulk Dispatch · Mill Rates
+                </div>
+
+                <h2 style={{ fontSize: 28, fontWeight: 900, lineHeight: 1.25, color: '#FFFFFF', marginBottom: 12 }}>
+                  Bulk Steel, Cement &amp; AAC at Factory Rates.
+                </h2>
+
+                <p style={{ fontSize: 14, color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.55, marginBottom: 20 }}>
+                  Save 12–18% by eliminating 3-tier distributor markups. Full truckload consignments direct from plants with computerized mill test certificates and weighbridge slips.
+                </p>
+
+                <div style={{ background: 'rgba(0,0,0,0.25)', borderRadius: 14, padding: 14, border: '1px solid rgba(255,255,255,0.1)', marginBottom: 20 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5, marginBottom: 6 }}>
+                    <span style={{ color: '#94A3B8' }}>Fe550D TMT (Tuffar / JSW):</span>
+                    <strong style={{ color: '#A7F3D0' }}>Spot Rate: From ₹51,800/MT</strong>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5, marginBottom: 6 }}>
+                    <span style={{ color: '#94A3B8' }}>OPC 53 Cement (CemXtra / UltraTech):</span>
+                    <strong style={{ color: '#A7F3D0' }}>From ₹342/Bag Direct</strong>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5 }}>
+                    <span style={{ color: '#94A3B8' }}>Working Capital Credit:</span>
+                    <strong style={{ color: 'var(--primary-orange)' }}>Up to ₹25L (90 Days)</strong>
+                  </div>
+                </div>
+
+                {/* Generated Heavy Freight Image */}
+                <div style={{ borderRadius: 14, overflow: 'hidden', height: 160, position: 'relative', border: '1px solid rgba(255,255,255,0.15)', marginBottom: 20 }}>
+                  <img
+                    src="/images/heavy-plant-freight.jpg"
+                    alt="Matelioverse Plant Direct TMT Steel and Cement Truck Offloading"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(180deg, transparent 0%, rgba(14,49,40,0.95) 100%)', padding: '8px 14px', fontSize: 11.5, color: '#A7F3D0', fontWeight: 700 }}>
+                    🚛 Direct Factory Consignments · Computerized Weighbridge Slip Included
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <Link
+                  href="/rfq"
+                  style={{
+                    background: '#FFFFFF',
+                    color: '#0E3128',
+                    fontWeight: 900,
+                    fontSize: 14,
+                    padding: '12px 24px',
+                    borderRadius: 24,
+                    textDecoration: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 8,
+                    boxShadow: '0 4px 14px rgba(255, 255, 255, 0.2)',
+                  }}
+                >
+                  <span>Upload BOQ for Magic AI Quote (60s)</span>
+                  <span>→</span>
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* ==========================================================================
-           FUNCTIONAL QUICK-COMMERCE LOCATION & PROMISE STRIP
+           "WHERE WE DELIVER" SERVICEABLE HUBS & LIVE SLA STRIP
            ========================================================================== */}
-      <section style={{ background: '#F8FAFC', borderBottom: '1px solid #E2E8F0', padding: '14px 0' }}>
+      <section style={{ background: '#F8FAFC', borderBottom: '1px solid #E2E8F0', padding: '20px 0' }}>
         <div className="site-container">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ background: 'var(--secondary-mint)', border: '1px solid var(--secondary-mint-border)', borderRadius: 8, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 6 }}>
-                <span style={{ fontSize: 14 }}>📍</span>
-                <span style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--secondary-green)' }}>
-                  Delivery to: <strong>{currentHub.name}</strong> ({pincode})
-                </span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 14, marginBottom: 14 }}>
+            <div>
+              <div style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--primary-orange)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                Active Service Coverage
               </div>
+              <h3 style={{ fontSize: 18, fontWeight: 900, color: '#0F172A', margin: '2px 0 0 0' }}>
+                Where We Deliver in Gujarat
+              </h3>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12.5, color: '#475569' }}>
+              <span>Current Hub: <strong>{currentHub.name} ({pincode})</strong></span>
               <button
                 type="button"
                 onClick={openLocationModal}
-                style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary-orange)', textDecoration: 'underline', border: 'none', background: 'none', cursor: 'pointer' }}
+                style={{ color: 'var(--primary-green)', fontWeight: 800, background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
               >
-                Change Location
+                Change Hub
               </button>
             </div>
+          </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12.5, color: '#475569', fontWeight: 600 }}>
-                <span>🛡️</span> 100% Direct-from-Plant
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12.5, color: '#475569', fontWeight: 600 }}>
-                <span>🚚</span> Free Delivery Above ₹2,500
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12.5, color: '#475569', fontWeight: 600 }}>
-                <span>💵</span> Pay on Delivery Available
-              </div>
-            </div>
+          {/* Hub SLA Badges */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
+            {HUBS.map((hub) => {
+              const isCurrent = hub.id === currentHub.id;
+              return (
+                <div
+                  key={hub.id}
+                  style={{
+                    background: isCurrent ? '#ECFDF5' : '#FFFFFF',
+                    border: `1.5px solid ${isCurrent ? '#10B981' : '#E2E8F0'}`,
+                    borderRadius: 12,
+                    padding: '12px 14px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <div>
+                    <div style={{ fontSize: 13, fontWeight: 800, color: isCurrent ? '#064E3B' : '#0F172A' }}>
+                      {hub.name}
+                    </div>
+                    <div style={{ fontSize: 11, color: '#64748B', marginTop: 2 }}>
+                      {hub.supportedPincodes.length}+ Pincodes Covered
+                    </div>
+                  </div>
+                  <span
+                    style={{
+                      background: isCurrent ? 'var(--primary-orange)' : '#F1F5F9',
+                      color: isCurrent ? '#FFFFFF' : '#475569',
+                      fontSize: 10.5,
+                      fontWeight: 800,
+                      padding: '3px 8px',
+                      borderRadius: 10,
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    ⚡ {hub.instantSla}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ==========================================================================
-           PROMOTIONAL OFFER BANNER SLIDER (Exact Brand Offers)
+           PROMOTIONAL OFFER BANNER SLIDER
            ========================================================================== */}
       <PromoBannerSlider />
 
       {/* ==========================================================================
-           FEATURED CATEGORIES (Interactive Grid)
+           BROWSE BY URGENT NEED / PROJECT STAGE
            ========================================================================== */}
-      <section className="categories-section" style={{ padding: '36px 0 24px 0' }}>
+      <section style={{ padding: '28px 0 12px 0', background: '#FFFFFF' }}>
         <div className="site-container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 18 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 16 }}>
             <div>
-              <h2 className="section-title-h2" style={{ marginBottom: 4 }}>
-                Shop by Building Material Category
+              <h2 style={{ fontSize: 22, fontWeight: 900, color: '#0F172A', marginBottom: 4 }}>
+                Shop by Urgent Need &amp; Project Stage
               </h2>
-              <p style={{ fontSize: 13.5, color: '#64748B' }}>
-                Select a category to browse verified products with wholesale slab pricing
+              <p style={{ fontSize: 13.5, color: '#64748B', margin: 0 }}>
+                Filter materials required for your active construction or repair phase
               </p>
             </div>
-            <Link href="/categories" style={{ fontSize: 13, fontWeight: 700, color: 'var(--primary-green)', textDecoration: 'none' }}>
-              View All Categories ›
-            </Link>
           </div>
 
-          {/* Row 1: 8 Core Categories */}
-          <div className="categories-grid-row-1">
-            {CATEGORIES.slice(0, 8).map((cat) => (
-              <Link key={cat.id} href={`/categories#${cat.slug}`} className="cat-card-item">
-                <div className="cat-card-box">
-                  <img src={cat.image} alt={cat.name} loading="lazy" />
-                </div>
-                <span className="cat-card-label">{cat.shortName || cat.name}</span>
-              </Link>
-            ))}
-          </div>
-
-          {/* Row 2: Specialized Categories */}
-          <div className="categories-grid-row-2">
-            {CATEGORIES.slice(8, 15).map((cat) => (
-              <Link key={cat.id} href={`/categories#${cat.slug}`} className="cat-card-item">
-                <div className="cat-card-box">
-                  <img src={cat.image} alt={cat.name} loading="lazy" />
-                </div>
-                <span className="cat-card-label">{cat.shortName || cat.name}</span>
-              </Link>
-            ))}
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 20 }}>
+            {[
+              { id: 'all', label: 'All Urgent Items', icon: '⚡' },
+              { id: 'urgent', label: 'Site Essentials (90 Mins)', icon: '🚨' },
+              { id: 'foundation', label: 'Foundation & Steel', icon: '🏗️' },
+              { id: 'masonry', label: 'Masonry & AAC Walls', icon: '🧱' },
+              { id: 'finishing', label: 'Surfaces, Bath & Tiles', icon: '✨' },
+            ].map((tab) => {
+              const active = selectedStage === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setSelectedStage(tab.id as any)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    padding: '8px 16px',
+                    borderRadius: 20,
+                    fontSize: 13,
+                    fontWeight: 800,
+                    border: `1.5px solid ${active ? 'var(--primary-green)' : '#CBD5E1'}`,
+                    background: active ? 'var(--primary-green)' : '#F8FAFC',
+                    color: active ? '#FFFFFF' : '#334155',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease',
+                  }}
+                >
+                  <span>{tab.icon}</span>
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -238,18 +431,18 @@ export default function HomePage() {
       {/* ==========================================================================
            QUICK-COMMERCE PRODUCT GRID 1: INSTANT DELIVERY (90 MINS)
            ========================================================================== */}
-      <section style={{ padding: '32px 0', background: '#F8FAFC' }}>
+      <section style={{ padding: '24px 0 40px 0', background: '#F8FAFC' }}>
         <div className="site-container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 20 }}>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--secondary-mint)', color: 'var(--secondary-green)', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4 }}>
-                ⚡ {currentHub.instantSla} Instant Delivery
+                ⚡ {currentHub.instantSla} · No Minimum Order
               </div>
               <h2 className="section-title-h2" style={{ fontSize: 24, margin: '2px 0 4px 0' }}>
                 Instant Site Essentials ({currentHub.instantSla})
               </h2>
               <p style={{ fontSize: 13.5, color: '#64748B' }}>
-                Adhesives, plumbing, fittings, and site fasteners delivered directly to your job site
+                Tile adhesives, CPVC pipes, sealants, drill bits, fasteners, and safety gear delivered straight to your job site
               </p>
             </div>
             <Link href="/categories" style={{ fontSize: 13, fontWeight: 700, color: 'var(--primary-green)', textDecoration: 'none' }}>
@@ -258,7 +451,7 @@ export default function HomePage() {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 20 }}>
-            {instantProducts.map((prod) => (
+            {filteredInstantProducts.map((prod) => (
               <ProductCard key={prod.id} product={prod} />
             ))}
           </div>
@@ -268,22 +461,22 @@ export default function HomePage() {
       {/* ==========================================================================
            QUICK-COMMERCE PRODUCT GRID 2: HEAVY MATERIALS (SAME-DAY / SCHEDULED)
            ========================================================================== */}
-      <section style={{ padding: '40px 0' }}>
+      <section style={{ padding: '40px 0', background: '#FFFFFF' }}>
         <div className="site-container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 20 }}>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--primary-orange-light)', color: 'var(--primary-orange-active)', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4 }}>
-                🚛 Plant Direct Dispatch
+                🚛 Direct Factory Dispatch
               </div>
               <h2 className="section-title-h2" style={{ fontSize: 24, margin: '2px 0 4px 0' }}>
                 Structural &amp; Foundation Materials (Same-Day Freight)
               </h2>
               <p style={{ fontSize: 13.5, color: '#64748B' }}>
-                Primary billet TMT rebars, OPC 53 cement, AAC panels, and factory vitrified tiles
+                Primary billet Fe550D TMT, OPC 53 cement, AAC panels, and vitrified tiles with computerized test sheets
               </p>
             </div>
-            <Link href="/categories" style={{ fontSize: 13, fontWeight: 700, color: 'var(--primary-green)', textDecoration: 'none' }}>
-              View All Materials ›
+            <Link href="/rfq" style={{ fontSize: 13, fontWeight: 800, color: 'var(--primary-orange)', textDecoration: 'none' }}>
+              Plan Bulk Consignment →
             </Link>
           </div>
 
@@ -296,7 +489,7 @@ export default function HomePage() {
       </section>
 
       {/* ==========================================================================
-           B2B REVOLVING CREDIT LINE BANNER
+           B2B REVOLVING CREDIT LINE BANNER (UP TO ₹25L)
            ========================================================================== */}
       <section style={{ padding: '16px 0 32px 0' }}>
         <div className="site-container">
@@ -329,7 +522,7 @@ export default function HomePage() {
                   Our Own Brands. Engineered for High Margins &amp; Factory Precision.
                 </h2>
                 <p style={{ fontSize: 14, color: '#92400E', lineHeight: 1.55 }}>
-                  Replacing generic low-margin supplies with high-recall, certified own-brands. Backed by computerized mill test certificates, 100% direct-from-plant logistics, and exclusive pincode territory dealership rights.
+                  Replacing generic low-margin supplies with high-recall, certified own-brands. Backed by computerized mill test certificates, 100% direct-from-plant logistics, and exclusive territory dealership rights.
                 </p>
               </div>
 
@@ -384,7 +577,7 @@ export default function HomePage() {
                   name: 'TileTrendz',
                   category: 'Vitrified & GVT Tiles',
                   highlight: '28% Margin · Morbi Direct',
-                  spec: 'GVT, PGVT, Full Body, High-gloss 600x1200mm & 800x1600mm slabs with zero curvature tolerance.',
+                  spec: 'GVT, PGVT, Full Body, High-gloss 600x1200mm slabs with zero curvature tolerance.',
                   slug: 'tiles-surfaces',
                   icon: '✨',
                 },
@@ -505,236 +698,6 @@ export default function HomePage() {
                   </div>
                 </Link>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ==========================================================================
-           WHY CHOOSE MATELIOVERSE (3 Value Pillars)
-           ========================================================================== */}
-      <section className="section-block" style={{ background: '#F8FAFC', padding: '48px 0' }}>
-        <div className="site-container">
-          <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 36px' }}>
-            <span style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--primary-orange)', textTransform: 'uppercase', letterSpacing: 1 }}>
-              Smart Retail Architecture
-            </span>
-            <h2 className="section-title-h2" style={{ fontSize: 28, marginTop: 4, marginBottom: 8 }}>
-              Why Choose <span style={{ color: 'var(--primary-orange)' }}>Matelioverse?</span>
-            </h2>
-            <p style={{ color: '#64748B', fontSize: 14 }}>
-              Replacing outdated inventory-led retail with demand-led, data-backed operations across India.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }} className="why-matelio-grid">
-            <div style={{ background: 'linear-gradient(135deg, #0E3128, #133028)', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 24px rgba(14,49,40,0.18)', color: '#FFFFFF', position: 'relative' }} className="card-hover-effect">
-              <div style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
-                <img src="https://api.matelioverse.com/assets/86b3e000-054c-47b6-ba67-c8cb893ce26d" alt="Built on Tech" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, #0E3128 100%)' }}></div>
-              </div>
-              <div style={{ padding: 26 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(194, 236, 202, 0.4)', color: '#C2ECCA', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, marginBottom: 16, fontWeight: 800 }}>⚡</div>
-                <h3 style={{ fontSize: 20, fontWeight: 800, color: '#FFFFFF', marginBottom: 10 }}>Built on Tech. Designed for Scale.</h3>
-                <p style={{ fontSize: 13.5, color: '#C2ECCA', lineHeight: 1.6 }}>Combining digital procurement tools with deep supply chain intelligence to optimize spot pricing, availability, and offloading speed.</p>
-              </div>
-            </div>
-
-            <div style={{ background: 'linear-gradient(135deg, #0E3128, #133028)', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 24px rgba(14,49,40,0.18)', color: '#FFFFFF', position: 'relative' }} className="card-hover-effect">
-              <div style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
-                <img src="https://api.matelioverse.com/assets/091a903c-77a1-41d9-ae33-4dc9a7162913" alt="From Hardware to Smart Store" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, #0E3128 100%)' }}></div>
-              </div>
-              <div style={{ padding: 26 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(194, 236, 202, 0.4)', color: '#C2ECCA', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, marginBottom: 16, fontWeight: 800 }}>🏪</div>
-                <h3 style={{ fontSize: 20, fontWeight: 800, color: '#FFFFFF', marginBottom: 10 }}>From Hardware Store to Smart Store.</h3>
-                <p style={{ fontSize: 13.5, color: '#C2ECCA', lineHeight: 1.6 }}>Replacing dead-stock retail with hyper-efficient franchise stores and regional fulfillment depots across Ahmedabad, Surat, Vadodara, and Rajkot.</p>
-              </div>
-            </div>
-
-            <div style={{ background: 'linear-gradient(135deg, #0E3128, #133028)', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 24px rgba(14,49,40,0.18)', color: '#FFFFFF', position: 'relative' }} className="card-hover-effect">
-              <div style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
-                <img src="https://api.matelioverse.com/assets/c57b078c-15c5-43f9-a882-e256024915ce" alt="Stronger Margins Stronger Brands" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, #0E3128 100%)' }}></div>
-              </div>
-              <div style={{ padding: 26 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(194, 236, 202, 0.4)', color: '#C2ECCA', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, marginBottom: 16, fontWeight: 800 }}>💎</div>
-                <h3 style={{ fontSize: 20, fontWeight: 800, color: '#FFFFFF', marginBottom: 10 }}>Stronger Margins. Stronger Brands.</h3>
-                <p style={{ fontSize: 13.5, color: '#C2ECCA', lineHeight: 1.6 }}>Own-brands like TileTrendz, Tuffar, EzyWall, Bondex, and Sanivo boost dealer profitability with 20-35% margins and certified quality test sheets.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ==========================================================================
-           OUR TECH EDGE
-           ========================================================================== */}
-      <section className="section-block" id="tech-edge" style={{ background: '#F0FDF4', padding: '48px 0' }}>
-        <div className="site-container">
-          <div style={{ maxWidth: 640, marginBottom: 28 }}>
-            <span style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--primary-green)', textTransform: 'uppercase', letterSpacing: 1 }}>
-              Proprietary Digital Architecture
-            </span>
-            <h2 className="section-title-h2" style={{ fontSize: 28, marginTop: 4, marginBottom: 8 }}>
-              Our Tech Edge
-            </h2>
-            <p style={{ fontSize: 14, color: '#475569' }}>
-              Matelioverse isn’t just a marketplace. It’s an intelligent retail-tech engine designed to power construction commerce.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', gap: 20 }} className="tech-edge-split-grid">
-            <div style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', height: 360 }}>
-              <img src="https://api.matelioverse.com/assets/6fc2fbf4-169e-401e-a993-6b5c27a2d02d" alt="Geo-tagged Inventory Tracking" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 30%, rgba(14,49,40,0.92) 100%)' }}></div>
-              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 24, color: '#FFFFFF' }}>
-                <div style={{ fontSize: 11, fontWeight: 800, color: 'var(--primary-orange)', textTransform: 'uppercase', marginBottom: 6 }}>Live Telematics</div>
-                <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 6 }}>Geo-tagged Inventory Tracking</h3>
-                <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.8)', lineHeight: 1.4 }}>Real-time stock visibility across centralized warehouses, transit hubs, and dealer outlets.</p>
-              </div>
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-              <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', height: 172 }}>
-                <img src="https://api.matelioverse.com/assets/3b748db5-005d-490e-bb32-d25d199df6e3" alt="Order Management System" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(14,49,40,0.92) 100%)' }}></div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 14, color: '#FFFFFF' }}>
-                  <h4 style={{ fontSize: 14, fontWeight: 800 }}>Order Management (OMS)</h4>
-                  <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>Automated dispatch &amp; fulfillment</p>
-                </div>
-              </div>
-
-              <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', height: 172 }}>
-                <img src="https://api.matelioverse.com/assets/ed6cd82e-6bfd-47d9-a7a3-fbe5358134ed" alt="AI Demand Prediction" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(14,49,40,0.92) 100%)' }}></div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 14, color: '#FFFFFF' }}>
-                  <h4 style={{ fontSize: 14, fontWeight: 800 }}>AI Demand Prediction</h4>
-                  <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>Predictive regional demand spikes</p>
-                </div>
-              </div>
-
-              <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', height: 172 }}>
-                <img src="https://api.matelioverse.com/assets/86fe988f-3eed-4031-a276-825e407db7f3" alt="Dynamic Pricing Tools" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(14,49,40,0.92) 100%)' }}></div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 14, color: '#FFFFFF' }}>
-                  <h4 style={{ fontSize: 14, fontWeight: 800 }}>Dynamic Pricing Tools</h4>
-                  <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>Margin-optimized spot rate quotes</p>
-                </div>
-              </div>
-
-              <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', height: 172 }}>
-                <img src="https://api.matelioverse.com/assets/785bde08-c573-4d8f-abb3-5714bff8cd30" alt="CRM & Dealer Dashboard" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, rgba(14,49,40,0.92) 100%)' }}></div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 14, color: '#FFFFFF' }}>
-                  <h4 style={{ fontSize: 14, fontWeight: 800 }}>CRM &amp; Dealer Dashboard</h4>
-                  <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>End-to-end franchise ledger tools</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ==========================================================================
-           WHO WE SERVE
-           ========================================================================== */}
-      <section className="section-block" style={{ padding: '48px 0' }}>
-        <div className="site-container">
-          <div style={{ textAlign: 'center', maxWidth: 600, margin: '0 auto 32px' }}>
-            <span style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--primary-green)', textTransform: 'uppercase', letterSpacing: 1 }}>
-              Our Ecosystem
-            </span>
-            <h2 className="section-title-h2" style={{ fontSize: 28, marginTop: 4, marginBottom: 6 }}>
-              Who We Serve
-            </h2>
-            <p style={{ fontSize: 14, color: '#64748B' }}>Connecting key stakeholders across the Indian construction value chain</p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }} className="who-serve-grid">
-            <div style={{ background: '#FFFFFF', border: '1.5px solid #E2E8F0', borderRadius: 18, padding: '28px 20px', textAlign: 'center' }}>
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#ECFDF5', color: 'var(--primary-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, margin: '0 auto 16px' }}>🏗️</div>
-              <h3 style={{ fontSize: 16, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>Infra Contractors</h3>
-              <p style={{ fontSize: 12.5, color: '#64748B', lineHeight: 1.5 }}>Direct bulk plant sourcing, computerized mill test certificates, and scheduled offloading.</p>
-            </div>
-
-            <div style={{ background: '#FFFFFF', border: '1.5px solid #E2E8F0', borderRadius: 18, padding: '28px 20px', textAlign: 'center' }}>
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#EFF6FF', color: '#2563EB', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, margin: '0 auto 16px' }}>🏪</div>
-              <h3 style={{ fontSize: 16, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>Retail Dealers</h3>
-              <p style={{ fontSize: 12.5, color: '#64748B', lineHeight: 1.5 }}>Exclusive territory franchise rights, 20-35% private label margins, and zero dead stock risk.</p>
-            </div>
-
-            <div style={{ background: '#FFFFFF', border: '1.5px solid #E2E8F0', borderRadius: 18, padding: '28px 20px', textAlign: 'center' }}>
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#FEF3C7', color: '#D97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, margin: '0 auto 16px' }}>🏢</div>
-              <h3 style={{ fontSize: 16, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>Real Estate Developers</h3>
-              <p style={{ fontSize: 12.5, color: '#64748B', lineHeight: 1.5 }}>Standardized project BOQ fulfillment, consistent grade quality, and transparent GST billing.</p>
-            </div>
-
-            <div style={{ background: '#FFFFFF', border: '1.5px solid #E2E8F0', borderRadius: 18, padding: '28px 20px', textAlign: 'center' }}>
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#F3E8FF', color: '#7C3AED', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, margin: '0 auto 16px' }}>📐</div>
-              <h3 style={{ fontSize: 16, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>Architects &amp; Planners</h3>
-              <p style={{ fontSize: 12.5, color: '#64748B', lineHeight: 1.5 }}>Technical datasheets, physical material samples, and modern facade &amp; surface solutions.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ==========================================================================
-           NEWS & MEDIA
-           ========================================================================== */}
-      <section className="section-block" id="news-media" style={{ background: '#F8FAFC', padding: '48px 0' }}>
-        <div className="site-container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 28 }}>
-            <div>
-              <span style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--primary-green)', textTransform: 'uppercase', letterSpacing: 1 }}>Press Coverage</span>
-              <h2 className="section-title-h2" style={{ fontSize: 28, marginTop: 4, marginBottom: 4 }}>News &amp; Media</h2>
-              <p style={{ fontSize: 13.5, color: '#64748B' }}>Industry coverage and milestones of Matelioverse &amp; BuilditIndia</p>
-            </div>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }} className="news-media-grid">
-            <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 16, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-              <div style={{ position: 'relative', height: 110, background: '#F1F5F9', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 12 }}>
-                <span style={{ position: 'absolute', top: 8, left: 8, background: 'var(--primary-green)', color: '#fff', fontSize: 10.5, fontWeight: 700, padding: '2px 8px', borderRadius: 6 }}>14 Aug</span>
-                <img src="https://api.matelioverse.com/assets/5a4e1820-e265-4988-96a8-6a2b995b7aee" alt="The India Awaaz" style={{ maxHeight: 40, maxWidth: '80%', objectFit: 'contain' }} />
-              </div>
-              <div style={{ padding: 16 }}>
-                <h4 style={{ fontSize: 14, fontWeight: 800, color: '#0F172A', marginBottom: 6 }}>The India Awaaz</h4>
-                <p style={{ fontSize: 12, color: '#64748B', lineHeight: 1.5 }}>BuilditIndia launches subsidiary Matelio to redefine how India buys building materials.</p>
-              </div>
-            </div>
-
-            <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 16, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-              <div style={{ position: 'relative', height: 110, background: '#F1F5F9', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 12 }}>
-                <span style={{ position: 'absolute', top: 8, left: 8, background: 'var(--primary-green)', color: '#fff', fontSize: 10.5, fontWeight: 700, padding: '2px 8px', borderRadius: 6 }}>13 Aug</span>
-                <img src="https://api.matelioverse.com/assets/09e94aff-e8f9-457f-a174-e061b9c84558" alt="APN News" style={{ maxHeight: 40, maxWidth: '80%', objectFit: 'contain' }} />
-              </div>
-              <div style={{ padding: 16 }}>
-                <h4 style={{ fontSize: 14, fontWeight: 800, color: '#0F172A', marginBottom: 6 }}>APN News</h4>
-                <p style={{ fontSize: 12, color: '#64748B', lineHeight: 1.5 }}>Next-gen retail-tech venture designed to digitize India&apos;s fragmented building-materials market.</p>
-              </div>
-            </div>
-
-            <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 16, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-              <div style={{ position: 'relative', height: 110, background: '#F1F5F9', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 12 }}>
-                <span style={{ position: 'absolute', top: 8, left: 8, background: 'var(--primary-green)', color: '#fff', fontSize: 10.5, fontWeight: 700, padding: '2px 8px', borderRadius: 6 }}>13 Aug</span>
-                <img src="https://api.matelioverse.com/assets/2a9b0488-a53c-49eb-9610-da155dcba1b6" alt="Media Infoline" style={{ maxHeight: 40, maxWidth: '80%', objectFit: 'contain' }} />
-              </div>
-              <div style={{ padding: 16 }}>
-                <h4 style={{ fontSize: 14, fontWeight: 800, color: '#0F172A', marginBottom: 6 }}>Media Infoline</h4>
-                <p style={{ fontSize: 12, color: '#64748B', lineHeight: 1.5 }}>Aimed at organizing ₹225 billion building-materials sector through an omni-channel approach.</p>
-              </div>
-            </div>
-
-            <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 16, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-              <div style={{ position: 'relative', height: 110, background: '#F1F5F9', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 12 }}>
-                <span style={{ position: 'absolute', top: 8, left: 8, background: 'var(--primary-green)', color: '#fff', fontSize: 10.5, fontWeight: 700, padding: '2px 8px', borderRadius: 6 }}>12 Aug</span>
-                <img src="https://api.matelioverse.com/assets/67a470eb-3d55-459b-a8c2-743a25c4f3b9" alt="Silicon India" style={{ maxHeight: 40, maxWidth: '80%', objectFit: 'contain' }} />
-              </div>
-              <div style={{ padding: 16 }}>
-                <h4 style={{ fontSize: 14, fontWeight: 800, color: '#0F172A', marginBottom: 6 }}>Silicon India</h4>
-                <p style={{ fontSize: 12, color: '#64748B', lineHeight: 1.5 }}>Appoints industry veteran Sandeep Kakkar as Director to lead the omni-channel venture.</p>
-              </div>
             </div>
           </div>
         </div>
