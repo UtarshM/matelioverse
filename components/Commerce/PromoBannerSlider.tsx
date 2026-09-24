@@ -34,7 +34,7 @@ const PROMO_BANNERS: PromoBannerItem[] = [
     ctaLink: '/categories#bath-fittings-sanitary',
     bgGradient: 'linear-gradient(135deg, #3A352F 0%, #2A2520 60%, #1F1C18 100%)',
     cardTheme: 'hindware',
-    productImage: 'https://cdn.madoverbuildings.com/category/category/Bathroom.webp',
+    productImage: '/images/promo/hindware-bath.webp',
     imageAlt: 'Hindware Wall Mounted Toilet Suite',
   },
   {
@@ -50,7 +50,7 @@ const PROMO_BANNERS: PromoBannerItem[] = [
     ctaLink: '/categories#paints',
     bgGradient: 'linear-gradient(135deg, #9C3A62 0%, #872E54 50%, #681E3E 100%)',
     cardTheme: 'asianpaints',
-    productImage: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    productImage: '/images/promo/asianpaints-wall.webp',
     imageAlt: 'Interior Luxury Emulsion Paint',
   },
   {
@@ -66,7 +66,7 @@ const PROMO_BANNERS: PromoBannerItem[] = [
     ctaLink: '/categories#plumbing',
     bgGradient: 'linear-gradient(135deg, #3B67B5 0%, #2B4E94 50%, #1F366E 100%)',
     cardTheme: 'polycab',
-    productImage: 'https://cdn.madoverbuildings.com/category/category/Hardware_and_Fittings.webp',
+    productImage: '/images/promo/polycab-wires.webp',
     imageAlt: 'Polycab Project Grade Copper Wire Coil',
   },
   {
@@ -82,7 +82,7 @@ const PROMO_BANNERS: PromoBannerItem[] = [
     ctaLink: '/categories#cement',
     bgGradient: 'linear-gradient(135deg, #2B333B 0%, #1D232A 60%, #13171C 100%)',
     cardTheme: 'ultratech',
-    productImage: 'https://cdn.madoverbuildings.com/category/category/Building_Materials.webp',
+    productImage: '/images/promo/ultratech-cement.webp',
     imageAlt: 'UltraTech Super PPC Cement Bag',
   },
   {
@@ -98,7 +98,7 @@ const PROMO_BANNERS: PromoBannerItem[] = [
     ctaLink: '/categories#adhesive-waterproofing',
     bgGradient: 'linear-gradient(135deg, #0E4E42 0%, #0A3A31 60%, #05241E 100%)',
     cardTheme: 'drfixit',
-    productImage: 'https://cdn.madoverbuildings.com/category/category/Paints_Putty_and_Coatings.webp',
+    productImage: '/images/promo/drfixit-waterproofing.webp',
     imageAlt: 'Dr. Fixit 101 LW+ Integral Waterproofing',
   },
 ];
@@ -370,13 +370,13 @@ export default function PromoBannerSlider() {
                 </div>
               </div>
 
-              {/* Product Visual Mockup / Floating Image Layer */}
+              {/* Product Real Photographic Image Layer */}
               <div
                 style={{
                   position: 'absolute',
-                  right: 10,
-                  bottom: 10,
-                  width: '45%',
+                  right: 12,
+                  bottom: 12,
+                  width: '46%',
                   height: '75%',
                   display: 'flex',
                   alignItems: 'flex-end',
@@ -385,157 +385,17 @@ export default function PromoBannerSlider() {
                   pointerEvents: 'none',
                 }}
               >
-                {banner.cardTheme === 'hindware' && (
-                  <div
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'flex-end',
-                      justifyContent: 'flex-end',
-                    }}
-                  >
-                    {/* Stylized Modern Wall-Mounted Commode Graphic */}
-                    <svg viewBox="0 0 140 120" style={{ width: '92%', height: 'auto', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.4))' }}>
-                      {/* Chrome flush pipe */}
-                      <path d="M 68 0 L 68 35" stroke="#CBD5E1" strokeWidth="3" strokeLinecap="round" />
-                      <circle cx="68" cy="35" r="3" fill="#E2E8F0" />
-                      {/* Commode body */}
-                      <path
-                        d="M 25 35 Q 25 30 35 30 L 105 30 Q 115 30 115 35 L 110 75 Q 105 110 70 110 Q 35 110 30 75 Z"
-                        fill="#FFFFFF"
-                      />
-                      {/* Soft-close seat lid */}
-                      <path
-                        d="M 23 35 C 23 31 35 30 70 30 C 105 30 117 31 117 35 C 117 39 105 40 70 40 C 35 40 23 39 23 35 Z"
-                        fill="#F8FAFC"
-                        stroke="#E2E8F0"
-                        strokeWidth="1.5"
-                      />
-                      {/* Rimless bowl interior shading */}
-                      <path
-                        d="M 36 43 Q 70 43 104 43 Q 98 75 70 75 Q 42 75 36 43 Z"
-                        fill="#E2E8F0"
-                        opacity="0.4"
-                      />
-                    </svg>
-                  </div>
-                )}
-
-                {banner.cardTheme === 'asianpaints' && (
-                  <div
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'flex-end',
-                      justifyContent: 'flex-end',
-                    }}
-                  >
-                    {/* Stylized Paint Bucket and Cozy Chair silhouette */}
-                    <svg viewBox="0 0 150 120" style={{ width: '96%', height: 'auto', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.4))' }}>
-                      {/* Cozy Velvet Armchair */}
-                      <path
-                        d="M 10 70 Q 10 50 25 45 Q 35 45 42 55 Q 42 75 38 90 L 10 90 Z"
-                        fill="#5B1E3E"
-                        opacity="0.6"
-                      />
-                      <path
-                        d="M 15 90 L 10 108 M 38 90 L 42 108"
-                        stroke="#2B0E1E"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      {/* Paint Bucket Drum */}
-                      <path
-                        d="M 70 35 L 130 35 L 124 105 Q 123 110 100 110 Q 77 110 76 105 Z"
-                        fill="#F8FAFC"
-                      />
-                      {/* Bucket Lid */}
-                      <ellipse cx="100" cy="35" rx="30" ry="6" fill="#E2E8F0" stroke="#CBD5E1" strokeWidth="1" />
-                      <ellipse cx="100" cy="32" rx="28" ry="4" fill="#FFFFFF" />
-                      {/* Bucket Label Banner */}
-                      <rect x="73" y="55" width="54" height="35" rx="3" fill="#E11D48" opacity="0.9" />
-                      <path d="M 80 65 Q 100 60 120 70" stroke="#FBBF24" strokeWidth="2" fill="none" />
-                      <circle cx="100" cy="74" r="5" fill="#FFFFFF" />
-                    </svg>
-                  </div>
-                )}
-
-                {banner.cardTheme === 'polycab' && (
-                  <div
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'flex-end',
-                      justifyContent: 'flex-end',
-                    }}
-                  >
-                    {/* Stylized Cable Wire Box & Green Coils */}
-                    <svg viewBox="0 0 150 120" style={{ width: '96%', height: 'auto', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.4))' }}>
-                      {/* Cable Coils */}
-                      <ellipse cx="115" cy="75" rx="26" ry="32" fill="none" stroke="#22C55E" strokeWidth="7" />
-                      <ellipse cx="115" cy="75" rx="18" ry="24" fill="none" stroke="#16A34A" strokeWidth="5" />
-                      {/* Polycab Box */}
-                      <polygon points="50,45 95,40 105,85 60,95" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1" />
-                      <polygon points="50,45 65,30 110,25 95,40" fill="#E2E8F0" />
-                      <polygon points="95,40 110,25 120,70 105,85" fill="#CBD5E1" />
-                      {/* Red Brand Stripe on Box */}
-                      <polygon points="54,65 99,60 101,74 56,79" fill="#DC2626" />
-                    </svg>
-                  </div>
-                )}
-
-                {banner.cardTheme === 'ultratech' && (
-                  <div
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'flex-end',
-                      justifyContent: 'flex-end',
-                    }}
-                  >
-                    {/* Stylized Cement Bag */}
-                    <svg viewBox="0 0 140 120" style={{ width: '90%', height: 'auto', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.4))' }}>
-                      <path
-                        d="M 50 25 Q 85 22 120 25 Q 125 65 122 105 Q 85 110 48 105 Q 45 65 50 25 Z"
-                        fill="#F1F5F9"
-                        stroke="#CBD5E1"
-                        strokeWidth="1.5"
-                      />
-                      {/* Yellow UltraTech Band */}
-                      <rect x="50" y="48" width="72" height="28" fill="#FBBF24" />
-                      <rect x="50" y="58" width="72" height="3" fill="#1E293B" />
-                    </svg>
-                  </div>
-                )}
-
-                {banner.cardTheme === 'drfixit' && (
-                  <div
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'flex-end',
-                      justifyContent: 'flex-end',
-                    }}
-                  >
-                    {/* Stylized Waterproofing Canister */}
-                    <svg viewBox="0 0 140 120" style={{ width: '90%', height: 'auto', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.4))' }}>
-                      <path
-                        d="M 55 30 L 115 30 Q 120 30 120 35 L 120 105 Q 120 110 115 110 L 55 110 Q 50 110 50 105 L 50 35 Q 50 30 55 30 Z"
-                        fill="#F97938"
-                      />
-                      {/* Handle */}
-                      <path d="M 68 30 L 68 18 Q 85 15 102 18 L 102 30" fill="none" stroke="#FFFFFF" strokeWidth="4" />
-                      {/* Yellow Label */}
-                      <rect x="55" y="50" width="60" height="36" rx="4" fill="#FEF08A" />
-                      <circle cx="85" cy="68" r="8" fill="#0E4E42" />
-                    </svg>
-                  </div>
-                )}
+                <img
+                  src={banner.productImage}
+                  alt={banner.imageAlt}
+                  style={{
+                    maxHeight: '100%',
+                    maxWidth: '100%',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 12px 20px rgba(0, 0, 0, 0.45))',
+                    transform: 'translateY(2px)',
+                  }}
+                />
               </div>
 
               {/* Card Bottom Row: "Order now" White Pill Button */}
