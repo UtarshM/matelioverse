@@ -43,258 +43,82 @@ export default function HomePage() {
   return (
     <div>
       {/* ==========================================================================
-           URGENT QUICK-COMMERCE SPLIT HERO (CONSUMER & CONTRACTOR FOCUS)
+           QUICK-COMMERCE EXPRESS DELIVERY STRIP & PINCODE CHECKER
            ========================================================================== */}
-      <section style={{ background: '#081D17', color: '#FFFFFF', padding: '28px 0 36px 0', borderBottom: '1px solid #1C5A4A' }}>
+      <section style={{ background: '#081D17', color: '#FFFFFF', padding: '14px 0', borderBottom: '1px solid #1C5A4A' }}>
         <div className="site-container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 24, alignItems: 'stretch' }} className="hero-split-grid">
-            
-            {/* HERO CARD 1: PRIMARY 90-MIN SITE ESSENTIALS */}
-            <div
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
+            {/* Left: Value Proposition */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{ background: 'rgba(249, 121, 56, 0.2)', color: 'var(--primary-orange)', padding: '6px 14px', borderRadius: 20, fontSize: 12, fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span>⚡</span> 90-Minute Delivery
+              </div>
+              <div style={{ fontSize: 13.5, color: '#E2E8F0', fontWeight: 600 }}>
+                Hardware store to your doorstep across Gujarat · No minimum order
+              </div>
+            </div>
+
+            {/* Center: Live Pincode Quick Eligibility Checker */}
+            <form
+              onSubmit={handleCheckPincode}
               style={{
-                background: 'linear-gradient(145deg, #0E3128 0%, #133D32 100%)',
-                border: '1.5px solid #236E5A',
-                borderRadius: 24,
-                padding: '32px 28px',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: 12,
+                padding: '4px 6px 4px 12px',
                 display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'hidden',
-                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.35)',
+                gap: 8,
+                alignItems: 'center',
+                maxWidth: 360,
+                width: '100%',
               }}
             >
-              {/* Background Glow */}
-              <div
+              <span style={{ fontSize: 14 }}>📍</span>
+              <input
+                type="text"
+                value={inputPincode}
+                onChange={(e) => setInputPincode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                placeholder="Enter Site Pincode (e.g. 382421)"
                 style={{
-                  position: 'absolute',
-                  top: -60,
-                  right: -60,
-                  width: 220,
-                  height: 220,
-                  borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(249, 121, 56, 0.25) 0%, transparent 70%)',
-                  pointerEvents: 'none',
+                  flex: 1,
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#FFFFFF',
+                  fontSize: 13,
+                  fontWeight: 700,
+                  outline: 'none',
+                  minWidth: 0,
                 }}
               />
+              <button
+                type="submit"
+                style={{
+                  background: 'var(--primary-orange)',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  borderRadius: 8,
+                  padding: '7px 14px',
+                  fontSize: 12,
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Check Speed ⚡
+              </button>
+            </form>
 
-              <div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(249, 121, 56, 0.2)', color: 'var(--primary-orange)', padding: '4px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 14 }}>
-                  <span>⚡</span> 90-Minute Job-Site Delivery Guarantee
-                </div>
-
-                <h1 style={{ fontSize: 32, fontWeight: 900, lineHeight: 1.2, color: '#FFFFFF', marginBottom: 12 }}>
-                  Hardware Store to Your Doorstep in <span style={{ color: 'var(--primary-orange)' }}>90 Minutes.</span>
-                </h1>
-
-                <p style={{ fontSize: 14, color: 'rgba(255, 255, 255, 0.86)', lineHeight: 1.55, marginBottom: 20 }}>
-                  Never halt your site workforce. Get CPVC pipes, tile adhesives, drill bits, waterproof coatings, cutting blades, and safety gear delivered straight to your site gate before lunch.
-                </p>
-
-                {/* Live Pincode Quick Eligibility Checker */}
-                <form
-                  onSubmit={handleCheckPincode}
-                  style={{
-                    background: 'rgba(0, 0, 0, 0.3)',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: 14,
-                    padding: 8,
-                    display: 'flex',
-                    gap: 8,
-                    marginBottom: 14,
-                    alignItems: 'center',
-                  }}
-                >
-                  <span style={{ fontSize: 16, paddingLeft: 8 }}>📍</span>
-                  <input
-                    type="text"
-                    value={inputPincode}
-                    onChange={(e) => setInputPincode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                    placeholder="Enter your Site Pincode (e.g. 382421)"
-                    style={{
-                      flex: 1,
-                      background: 'transparent',
-                      border: 'none',
-                      color: '#FFFFFF',
-                      fontSize: 13.5,
-                      fontWeight: 700,
-                      outline: 'none',
-                    }}
-                  />
-                  <button
-                    type="submit"
-                    style={{
-                      background: 'var(--primary-orange)',
-                      color: '#FFFFFF',
-                      border: 'none',
-                      borderRadius: 10,
-                      padding: '9px 18px',
-                      fontSize: 12.5,
-                      fontWeight: 800,
-                      cursor: 'pointer',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    Check Speed ⚡
-                  </button>
-                </form>
-
-                {pincodeMessage && (
-                  <div style={{ fontSize: 12, color: '#A7F3D0', fontWeight: 700, marginBottom: 14 }}>
-                    {pincodeMessage}
-                  </div>
-                )}
-
-                {/* 4 Micro Trust Badges */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10, marginBottom: 20 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#E2E8F0', fontWeight: 600 }}>
-                    <span style={{ color: 'var(--primary-orange)' }}>✓</span> No Minimum Order
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#E2E8F0', fontWeight: 600 }}>
-                    <span style={{ color: 'var(--primary-orange)' }}>✓</span> Live GPS Fleet Tracking
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#E2E8F0', fontWeight: 600 }}>
-                    <span style={{ color: 'var(--primary-orange)' }}>✓</span> Pay on Delivery / UPI
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#E2E8F0', fontWeight: 600 }}>
-                    <span style={{ color: 'var(--primary-orange)' }}>✓</span> QR Batch BIS Grade
-                  </div>
-                </div>
-              </div>
-
-              {/* CTAs and Delivery Image */}
-              <div>
-                <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', marginBottom: 16 }}>
-                  <Link
-                    href="/categories"
-                    style={{
-                      background: 'var(--primary-orange)',
-                      color: '#FFFFFF',
-                      fontWeight: 800,
-                      fontSize: 14,
-                      padding: '12px 24px',
-                      borderRadius: 24,
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 8,
-                      boxShadow: '0 4px 14px rgba(249, 121, 56, 0.4)',
-                    }}
-                  >
-                    <span>Order Site Essentials (90 Mins)</span>
-                    <span>→</span>
-                  </Link>
-                  <Link
-                    href="/rfq"
-                    style={{
-                      color: '#FFFFFF',
-                      border: '1.5px solid rgba(255,255,255,0.4)',
-                      padding: '11px 20px',
-                      borderRadius: 24,
-                      textDecoration: 'none',
-                      fontSize: 13,
-                      fontWeight: 700,
-                    }}
-                  >
-                    ⚡ Instant AI Quote
-                  </Link>
-                </div>
-
-                {/* Generated Quick Delivery Image */}
-                <div style={{ borderRadius: 14, overflow: 'hidden', height: 160, position: 'relative', border: '1px solid rgba(255,255,255,0.15)' }}>
-                  <img
-                    src="/images/quick-delivery-van.jpg"
-                    alt="Matelioverse 90-Minute Quick Site Delivery Fleet"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(180deg, transparent 0%, rgba(14,49,40,0.95) 100%)', padding: '8px 14px', fontSize: 11.5, color: '#A7F3D0', fontWeight: 700 }}>
-                    ⚡ Dispatched from {currentHub.name} Hub · Next delivery slot in 20 mins
-                  </div>
-                </div>
-              </div>
+            {/* Right: Quick Perks */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 12, color: '#94A3B8' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><span style={{ color: 'var(--primary-orange)' }}>✓</span> Live GPS Tracking</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><span style={{ color: 'var(--primary-orange)' }}>✓</span> Pay on Delivery / UPI</span>
             </div>
-
-            {/* HERO CARD 2: PLANT-DIRECT HEAVY STRUCTURAL FREIGHT */}
-            <div
-              style={{
-                background: 'linear-gradient(145deg, #122B23 0%, #1B3F35 100%)',
-                border: '1.5px solid #2A6E59',
-                borderRadius: 24,
-                padding: '32px 28px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'hidden',
-                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.35)',
-              }}
-            >
-              <div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(16, 185, 129, 0.2)', color: '#34D399', padding: '4px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 14 }}>
-                  <span>🚛</span> Plant-Direct Bulk Dispatch · Mill Rates
-                </div>
-
-                <h2 style={{ fontSize: 28, fontWeight: 900, lineHeight: 1.25, color: '#FFFFFF', marginBottom: 12 }}>
-                  Bulk Steel, Cement &amp; AAC at Factory Rates.
-                </h2>
-
-                <p style={{ fontSize: 14, color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.55, marginBottom: 20 }}>
-                  Save 12–18% by eliminating 3-tier distributor markups. Full truckload consignments direct from plants with computerized mill test certificates and weighbridge slips.
-                </p>
-
-                <div style={{ background: 'rgba(0,0,0,0.25)', borderRadius: 14, padding: 14, border: '1px solid rgba(255,255,255,0.1)', marginBottom: 20 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5, marginBottom: 6 }}>
-                    <span style={{ color: '#94A3B8' }}>Fe550D TMT (Tuffar / JSW):</span>
-                    <strong style={{ color: '#A7F3D0' }}>Spot Rate: From ₹51,800/MT</strong>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5, marginBottom: 6 }}>
-                    <span style={{ color: '#94A3B8' }}>OPC 53 Cement (CemXtra / UltraTech):</span>
-                    <strong style={{ color: '#A7F3D0' }}>From ₹342/Bag Direct</strong>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5 }}>
-                    <span style={{ color: '#94A3B8' }}>Working Capital Credit:</span>
-                    <strong style={{ color: 'var(--primary-orange)' }}>Up to ₹25L (90 Days)</strong>
-                  </div>
-                </div>
-
-                {/* Generated Heavy Freight Image */}
-                <div style={{ borderRadius: 14, overflow: 'hidden', height: 160, position: 'relative', border: '1px solid rgba(255,255,255,0.15)', marginBottom: 20 }}>
-                  <img
-                    src="/images/heavy-plant-freight.jpg"
-                    alt="Matelioverse Plant Direct TMT Steel and Cement Truck Offloading"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(180deg, transparent 0%, rgba(14,49,40,0.95) 100%)', padding: '8px 14px', fontSize: 11.5, color: '#A7F3D0', fontWeight: 700 }}>
-                    🚛 Direct Factory Consignments · Computerized Weighbridge Slip Included
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <Link
-                  href="/rfq"
-                  style={{
-                    background: '#FFFFFF',
-                    color: '#0E3128',
-                    fontWeight: 900,
-                    fontSize: 14,
-                    padding: '12px 24px',
-                    borderRadius: 24,
-                    textDecoration: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: 8,
-                    boxShadow: '0 4px 14px rgba(255, 255, 255, 0.2)',
-                  }}
-                >
-                  <span>Upload BOQ for Magic AI Quote (60s)</span>
-                  <span>→</span>
-                </Link>
-              </div>
-            </div>
-
           </div>
+          {pincodeMessage && (
+            <div style={{ fontSize: 12, color: '#A7F3D0', fontWeight: 700, marginTop: 8, textAlign: 'center' }}>
+              {pincodeMessage}
+            </div>
+          )}
         </div>
       </section>
 

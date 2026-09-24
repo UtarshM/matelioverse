@@ -29,7 +29,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 142,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/jsw-neosteel-fe550d-12mm.svg',
+    image: '/images/products/jsw-neosteel-fe550d-12mm.webp',
     specs: {
       'Steel Grade': 'Fe 550D (IS 1786:2008)',
       'Diameter': '12 mm',
@@ -66,7 +66,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 98,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/sail-tmt-fe500d-16mm.svg',
+    image: '/images/products/sail-tmt-fe500d-16mm.webp',
     specs: {
       'Steel Grade': 'Fe 500D (IS 1786)',
       'Diameter': '16 mm',
@@ -101,7 +101,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 96,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/tuffar-tmt-12mm.svg',
+    image: '/images/products/tuffar-tmt-12mm.webp',
     specs: {
       'Steel Grade': 'Fe 550D (IS 1786:2008)',
       'Diameter': '12 mm',
@@ -141,7 +141,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 65,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/jk-smartblox-600x200x150.svg',
+    image: '/images/products/jk-smartblox-600x200x150.webp',
     specs: {
       'Dimensions': '600 x 200 x 150 mm',
       'Dry Density': '550 - 650 kg/m³',
@@ -175,7 +175,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 51,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/nxt-bloc-lightweight-aac.svg',
+    image: '/images/products/nxt-bloc-lightweight-aac.webp',
     specs: {
       'Dimensions': '600 x 200 x 200 mm',
       'Dry Density': '600 kg/m³',
@@ -213,7 +213,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 215,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/ultratech-super-cement-ppc.svg',
+    image: '/images/products/ultratech-super-cement-ppc.webp',
     specs: {
       'Grade': 'PPC (IS 1489 Part 1: 2015)',
       'Strength at 28 Days': '48+ MPa',
@@ -249,7 +249,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 78,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/wonder-cement-opc-53.svg',
+    image: '/images/products/wonder-cement-opc-53.webp',
     specs: {
       'Grade': 'OPC 53 (IS 269:2015)',
       'Compressive Strength': '58+ MPa',
@@ -284,7 +284,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 84,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/cemxtra-opc-53.svg',
+    image: '/images/products/cemxtra-opc-53.webp',
     specs: {
       'Grade': 'OPC 53 (IS 269:2015)',
       'Compressive Strength (28 Days)': '58+ MPa',
@@ -324,7 +324,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 39,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/zmartbuild-wall-panel-nxt-bloc.svg',
+    image: '/images/products/zmartbuild-wall-panel-nxt-bloc.webp',
     specs: {
       'Dimensions': '3000 x 600 x 100 mm',
       'Internal Reinforcement': 'Double Layer Welded Steel Mesh',
@@ -359,7 +359,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 43,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/ezywall-aac-panel-100.svg',
+    image: '/images/products/ezywall-aac-panel-100.webp',
     specs: {
       'Dimensions': '3000 x 600 x 100 mm',
       'Dry Density': '550 - 650 kg/m³',
@@ -399,7 +399,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 184,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/dr-fixit-101-lw-waterproofing.svg',
+    image: '/images/products/dr-fixit-101-lw-waterproofing.webp',
     specs: {
       'Dosage': '200 ml per 50kg bag of cement',
       'Chloride Content': 'Nil (Zero steel corrosion)',
@@ -436,7 +436,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 92,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/roff-t01-nca-tile-adhesive.svg',
+    image: '/images/products/roff-t01-nca-tile-adhesive.webp',
     specs: {
       'Classification': 'Type 1 / IS 15477:2019',
       'Bed Thickness': '3 - 6 mm',
@@ -470,7 +470,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 61,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/sika-latex-power-waterproofing.svg',
+    image: '/images/products/sika-latex-power-waterproofing.webp',
     specs: {
       'Polymer Base': 'Styrene Butadiene Rubber (SBR)',
       'Bond Strength': '> 2.0 N/mm²',
@@ -504,7 +504,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 88,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/bondex-gold-adhesive.svg',
+    image: '/images/products/bondex-gold-adhesive.webp',
     specs: {
       'Classification': 'Type 2 / C2TE (IS 15477:2019)',
       'Bed Thickness': '3 - 12 mm',
@@ -544,7 +544,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 164,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/astral-cpvc-pro-pipe-1inch.svg',
+    image: '/images/products/astral-cpvc-pro-pipe-1inch.webp',
     specs: {
       'Nominal Diameter': '1 Inch (25 mm)',
       'Pressure Class': 'SDR 11 (Class 1)',
@@ -580,7 +580,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 95,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/ashirvad-flowguard-cpvc-pipe-34inch.svg',
+    image: '/images/products/ashirvad-flowguard-cpvc-pipe-34inch.webp',
     specs: {
       'Diameter': '3/4 Inch (20 mm)',
       'Rating': 'SDR 11',
@@ -613,7 +613,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 71,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/supreme-lifeline-cpvc-pipe.svg',
+    image: '/images/products/supreme-lifeline-cpvc-pipe.webp',
     specs: {
       'Size': '1 Inch',
       'Standard': 'IS 15778',
@@ -647,7 +647,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 77,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/hydroline-cpvc-pipe-1inch.svg',
+    image: '/images/products/hydroline-cpvc-pipe-1inch.webp',
     specs: {
       'Nominal Diameter': '1 Inch (25 mm)',
       'Standard Dimension Ratio': 'SDR 11 (Class 1)',
@@ -687,7 +687,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 126,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/hindware-elegance-aura-wall-hung-toilet.svg',
+    image: '/images/products/hindware-elegance-aura-wall-hung-toilet.webp',
     specs: {
       'Collection': 'Hindware Italian Collection',
       'Flushing': '360° Tornado Rimless',
@@ -724,7 +724,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 88,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/jaquar-queen-single-lever-diverter.svg',
+    image: '/images/products/jaquar-queen-single-lever-diverter.webp',
     specs: {
       'Material': 'Grade A Solid Forged Brass',
       'Plating': 'Nickel 12 Micron + Chrome 0.3 Micron',
@@ -758,7 +758,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 42,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/duravit-me-by-starck-washbasin.svg',
+    image: '/images/products/duravit-me-by-starck-washbasin.webp',
     specs: {
       'Dimensions': '600 x 400 x 140 mm',
       'Finish': 'WonderGliss Alpine White',
@@ -792,7 +792,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 54,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/sanivo-rimless-ewc.svg',
+    image: '/images/products/sanivo-rimless-ewc.webp',
     specs: {
       'Dimensions': '530 x 365 x 350 mm',
       'Flushing Technology': 'Tornado 360° Rimless Washdown',
@@ -831,7 +831,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 79,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/qutone-marmo-royal-vitrified-tile.svg',
+    image: '/images/products/qutone-marmo-royal-vitrified-tile.webp',
     specs: {
       'Size': '600 x 1200 mm (2x4 ft)',
       'Thickness': '9.0 mm',
@@ -867,7 +867,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 48,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/varmora-carving-matt-vitrified-tile.svg',
+    image: '/images/products/varmora-carving-matt-vitrified-tile.webp',
     specs: {
       'Size': '600 x 600 mm (2x2 ft)',
       'Finish': 'Micro Carving Satin Matte',
@@ -901,7 +901,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 112,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/tiletrendz-calacatta-gold.svg',
+    image: '/images/products/tiletrendz-calacatta-gold.webp',
     specs: {
       'Size': '600 x 1200 mm (2x4 ft)',
       'Thickness': '9.0 mm',
@@ -941,7 +941,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 52,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/geberit-sigma-concealed-cistern.svg',
+    image: '/images/products/geberit-sigma-concealed-cistern.webp',
     specs: {
       'Brand Origin': 'Geberit Switzerland',
       'Flush Volume': '3 Litre (Half) / 6 Litre (Full)',
@@ -978,7 +978,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 33,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/tece-base-concealed-cistern-module.svg',
+    image: '/images/products/tece-base-concealed-cistern-module.webp',
     specs: {
       'Country of Design': 'Germany',
       'Load Capacity': '400 kg Load Tested',
@@ -1015,7 +1015,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 67,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/franke-maris-ss304-undermount-sink.svg',
+    image: '/images/products/franke-maris-ss304-undermount-sink.webp',
     specs: {
       'Steel Grade': 'AISI SS 304 Food Grade (1.2mm Heavy Gauge)',
       'Dimensions': '610 x 457 x 228 mm (24x18x9 Inch)',
@@ -1051,7 +1051,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 41,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/hindware-quadra-satin-ss-sink.svg',
+    image: '/images/products/hindware-quadra-satin-ss-sink.webp',
     specs: {
       'Material': 'SS 304 Stainless Steel',
       'Size': '940 x 460 x 200 mm',
@@ -1089,7 +1089,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 29,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/giacomini-hydronic-underfloor-pex-cooling-pipe.svg',
+    image: '/images/products/giacomini-hydronic-underfloor-pex-cooling-pipe.webp',
     specs: {
       'Manufacturer': 'Giacomini S.p.A. Italy',
       'Diameter': '16 mm OD x 2.0 mm Wall',
@@ -1130,7 +1130,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 19,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/acquaviva-whirlpool-hydro-massage-bathtub.svg',
+    image: '/images/products/acquaviva-whirlpool-hydro-massage-bathtub.webp',
     specs: {
       'Dimensions': '1700 x 800 x 650 mm',
       'Pump Power': '1.5 HP Silent Water Hydro Pump',
@@ -1171,7 +1171,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 148,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/birla-opus-style-perfect-start-primer.svg',
+    image: '/images/products/birla-opus-style-perfect-start-primer.webp',
     specs: {
       'Sheen Level': 'Soft Velvety Sheen',
       'Coverage': '140 - 160 sq.ft/Litre for 2 coats',
@@ -1207,7 +1207,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 82,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/birla-opus-calista-luxury-emulsion.svg',
+    image: '/images/products/birla-opus-calista-luxury-emulsion.webp',
     specs: {
       'Heat Reflectance': 'SRI > 105 (Cool Wall Tech)',
       'Monsoon Warranty': '10 Years Performance Guarantee',
@@ -1245,7 +1245,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 167,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/birla-white-wallcare-putty-40kg.svg',
+    image: '/images/products/birla-white-wallcare-putty-40kg.webp',
     specs: {
       'Material': 'White Cement + Redispersible HP Polymers',
       'Tensile Adhesion': '> 1.1 N/mm²',
@@ -1281,7 +1281,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 54,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/jk-lakshmiplast-gypsum-putty.svg',
+    image: '/images/products/jk-lakshmiplast-gypsum-putty.webp',
     specs: {
       'Setting Time': '15 - 20 Minutes',
       'Dry Bulk Density': '800 kg/m³',
@@ -1318,7 +1318,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 64,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/lidco-ss304-linear-floor-drain-channel.svg',
+    image: '/images/products/lidco-ss304-linear-floor-drain-channel.webp',
     specs: {
       'Steel Grade': 'AISI 304 Stainless Steel (1.5mm Channel)',
       'Dimensions': '600 mm Length x 70 mm Width x 25 mm Depth',
@@ -1359,7 +1359,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 31,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/strongfab-i-beam-150.svg',
+    image: '/images/products/strongfab-i-beam-150.webp',
     specs: {
       'Grade': 'IS 2062 E250BR / Fe410WA',
       'Web Thickness': '5.0 mm',
@@ -1394,7 +1394,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 92,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/safesite-helmet-ratchet.svg',
+    image: '/images/products/safesite-helmet-ratchet.webp',
     specs: {
       'Material': 'Virgin Virgin Acrylonitrile Butadiene Styrene (ABS)',
       'Standard': 'IS 2925:1984 & CE EN 397',
@@ -1427,7 +1427,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 45,
     qrBatchVerified: true,
     bisCertified: true,
-    image: '/images/products/gripfit-anchor-bolt-m12.svg',
+    image: '/images/products/gripfit-anchor-bolt-m12.webp',
     specs: {
       'Size': 'M12 Diameter x 100 mm Length',
       'Finish': 'Yellow Zinc Plated (5-8 Micron)',
