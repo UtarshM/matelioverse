@@ -25,3 +25,7 @@ yarn-error.log*
 # IDEs
 .vscode/
 .idea/
+*.tsbuildinfo
+
+# Scraped cache
+scripts/*.json
