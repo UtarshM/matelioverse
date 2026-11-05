@@ -12,8 +12,11 @@ interface Props {
   };
 }
 
+export const dynamicParams = true;
+
 export function generateStaticParams() {
-  return PRODUCTS.map((p) => ({
+  // Pre-render the top 50 featured products at build time; all others render on demand
+  return PRODUCTS.slice(0, 50).map((p) => ({
     slug: p.slug,
   }));
 }

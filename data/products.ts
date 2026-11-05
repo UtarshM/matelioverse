@@ -1,6 +1,7 @@
 import { Product } from '@/types';
+import scrapedMaterialsRaw from './scraped_products.json';
 
-export const PRODUCTS: Product[] = [
+export const CURATED_PRODUCTS: Product[] = [
   // ──────────────────────────────────────────────────────────────────────────
   // 1. TMT BARS (JSW Steel, SAIL, ET TMT, Steefo, Briskon, Bhrata, Vibrant, Vinayak 500, Tuffar)
   // ──────────────────────────────────────────────────────────────────────────
@@ -1370,6 +1371,42 @@ export const PRODUCTS: Product[] = [
     minOrderQty: 6,
   },
   {
+    id: 'reflectoglass-architectural-panel',
+    slug: 'reflectoglass-toughened-insulated-dgu-facade-glass',
+    name: 'ReflectoGlass Toughened Solar-Control Double Glazed Facade Panel (24mm DGU)',
+    brand: 'ReflectoGlass',
+    isPrivateLabel: true,
+    category: 'Architectural Glass',
+    categorySlug: 'architectural-glass',
+    subCategory: 'Facade Glass & DGU',
+    description: 'High-performance double glazed insulated architectural safety glass with solar-control low-E coating. Delivers superior thermal U-value, UV rejection, acoustic soundproofing, and modern crystal facade aesthetics.',
+    unit: 'Sq. Ft (24mm DGU Unit)',
+    mrp: 380,
+    sellingPrice: 285,
+    discountPercent: 25,
+    bulkPricing: [
+      { minQty: 200, maxQty: 999, pricePerUnit: 265, discountNote: 'Project elevation rate' },
+      { minQty: 1000, pricePerUnit: 240, discountNote: 'Direct factory crate dispatch' },
+    ],
+    deliverySla: 'Same-Day Freight',
+    slaType: 'scheduled',
+    inStock: true,
+    rating: 4.9,
+    reviewCount: 42,
+    qrBatchVerified: true,
+    bisCertified: true,
+    image: '/images/products/reflectoglass-architectural-panel.webp',
+    specs: {
+      'Configuration': '6mm Toughened + 12mm Argon Gap + 6mm Low-E Glass',
+      'Solar Factor (SHGC)': '0.28 (High Heat Rejection)',
+      'U-Value': '1.6 W/m²K',
+      'Acoustic Insulation': '36 dB Noise Reduction',
+      'Safety Standard': 'IS 2553 (Part 1) Toughened Safety Glass',
+    },
+    datasheetUrl: '#',
+    minOrderQty: 50,
+  },
+  {
     id: 'safesite-helmet-ratchet',
     slug: 'safesite-industrial-safety-helmet-ratchet-abs',
     name: 'SafeSite Heavy-Duty Industrial Safety Helmet with Ratchet Suspension',
@@ -1436,4 +1473,11 @@ export const PRODUCTS: Product[] = [
     datasheetUrl: '#',
     minOrderQty: 1,
   },
+];
+
+export const SCRAPED_PRODUCTS: Product[] = scrapedMaterialsRaw as unknown as Product[];
+
+export const PRODUCTS: Product[] = [
+  ...CURATED_PRODUCTS,
+  ...SCRAPED_PRODUCTS,
 ];

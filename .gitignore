@@ -29,3 +29,4 @@ yarn-error.log*
 
 # Scraped cache
 scripts/*.json
+scripts/img_cache/

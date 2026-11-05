@@ -1,0 +1,932 @@
+[
+  {
+    "id": 14,
+    "name": "Building materials",
+    "slug": "building-materials",
+    "image": "https://cdn.madoverbuildings.com/category/Building_Materials.webp",
+    "url": "https://madoverbuildings.com/building-materials",
+    "total_products": 73,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Cement",
+        "slug": "cement",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Cement.webp",
+        "url": "https://madoverbuildings.com/building-materials/cement",
+        "total_products": 23,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Concrete Admixtures and Chemicals",
+        "slug": "concrete-admixtures-and-chemicals",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Concrete_Admixtures_and_Chemicals.webp",
+        "url": "https://madoverbuildings.com/building-materials/concrete-admixtures-and-chemicals",
+        "total_products": 20,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "RMC",
+        "slug": "rmc",
+        "image": "https://cdn.madoverbuildings.com/subcategory/RMC.webp",
+        "url": "https://madoverbuildings.com/building-materials/rmc",
+        "total_products": 2,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Site Consumables",
+        "slug": "site-consumables",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Site_Consumables.webp",
+        "url": "https://madoverbuildings.com/building-materials/site-consumables",
+        "total_products": 6,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Waterproofing",
+        "slug": "waterproofing",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Waterproofing.webp",
+        "url": "https://madoverbuildings.com/building-materials/waterproofing",
+        "total_products": 22,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Bathroom",
+    "slug": "bathroom",
+    "image": "https://cdn.madoverbuildings.com/category/Bathroom.webp",
+    "url": "https://madoverbuildings.com/bathroom",
+    "total_products": 649,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Bathroom Accessories",
+        "slug": "bathroom-accessories",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Bathroom_Accessories.webp",
+        "url": "https://madoverbuildings.com/bathroom/bathroom-accessories",
+        "total_products": 9,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Bathroom Accessories Fittings",
+        "slug": "bathroom-accessories-fittings",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Bathroom_Accessories_Fittings.webp",
+        "url": "https://madoverbuildings.com/bathroom/bathroom-accessories-fittings",
+        "total_products": 6,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Bath & Shower Fittings and Taps",
+        "slug": "bath-shower-fittings-and-taps",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Bath__Shower_Fittings_and_Taps.webp",
+        "url": "https://madoverbuildings.com/bathroom/bath-shower-fittings-and-taps",
+        "total_products": 350,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Cisterns and Flush",
+        "slug": "cisterns-and-flush",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Cisterns_and_Flush.webp",
+        "url": "https://madoverbuildings.com/bathroom/cisterns-and-flush",
+        "total_products": 41,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Conceal Fittings",
+        "slug": "conceal-fittings",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Conceal_Fittings.webp",
+        "url": "https://madoverbuildings.com/bathroom/conceal-fittings",
+        "total_products": 45,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Wash Basins / Sink",
+        "slug": "wash-basins-sink",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Wash_Basins_-_Sink.webp",
+        "url": "https://madoverbuildings.com/bathroom/wash-basins-sink",
+        "total_products": 71,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "WC / Toilets",
+        "slug": "wc-toilets",
+        "image": "https://cdn.madoverbuildings.com/subcategory/WC_-_Toilets.webp",
+        "url": "https://madoverbuildings.com/bathroom/wc-toilets",
+        "total_products": 127,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Plumbing",
+    "slug": "plumbing",
+    "image": "https://cdn.madoverbuildings.com/category/Plumbing.webp",
+    "url": "https://madoverbuildings.com/plumbing",
+    "total_products": 349,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "CPVC Pipes and Fittings",
+        "slug": "cpvc-pipes-and-fittings",
+        "image": "https://cdn.madoverbuildings.com/subcategory/CPVC_Pipes_and_Fittings.webp",
+        "url": "https://madoverbuildings.com/plumbing/cpvc-pipes-and-fittings",
+        "total_products": 112,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Plumbing Hardware",
+        "slug": "plumbing-hardware",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Plumbing_Hardware.webp",
+        "url": "https://madoverbuildings.com/plumbing/plumbing-hardware",
+        "total_products": 79,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Pumps and Motors",
+        "slug": "pumps-and-motors",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Pumps_and_Motors.webp",
+        "url": "https://madoverbuildings.com/plumbing/pumps-and-motors",
+        "total_products": 7,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "PVC Drainage Pipes (SWR) and Fittings",
+        "slug": "pvc-drainage-pipes-swr-and-fittings",
+        "image": "https://cdn.madoverbuildings.com/subcategory/PVC_Drainage_Pipes_SWR_and_Fittings.webp",
+        "url": "https://madoverbuildings.com/plumbing/pvc-drainage-pipes-swr-and-fittings",
+        "total_products": 137,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Water Tanks",
+        "slug": "water-tanks",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Water_Tanks.webp",
+        "url": "https://madoverbuildings.com/plumbing/water-tanks",
+        "total_products": 14,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Electrical",
+    "slug": "electrical",
+    "image": "https://cdn.madoverbuildings.com/category/Electrical.webp",
+    "url": "https://madoverbuildings.com/electrical",
+    "total_products": 430,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Conduits and Fittings",
+        "slug": "conduits-and-fittings",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Conduits_and_Fittings.webp",
+        "url": "https://madoverbuildings.com/electrical/conduits-and-fittings",
+        "total_products": 42,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Distribution Board and Panels",
+        "slug": "distribution-board-and-panels",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Distribution_Board_and_Panels.webp",
+        "url": "https://madoverbuildings.com/electrical/distribution-board-and-panels",
+        "total_products": 35,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "MCBs and Circuit Breakers",
+        "slug": "mcbs-and-circuit-breakers",
+        "image": "https://cdn.madoverbuildings.com/subcategory/MCBs_and_Circuit_Breakers.webp",
+        "url": "https://madoverbuildings.com/electrical/mcbs-and-circuit-breakers",
+        "total_products": 25,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Smart Home and IoT",
+        "slug": "smart-home-and-iot",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Smart_Home_and_IoT.webp",
+        "url": "https://madoverbuildings.com/electrical/smart-home-and-iot",
+        "total_products": 29,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Switches and Sockets",
+        "slug": "switches-and-sockets",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Switches_and_Sockets.webp",
+        "url": "https://madoverbuildings.com/electrical/switches-and-sockets",
+        "total_products": 266,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Wires and Cables",
+        "slug": "wires-and-cables",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Wires_and_Cables.webp",
+        "url": "https://madoverbuildings.com/electrical/wires-and-cables",
+        "total_products": 33,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Lighting",
+    "slug": "lighting",
+    "image": "https://cdn.madoverbuildings.com/category/Lighting.webp",
+    "url": "https://madoverbuildings.com/lighting",
+    "total_products": 247,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Bulkhead and Utility Lights",
+        "slug": "bulkhead-and-utility-lights",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Bulkhead_and_Utility_Lights.webp",
+        "url": "https://madoverbuildings.com/lighting/bulkhead-and-utility-lights",
+        "total_products": 17,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Ceiling and Surface Lights",
+        "slug": "ceiling-and-surface-lights",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Ceiling_and_Surface_Lights.webp",
+        "url": "https://madoverbuildings.com/lighting/ceiling-and-surface-lights",
+        "total_products": 38,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Decorative and Pendant Lights",
+        "slug": "decorative-and-pendant-lights",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Decorative_and_Pendant_Lights.webp",
+        "url": "https://madoverbuildings.com/lighting/decorative-and-pendant-lights",
+        "total_products": 8,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Drivers, Dimmers and Accessories",
+        "slug": "drivers-dimmers-and-accessories",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Drivers_Dimmers_and_Accessories.webp",
+        "url": "https://madoverbuildings.com/lighting/drivers-dimmers-and-accessories",
+        "total_products": 4,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "LED Bulbs and Tubes",
+        "slug": "led-bulbs-and-tubes",
+        "image": "https://cdn.madoverbuildings.com/subcategory/LED_Bulbs_and_Tubes.webp",
+        "url": "https://madoverbuildings.com/lighting/led-bulbs-and-tubes",
+        "total_products": 25,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Outdoor, Facade & Flood Lighting",
+        "slug": "outdoor-facade-flood-lighting",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Outdoor_Facade__Flood_Lighting.webp",
+        "url": "https://madoverbuildings.com/lighting/outdoor-facade-flood-lighting",
+        "total_products": 79,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Panel Lights and Downlights",
+        "slug": "panel-lights-and-downlights",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Panel_Lights_and_Downlights.webp",
+        "url": "https://madoverbuildings.com/lighting/panel-lights-and-downlights",
+        "total_products": 47,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Spotlights and COB Lights",
+        "slug": "spotlights-and-cob-lights",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Spotlights_and_COB_Lights.webp",
+        "url": "https://madoverbuildings.com/lighting/spotlights-and-cob-lights",
+        "total_products": 29,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Fans",
+    "slug": "fans",
+    "image": "https://cdn.madoverbuildings.com/category/Fans.webp",
+    "url": "https://madoverbuildings.com/fans",
+    "total_products": 52,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Ceiling Fans",
+        "slug": "ceiling-fans",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Ceiling_Fans.webp",
+        "url": "https://madoverbuildings.com/fans/ceiling-fans",
+        "total_products": 44,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Exhaust and Ventilation Fans",
+        "slug": "exhaust-and-ventilation-fans",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Exhaust_and_Ventilation_Fans.webp",
+        "url": "https://madoverbuildings.com/fans/exhaust-and-ventilation-fans",
+        "total_products": 8,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Plywood and Boards",
+    "slug": "plywood-and-boards",
+    "image": "https://cdn.madoverbuildings.com/category/Plywood_and_Boards.webp",
+    "url": "https://madoverbuildings.com/plywood-and-boards",
+    "total_products": 22,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "MDF, HDHMR, HMR, HDF Boards",
+        "slug": "mdf-hdhmr-hmr-hdf-boards",
+        "image": "https://cdn.madoverbuildings.com/subcategory/MDF_HDHMR_HMR_HDF_Boards.webp",
+        "url": "https://madoverbuildings.com/plywood-and-boards/mdf-hdhmr-hmr-hdf-boards",
+        "total_products": 4,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Plywood and Blockboard",
+        "slug": "plywood-and-blockboard",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Plywood_and_Blockboard.webp",
+        "url": "https://madoverbuildings.com/plywood-and-boards/plywood-and-blockboard",
+        "total_products": 18,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Laminates",
+    "slug": "laminates",
+    "image": "https://cdn.madoverbuildings.com/category/Laminates.webp",
+    "url": "https://madoverbuildings.com/laminates",
+    "total_products": 712,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Edge Bands and Accessories",
+        "slug": "edge-bands-and-accessories",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Edge_Bands_and_Accessories.webp",
+        "url": "https://madoverbuildings.com/laminates/edge-bands-and-accessories",
+        "total_products": 4,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Laminates and Decorative Sheets",
+        "slug": "laminates-and-decorative-sheets",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Laminates_and_Decorative_Sheets.webp",
+        "url": "https://madoverbuildings.com/laminates/laminates-and-decorative-sheets",
+        "total_products": 708,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Hardware and Fittings",
+    "slug": "hardware-and-fittings",
+    "image": "https://cdn.madoverbuildings.com/category/Hardware_and_Fittings.webp",
+    "url": "https://madoverbuildings.com/hardware-and-fittings",
+    "total_products": 350,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Adhesives and Sealants",
+        "slug": "adhesives-and-sealants",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Adhesives_and_Sealants.webp",
+        "url": "https://madoverbuildings.com/hardware-and-fittings/adhesives-and-sealants",
+        "total_products": 23,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Aluminium Profiles and Trims",
+        "slug": "aluminium-profiles-and-trims",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Aluminium_Profiles_and_Trims.webp",
+        "url": "https://madoverbuildings.com/hardware-and-fittings/aluminium-profiles-and-trims",
+        "total_products": 14,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Fasteners and Screws",
+        "slug": "fasteners-and-screws",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Fasteners_and_Screws.webp",
+        "url": "https://madoverbuildings.com/hardware-and-fittings/fasteners-and-screws",
+        "total_products": 5,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Handles and Knobs",
+        "slug": "handles-and-knobs",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Handles_and_Knobs.webp",
+        "url": "https://madoverbuildings.com/hardware-and-fittings/handles-and-knobs",
+        "total_products": 3,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Hinges Drawer Slides and Runners",
+        "slug": "hinges-drawer-slides-and-runners",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Hinges_Drawer_Slides_and_Runners.webp",
+        "url": "https://madoverbuildings.com/hardware-and-fittings/hinges-drawer-slides-and-runners",
+        "total_products": 118,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Locks and Latches",
+        "slug": "locks-and-latches",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Locks_and_Latches.webp",
+        "url": "https://madoverbuildings.com/hardware-and-fittings/locks-and-latches",
+        "total_products": 34,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Office, Cabinet and General Hardware",
+        "slug": "office-cabinet-and-general-hardware",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Office_Cabinet_and_General_Hardware.webp",
+        "url": "https://madoverbuildings.com/hardware-and-fittings/office-cabinet-and-general-hardware",
+        "total_products": 76,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Sofa, Bed and Recliner Fittings",
+        "slug": "sofa-bed-and-recliner-fittings",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Sofa_Bed_and_Recliner_Fittings.webp",
+        "url": "https://madoverbuildings.com/hardware-and-fittings/sofa-bed-and-recliner-fittings",
+        "total_products": 3,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Wardrobe Fittings",
+        "slug": "wardrobe-fittings",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Wardrobe_Fittings.webp",
+        "url": "https://madoverbuildings.com/hardware-and-fittings/wardrobe-fittings",
+        "total_products": 74,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Paints, Putty and Coatings",
+    "slug": "paints-putty-and-coatings",
+    "image": "https://cdn.madoverbuildings.com/category/Paints_Putty_and_Coatings.webp",
+    "url": "https://madoverbuildings.com/paints-putty-and-coatings",
+    "total_products": 130,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Exterior Paints",
+        "slug": "exterior-paints",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Exterior_Paints.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/exterior-paints",
+        "total_products": 24,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Interior Paints",
+        "slug": "interior-paints",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Interior_Paints.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/interior-paints",
+        "total_products": 30,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Metal and Anti-Corrosion Paints",
+        "slug": "metal-and-anti-corrosion-paints",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Metal_and_Anti-Corrosion_Paints.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/metal-and-anti-corrosion-paints",
+        "total_products": 7,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Paint Tools and Accessories",
+        "slug": "paint-tools-and-accessories",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Paint_Tools_and_Accessories.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/paint-tools-and-accessories",
+        "total_products": 6,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Primers and Undercoats",
+        "slug": "primers-and-undercoats",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Primers_and_Undercoats.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/primers-and-undercoats",
+        "total_products": 7,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Putty and Wall Prep",
+        "slug": "putty-and-wall-prep",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Putty_and_Wall_Prep.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/putty-and-wall-prep",
+        "total_products": 8,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Sealants and Caulks",
+        "slug": "sealants-and-caulks",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Sealants_and_Caulks.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/sealants-and-caulks",
+        "total_products": 2,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Texture Paints and Wall Finishes",
+        "slug": "texture-paints-and-wall-finishes",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Texture_Paints_and_Wall_Finishes.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/texture-paints-and-wall-finishes",
+        "total_products": 9,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Waterproof Coatings",
+        "slug": "waterproof-coatings",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Waterproof_Coatings.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/waterproof-coatings",
+        "total_products": 9,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Wood Coatings and Varnishes",
+        "slug": "wood-coatings-and-varnishes",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Wood_Coatings_and_Varnishes.webp",
+        "url": "https://madoverbuildings.com/paints-putty-and-coatings/wood-coatings-and-varnishes",
+        "total_products": 28,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Tiles",
+    "slug": "tiles",
+    "image": "https://cdn.madoverbuildings.com/category/Tiles.webp",
+    "url": "https://madoverbuildings.com/tiles",
+    "total_products": 378,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Tile accessories",
+        "slug": "tile-accessories",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Tile_Accessories.webp",
+        "url": "https://madoverbuildings.com/tiles/tile-accessories",
+        "total_products": 20,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Tile Adhesives and Grouts",
+        "slug": "tile-adhesives-and-grouts",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Tile_Adhesives_and_Grouts.webp",
+        "url": "https://madoverbuildings.com/tiles/tile-adhesives-and-grouts",
+        "total_products": 96,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Vitrified Tiles",
+        "slug": "vitrified-tiles",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Vitrified_Tiles.webp",
+        "url": "https://madoverbuildings.com/tiles/vitrified-tiles",
+        "total_products": 262,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "False Ceiling and Drywall",
+    "slug": "false-ceiling-and-drywall",
+    "image": "https://cdn.madoverbuildings.com/category/False_Ceiling_and_Drywall.webp",
+    "url": "https://madoverbuildings.com/false-ceiling-and-drywall",
+    "total_products": 13,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "False Ceiling Accessories",
+        "slug": "false-ceiling-accessories",
+        "image": "https://cdn.madoverbuildings.com/subcategory/False_Ceiling_Accessories.webp",
+        "url": "https://madoverbuildings.com/false-ceiling-and-drywall/false-ceiling-accessories",
+        "total_products": 9,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Gypsum Boards",
+        "slug": "gypsum-boards",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Gypsum_Boards.webp",
+        "url": "https://madoverbuildings.com/false-ceiling-and-drywall/gypsum-boards",
+        "total_products": 2,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Plaster of Paris (POP)",
+        "slug": "plaster-of-paris-pop",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Plaster_of_Paris_POP.webp",
+        "url": "https://madoverbuildings.com/false-ceiling-and-drywall/plaster-of-paris-pop",
+        "total_products": 2,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Kitchen",
+    "slug": "kitchen",
+    "image": "https://cdn.madoverbuildings.com/category/Kitchen.webp",
+    "url": "https://madoverbuildings.com/kitchen",
+    "total_products": 171,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Chimneys",
+        "slug": "chimneys",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Chimneys.webp",
+        "url": "https://madoverbuildings.com/kitchen/chimneys",
+        "total_products": 39,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Hobs / Stoves",
+        "slug": "hobs-stoves",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Hobs_-_Stoves.webp",
+        "url": "https://madoverbuildings.com/kitchen/hobs-stoves",
+        "total_products": 41,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Kitchen Appliances",
+        "slug": "kitchen-appliances",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Kitchen_Appliances.webp",
+        "url": "https://madoverbuildings.com/kitchen/kitchen-appliances",
+        "total_products": 35,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Kitchen Sinks",
+        "slug": "kitchen-sinks",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Kitchen_Sinks.webp",
+        "url": "https://madoverbuildings.com/kitchen/kitchen-sinks",
+        "total_products": 7,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Kitchen Taps and Mixers",
+        "slug": "kitchen-taps-and-mixers",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Kitchen_Taps_and_Mixers.webp",
+        "url": "https://madoverbuildings.com/kitchen/kitchen-taps-and-mixers",
+        "total_products": 1,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Modular Baskets and Tandem Boxes",
+        "slug": "modular-baskets-and-tandem-boxes",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Modular_Baskets_and_Tandem_Boxes.webp",
+        "url": "https://madoverbuildings.com/kitchen/modular-baskets-and-tandem-boxes",
+        "total_products": 48,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Tools, Equipment and Safety",
+    "slug": "tools-equipment-and-safety",
+    "image": "https://cdn.madoverbuildings.com/category/Tools_Equipment_and_Safety.webp",
+    "url": "https://madoverbuildings.com/tools-equipment-and-safety",
+    "total_products": 1779,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Cutting and Grinding",
+        "slug": "cutting-and-grinding",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Cutting_and_Grinding.webp",
+        "url": "https://madoverbuildings.com/tools-equipment-and-safety/cutting-and-grinding",
+        "total_products": 459,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Hand Tools",
+        "slug": "hand-tools-yiog7j",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Hand_Tools.webp",
+        "url": "https://madoverbuildings.com/tools-equipment-and-safety/hand-tools-yiog7j",
+        "total_products": 327,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Measuring and Marking Tools",
+        "slug": "measuring-and-marking-tools",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Measuring_and_Marking_Tools.webp",
+        "url": "https://madoverbuildings.com/tools-equipment-and-safety/measuring-and-marking-tools",
+        "total_products": 67,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Power Tools",
+        "slug": "power-tools",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Power_Tools.webp",
+        "url": "https://madoverbuildings.com/tools-equipment-and-safety/power-tools",
+        "total_products": 812,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Tool Accessories",
+        "slug": "tool-accessories",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Tool_Accessories.webp",
+        "url": "https://madoverbuildings.com/tools-equipment-and-safety/tool-accessories",
+        "total_products": 114,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Heating and AC",
+    "slug": "heating-and-ac",
+    "image": "https://cdn.madoverbuildings.com/category/Heating_and_AC.webp",
+    "url": "https://madoverbuildings.com/heating-and-ac",
+    "total_products": 19,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Air Conditioners",
+        "slug": "air-conditioners-mmarth",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Air_Conditioners.webp",
+        "url": "https://madoverbuildings.com/heating-and-ac/air-conditioners-mmarth",
+        "total_products": 2,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Heaters",
+        "slug": "heaters-crkdsx",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Heaters.webp",
+        "url": "https://madoverbuildings.com/heating-and-ac/heaters-crkdsx",
+        "total_products": 17,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Cleaning and House",
+    "slug": "cleaning-and-house",
+    "image": "https://cdn.madoverbuildings.com/category/Cleaning_and_House.webp",
+    "url": "https://madoverbuildings.com/cleaning-and-house",
+    "total_products": 6,
+    "subcategories": [
+      {
+        "id": null,
+        "name": "Floor Wash",
+        "slug": "floor-wash",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Floor_Wash.webp",
+        "url": "https://madoverbuildings.com/cleaning-and-house/floor-wash",
+        "total_products": 4,
+        "brands": [],
+        "sample_products": []
+      },
+      {
+        "id": null,
+        "name": "Ladders",
+        "slug": "ladders-xnqnqa",
+        "image": "https://cdn.madoverbuildings.com/subcategory/Ladders.webp",
+        "url": "https://madoverbuildings.com/cleaning-and-house/ladders-xnqnqa",
+        "total_products": 2,
+        "brands": [],
+        "sample_products": []
+      }
+    ]
+  }
+]
