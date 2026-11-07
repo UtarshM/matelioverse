@@ -238,8 +238,8 @@ export default function SubNav() {
             <Link href="/contact" className="sub-link">
               Contact &amp; Hubs
             </Link>
-            <Link href="/partner" className="matelio-star-pill" title="Dealer & Franchise Loyalty Program">
-              <svg viewBox="0 0 24 24">
+            <Link href="/partner" className="matelio-star-pill" title="Dealer & Franchise Loyalty Program" style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              <svg viewBox="0 0 24 24" width="14" height="14" style={{ width: 14, height: 14, flexShrink: 0 }}>
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
               <span>matelio STAR</span>

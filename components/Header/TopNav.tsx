@@ -195,7 +195,7 @@ export default function TopNav({
 
         {/* Center: Search Bar with AI Quick Match & Live Autocomplete */}
         <div className="top-search-wrap" ref={searchWrapRef}>
-          <form onSubmit={handleSearchSubmit} className="top-search-inner" style={{ position: 'relative' }}>
+          <form onSubmit={handleSearchSubmit} className="top-search-inner" style={{ position: 'relative', display: 'flex', alignItems: 'center', width: '100%', height: 42, background: '#F1F5F9', borderRadius: 24, padding: '0 12px', border: '1.5px solid #CBD5E1' }}>
             <span style={{ fontSize: 16, color: '#94A3B8', marginRight: 6, display: 'flex', alignItems: 'center' }}>
               🔍
             </span>
@@ -203,6 +203,7 @@ export default function TopNav({
               type="text"
               id="top-search-input"
               className="top-search-input"
+              style={{ flex: 1, border: 'none', background: 'transparent', outline: 'none', fontSize: 13.5, color: '#0F172A', padding: '0 8px' }}
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
@@ -244,8 +245,9 @@ export default function TopNav({
               className="top-search-ai-btn"
               aria-label="Search with AI or Instant BOQ Quote"
               title="Get Magic AI BOQ Quote in 60s"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 4, height: 32, padding: '0 10px', flexShrink: 0, textDecoration: 'none' }}
             >
-              <svg viewBox="0 0 24 24">
+              <svg viewBox="0 0 24 24" width="16" height="16" style={{ width: 16, height: 16, minWidth: 16, minHeight: 16, flexShrink: 0, fill: '#597EF7' }}>
                 <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1.27c.34-.6.99-1 1.73-1a2 2 0 010 4c-.74 0-1.39-.4-1.73-1H20a7 7 0 01-7 7v1.27c.6.34 1 .99 1 1.73a2 2 0 01-4 0c0-.74.4-1.39 1-1.73V23a7 7 0 01-7-7H2.73c-.34.6-.99 1-1.73 1a2 2 0 010-4c.74 0 1.39.4 1.73 1H4a7 7 0 017-7V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z" />
               </svg>
               <span>AI Quote</span>
