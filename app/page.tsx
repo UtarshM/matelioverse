@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
-import { PRODUCTS } from '@/data/products';
+import { CURATED_PRODUCTS } from '@/data/curatedProducts';
 import { HUBS } from '@/data/hubs';
 import ProductCard from '@/components/Commerce/ProductCard';
 import PromoBannerSlider from '@/components/Commerce/PromoBannerSlider';
@@ -29,8 +29,8 @@ export default function HomePage() {
   };
 
   // Filter products by SLA type & project stage
-  const instantProducts = PRODUCTS.filter((p) => p.slaType === 'instant');
-  const heavyMaterials = PRODUCTS.filter((p) => p.slaType === 'scheduled');
+  const instantProducts = CURATED_PRODUCTS.filter((p) => p.slaType === 'instant');
+  const heavyMaterials = CURATED_PRODUCTS.filter((p) => p.slaType === 'scheduled');
 
   const filteredInstantProducts = instantProducts.filter((p) => {
     if (selectedStage === 'all' || selectedStage === 'urgent') return true;

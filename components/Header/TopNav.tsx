@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useLocation } from '@/context/LocationContext';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
-import { PRODUCTS } from '@/data/products';
+import { CURATED_PRODUCTS } from '@/data/curatedProducts';
 import { CATEGORIES } from '@/data/categories';
 
 interface TopNavProps {
@@ -71,7 +71,7 @@ export default function TopNav({
     const q = searchQuery.trim().toLowerCase();
     if (!q) return { products: [], categories: [], brands: [] };
 
-    const matchingProds = PRODUCTS.filter((p) => {
+    const matchingProds = CURATED_PRODUCTS.filter((p) => {
       const matchName = p.name.toLowerCase().includes(q);
       const matchBrand = p.brand.toLowerCase().includes(q);
       const matchCat = p.category.toLowerCase().includes(q);
@@ -89,7 +89,7 @@ export default function TopNav({
     }).slice(0, 3);
 
     const brandSet = new Set<string>();
-    PRODUCTS.forEach((p) => {
+    CURATED_PRODUCTS.forEach((p) => {
       if (p.brand.toLowerCase().includes(q)) {
         brandSet.add(p.brand);
       }

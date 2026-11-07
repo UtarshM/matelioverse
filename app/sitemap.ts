@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { PRODUCTS } from '@/data/products';
+import { CURATED_PRODUCTS } from '@/data/curatedProducts';
 import { CATEGORIES } from '@/data/categories';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -45,13 +45,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const categoryRoutes: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
-    url: `${baseUrl}/categories/${cat.slug}`,
+    url: `${baseUrl}/categories?category=${cat.slug}`,
     lastModified: new Date(),
     changeFrequency: 'daily',
     priority: 0.85,
   }));
 
-  const productRoutes: MetadataRoute.Sitemap = PRODUCTS.map((prod) => ({
+  const productRoutes: MetadataRoute.Sitemap = CURATED_PRODUCTS.map((prod) => ({
     url: `${baseUrl}/products/${prod.slug}`,
     lastModified: new Date(),
     changeFrequency: 'daily',
