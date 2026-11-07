@@ -8,6 +8,7 @@ import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import { CURATED_PRODUCTS } from '@/data/curatedProducts';
 import { CATEGORIES } from '@/data/categories';
+import { Product } from '@/types';
 
 interface TopNavProps {
   onOpenMobileDrawer: () => void;
@@ -67,11 +68,33 @@ export default function TopNav({
     return () => clearInterval(interval);
   }, []);
 
+  const [apiProducts, setApiProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const q = searchQuery.trim();
+    if (q.length < 2) {
+      setApiProducts([]);
+      return;
+    }
+    const timer = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/products?q=${encodeURIComponent(q)}&limit=6`);
+        if (res.ok) {
+          const data = await res.json();
+          setApiProducts(data.products || []);
+        }
+      } catch (err) {
+        console.error('Search query error:', err);
+      }
+    }, 180);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+
   const searchResults = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q) return { products: [], categories: [], brands: [] };
 
-    const matchingProds = CURATED_PRODUCTS.filter((p) => {
+    const matchingCurated = CURATED_PRODUCTS.filter((p) => {
       const matchName = p.name.toLowerCase().includes(q);
       const matchBrand = p.brand.toLowerCase().includes(q);
       const matchCat = p.category.toLowerCase().includes(q);
@@ -79,6 +102,8 @@ export default function TopNav({
       const matchDesc = p.description.toLowerCase().includes(q);
       return matchName || matchBrand || matchCat || matchSub || matchDesc;
     }).slice(0, 6);
+
+    const matchingProds = apiProducts.length > 0 ? apiProducts : matchingCurated;
 
     const matchingCats = CATEGORIES.filter((c) => {
       return (

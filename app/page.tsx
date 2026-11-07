@@ -199,6 +199,119 @@ export default function HomePage() {
       <PromoBannerSlider />
 
       {/* ==========================================================================
+           11,800+ BUILDING MATERIALS DIRECTORY BY CATEGORY (MADOVERBUILDINGS SYNC)
+           ========================================================================== */}
+      <section style={{ padding: '36px 0 20px 0', background: '#FFFFFF', borderBottom: '1px solid #E2E8F0' }}>
+        <div className="site-container">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 22, flexWrap: 'wrap', gap: 12 }}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--secondary-mint)', color: 'var(--secondary-green)', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4 }}>
+                📦 Verified Materials Directory
+              </div>
+              <h2 className="section-title-h2" style={{ fontSize: 26, margin: '2px 0 4px 0' }}>
+                Explore 11,800+ Construction Materials by Category
+              </h2>
+              <p style={{ fontSize: 13.5, color: '#64748B', margin: 0 }}>
+                Direct factory sourcing, computerized test sheets, and wholesale contractor slab pricing across 16 core trades
+              </p>
+            </div>
+            <Link
+              href="/categories"
+              style={{
+                fontSize: 13,
+                fontWeight: 800,
+                color: 'var(--primary-green)',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 4,
+              }}
+            >
+              <span>View Full 11,822 Materials Catalog →</span>
+            </Link>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))',
+              gap: 14,
+            }}
+          >
+            {[
+              { slug: 'laminates', name: 'Laminates & Veneers', count: '4,171', image: 'https://cdn.madoverbuildings.com/category/Laminates.webp' },
+              { slug: 'tools-equipment-and-safety', name: 'Tools, Power & Safety', count: '1,734', image: 'https://cdn.madoverbuildings.com/category/Tools_Equipment_and_Safety.webp' },
+              { slug: 'plumbing', name: 'Plumbing & Drainage', count: '1,163', image: 'https://cdn.madoverbuildings.com/category/Plumbing.webp' },
+              { slug: 'electrical', name: 'Electrical & Wiring', count: '1,030', image: 'https://cdn.madoverbuildings.com/category/Electrical.webp' },
+              { slug: 'lighting', name: 'Architectural Lighting', count: '923', image: 'https://cdn.madoverbuildings.com/category/Lighting.webp' },
+              { slug: 'hardware-and-fittings', name: 'Hardware & Fittings', count: '696', image: 'https://cdn.madoverbuildings.com/category/Hardware_and_Fittings.webp' },
+              { slug: 'paints-putty-and-coatings', name: 'Paints, Putty & Primers', count: '563', image: 'https://cdn.madoverbuildings.com/category/Paints_Putty_and_Coatings.webp' },
+              { slug: 'tiles', name: 'Tiles & Quartz Surfaces', count: '437', image: 'https://cdn.madoverbuildings.com/category/Tiles.webp' },
+              { slug: 'kitchen', name: 'Kitchen Sinks & Modular', count: '362', image: 'https://cdn.madoverbuildings.com/category/Kitchen.webp' },
+              { slug: 'fans', name: 'Fans & Air Handling', count: '248', image: 'https://cdn.madoverbuildings.com/category/Fans.webp' },
+              { slug: 'bathroom', name: 'Bath & Sanitaryware', count: '161', image: 'https://cdn.madoverbuildings.com/category/Bathroom.webp' },
+              { slug: 'building-materials', name: 'Core Building Materials', count: '135', image: 'https://cdn.madoverbuildings.com/category/Building_Materials.webp' },
+              { slug: 'plywood-and-boards', name: 'Plywood & Blockboards', count: '112', image: 'https://cdn.madoverbuildings.com/category/Plywood_and_Boards.webp' },
+              { slug: 'tmt-bars', name: 'TMT Reinforcement Steel', count: '45+', image: '/images/products/tuffar-tmt-12mm.webp' },
+              { slug: 'cement', name: 'Cement & GGBS Binders', count: '25+', image: '/images/products/cemxtra-opc-53.webp' },
+              { slug: 'false-ceiling-and-drywall', name: 'Drywall & False Ceiling', count: '14', image: 'https://cdn.madoverbuildings.com/category/False_Ceiling_and_Drywall.webp' },
+            ].map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/categories?category=${cat.slug}#${cat.slug}`}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  background: '#FFFFFF',
+                  border: '1px solid #E2E8F0',
+                  borderRadius: 14,
+                  overflow: 'hidden',
+                  textDecoration: 'none',
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.03)',
+                }}
+                className="category-card-hover"
+              >
+                <div style={{ height: 110, background: '#F8FAFC', position: 'relative', overflow: 'hidden' }}>
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    loading="lazy"
+                  />
+                  <span
+                    style={{
+                      position: 'absolute',
+                      top: 6,
+                      right: 6,
+                      background: 'rgba(15, 23, 42, 0.82)',
+                      color: '#FFFFFF',
+                      fontSize: 10,
+                      fontWeight: 800,
+                      padding: '2px 7px',
+                      borderRadius: 10,
+                      backdropFilter: 'blur(4px)',
+                    }}
+                  >
+                    {cat.count} Items
+                  </span>
+                </div>
+                <div style={{ padding: '10px 12px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div style={{ fontSize: 13, fontWeight: 800, color: '#0F172A', lineHeight: 1.3 }}>
+                    {cat.name}
+                  </div>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--primary-orange)', marginTop: 4 }}>
+                    Explore Materials ›
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ==========================================================================
            BROWSE BY URGENT NEED / PROJECT STAGE
            ========================================================================== */}
       <section style={{ padding: '28px 0 12px 0', background: '#FFFFFF' }}>

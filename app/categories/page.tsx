@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { Product } from '@/types';
+import { CURATED_PRODUCTS } from '@/data/curatedProducts';
 import categoryCountsData from '@/data/category_counts.json';
 import ProductCard from '@/components/Commerce/ProductCard';
 
@@ -138,10 +139,10 @@ export default function CategoriesPage() {
   }, [selectedCategory, selectedBrand, selectedSla, onlyPrivateLabels, searchQuery]);
 
 
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>(() => CURATED_PRODUCTS.slice(0, 36));
   const [totalProducts, setTotalProducts] = useState<number>(TOTAL_CATALOG_COUNT);
   const [totalPages, setTotalPages] = useState<number>(Math.ceil(TOTAL_CATALOG_COUNT / PAGE_SIZE));
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     let isCancelled = false;
