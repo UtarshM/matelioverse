@@ -51,6 +51,11 @@ export default function ProductDetailClient({ product }: { product: Product }) {
             src={product.image}
             alt={product.name}
             style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.onerror = null;
+              target.src = '/images/product-placeholder.svg';
+            }}
           />
 
           {product.discountPercent > 0 && (
@@ -309,13 +314,24 @@ export default function ProductDetailClient({ product }: { product: Product }) {
             Technical Compliance &amp; Specs
           </h4>
           <div style={{ border: '1px solid #E2E8F0', borderRadius: 10, overflow: 'hidden' }}>
-            {Object.entries(product.specs).map(([key, val], idx) => (
+            {Object.entries(
+              product.specs && Object.keys(product.specs).length > 0
+                ? product.specs
+                : {
+                    Brand: product.brand,
+                    Category: product.category,
+                    'Unit of Sale': product.unit,
+                    'Delivery SLA': product.deliverySla,
+                    'Quality Standard': 'Verified Contractor Grade',
+                    'Fulfillment Mode': product.slaType === 'instant' ? 'Matelio Fast Dispatch' : 'Direct Plant Freight',
+                  }
+            ).map(([key, val], idx, arr) => (
               <div
                 key={idx}
                 style={{
                   display: 'flex',
                   padding: '10px 14px',
-                  borderBottom: idx !== Object.entries(product.specs).length - 1 ? '1px solid #F1F5F9' : 'none',
+                  borderBottom: idx !== arr.length - 1 ? '1px solid #F1F5F9' : 'none',
                   background: idx % 2 === 0 ? '#F8FAFC' : '#FFFFFF',
                   fontSize: 13,
                 }}
@@ -369,7 +385,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
               <div style={{ width: 120, height: 120, background: '#0F172A', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', borderRadius: 12, fontSize: 48 }}>
                 📱
               </div>
-              <h4 style={{ fontSize: 16, fontWeight: 800, marginBottom: 6 }}>Batch ID: #MTV-2026-B{Math.floor(1000 + Math.random() * 9000)}</h4>
+              <h4 style={{ fontSize: 16, fontWeight: 800, marginBottom: 6 }}>Batch ID: #MTV-2026-B{Math.abs(product.id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 1000)) % 9000 + 1000}</h4>
               <p style={{ fontSize: 13, color: '#64748B', marginBottom: 16 }}>
                 Certified Genuine Material from <strong>{product.brand} Plant</strong>. 100% compliant with Bureau of Indian Standards (BIS).
               </p>

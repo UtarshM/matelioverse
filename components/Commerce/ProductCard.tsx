@@ -62,6 +62,11 @@ export default function ProductCard({ product }: ProductCardProps) {
               alt={product.name}
               style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 12, transition: 'transform 0.3s ease' }}
               loading="lazy"
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.onerror = null;
+                target.src = '/images/product-placeholder.svg';
+              }}
             />
           </Link>
 
