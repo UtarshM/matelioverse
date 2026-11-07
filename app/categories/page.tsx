@@ -3,7 +3,8 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
-import { PRODUCTS } from '@/data/products';
+import { Product } from '@/types';
+import categoryCountsData from '@/data/category_counts.json';
 import ProductCard from '@/components/Commerce/ProductCard';
 
 const PVT_BRANDS = [
@@ -34,6 +35,9 @@ const CATEGORY_ALIASES: Record<string, { categorySlug: string; brand?: string }>
   'safety-equipment': { categorySlug: 'safety-equipment', brand: 'SafeSite' },
   'architectural-glass': { categorySlug: 'tiles' },
 };
+
+const CATEGORY_COUNTS: Record<string, number> = categoryCountsData;
+const TOTAL_CATALOG_COUNT = 11822;
 
 export default function CategoriesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -90,10 +94,10 @@ export default function CategoriesPage() {
           }
 
           // Direct Brand match
-          const isBrand = PRODUCTS.find((p) => p.brand.toLowerCase() === target.toLowerCase());
-          if (isBrand) {
+          const brandMatch = PVT_BRANDS.find((b) => b.toLowerCase() === target.toLowerCase());
+          if (brandMatch) {
             setSelectedCategory('all');
-            setSelectedBrand(isBrand.brand);
+            setSelectedBrand(brandMatch);
             return;
           }
         }
@@ -134,37 +138,45 @@ export default function CategoriesPage() {
   }, [selectedCategory, selectedBrand, selectedSla, onlyPrivateLabels, searchQuery]);
 
 
-  const filteredProducts = useMemo(() => {
-    return PRODUCTS.filter((p) => {
-      if (selectedCategory !== 'all' && p.categorySlug !== selectedCategory) return false;
-      if (selectedBrand !== 'all') {
-        const normBrand = selectedBrand.toLowerCase();
-        const productBrand = p.brand.toLowerCase();
-        if (!productBrand.includes(normBrand) && !normBrand.includes(productBrand)) {
-          return false;
-        }
-      }
-      if (selectedSla !== 'all' && p.slaType !== selectedSla) return false;
-      if (onlyPrivateLabels && !p.isPrivateLabel) return false;
-      if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase();
-        const matchName = p.name.toLowerCase().includes(query);
-        const matchBrand = p.brand.toLowerCase().includes(query);
-        const matchCategory = p.category.toLowerCase().includes(query);
-        const matchSubCategory = p.subCategory ? p.subCategory.toLowerCase().includes(query) : false;
-        const matchDesc = p.description.toLowerCase().includes(query);
-        const matchSpecs = p.specs ? Object.values(p.specs).some((v) => v.toLowerCase().includes(query)) : false;
-        if (!matchName && !matchBrand && !matchCategory && !matchSubCategory && !matchDesc && !matchSpecs) return false;
-      }
-      return true;
-    });
-  }, [selectedCategory, selectedBrand, selectedSla, onlyPrivateLabels, searchQuery]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [totalProducts, setTotalProducts] = useState<number>(TOTAL_CATALOG_COUNT);
+  const [totalPages, setTotalPages] = useState<number>(Math.ceil(TOTAL_CATALOG_COUNT / PAGE_SIZE));
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const totalPages = Math.ceil(filteredProducts.length / PAGE_SIZE) || 1;
-  const paginatedProducts = useMemo(() => {
-    const start = (currentPage - 1) * PAGE_SIZE;
-    return filteredProducts.slice(start, start + PAGE_SIZE);
-  }, [filteredProducts, currentPage]);
+  useEffect(() => {
+    let isCancelled = false;
+    const fetchCatalog = async () => {
+      setIsLoading(true);
+      try {
+        const params = new URLSearchParams();
+        params.set('page', currentPage.toString());
+        params.set('limit', PAGE_SIZE.toString());
+        if (selectedCategory !== 'all') params.set('category', selectedCategory);
+        if (selectedBrand !== 'all') params.set('brand', selectedBrand);
+        if (selectedSla !== 'all') params.set('sla', selectedSla);
+        if (onlyPrivateLabels) params.set('pvt', 'true');
+        if (searchQuery.trim()) params.set('q', searchQuery.trim());
+
+        const res = await fetch(`/api/products?${params.toString()}`);
+        if (!res.ok) throw new Error('Failed to fetch materials');
+        const data = await res.json();
+        if (!isCancelled) {
+          setProducts(data.products || []);
+          setTotalProducts(data.total || 0);
+          setTotalPages(data.totalPages || 1);
+        }
+      } catch (err) {
+        console.error('Catalog fetch error:', err);
+      } finally {
+        if (!isCancelled) setIsLoading(false);
+      }
+    };
+
+    fetchCatalog();
+    return () => {
+      isCancelled = true;
+    };
+  }, [currentPage, selectedCategory, selectedBrand, selectedSla, onlyPrivateLabels, searchQuery]);
 
   return (
     <div style={{ background: '#F8FAFC', minHeight: '80vh', padding: '24px 0 60px 0' }}>
@@ -355,12 +367,12 @@ export default function CategoriesPage() {
                 cursor: 'pointer',
               }}
             >
-              All Categories ({PRODUCTS.length})
+              All Categories ({TOTAL_CATALOG_COUNT.toLocaleString()})
             </button>
 
             {CATEGORIES.map((cat) => {
               const isSelected = selectedCategory === cat.slug;
-              const count = PRODUCTS.filter((p) => p.categorySlug === cat.slug).length;
+              const count = CATEGORY_COUNTS[cat.slug] || 0;
               return (
                 <button
                   key={cat.id}
@@ -459,7 +471,7 @@ export default function CategoriesPage() {
         {/* Results Counter */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18, flexWrap: 'wrap', gap: 8 }}>
           <div style={{ fontSize: 14, color: '#64748B' }}>
-            Showing <strong>{filteredProducts.length > 0 ? (currentPage - 1) * PAGE_SIZE + 1 : 0}–{Math.min(currentPage * PAGE_SIZE, filteredProducts.length)}</strong> of <strong>{filteredProducts.length.toLocaleString()}</strong> verified materials
+            Showing <strong>{totalProducts > 0 ? (currentPage - 1) * PAGE_SIZE + 1 : 0}–{Math.min(currentPage * PAGE_SIZE, totalProducts)}</strong> of <strong>{totalProducts.toLocaleString()}</strong> verified materials
             {selectedCategory !== 'all' && (
               <span> in <em>{CATEGORIES.find((c) => c.slug === selectedCategory)?.name}</em></span>
             )}
@@ -476,7 +488,12 @@ export default function CategoriesPage() {
         </div>
 
         {/* Product Grid */}
-        {filteredProducts.length === 0 ? (
+        {isLoading ? (
+          <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 16, padding: '48px 24px', textAlign: 'center' }}>
+            <div style={{ display: 'inline-block', width: 32, height: 32, border: '3px solid #E2E8F0', borderTopColor: 'var(--primary-green)', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+            <p style={{ marginTop: 12, fontSize: 14, fontWeight: 700, color: '#64748B' }}>Loading verified materials...</p>
+          </div>
+        ) : products.length === 0 ? (
           <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 16, padding: '48px 24px', textAlign: 'center' }}>
             <span style={{ fontSize: 40, display: 'block', marginBottom: 10 }}>🔍</span>
             <h3 style={{ fontSize: 18, fontWeight: 800, color: '#0F172A', marginBottom: 6 }}>No matching materials found</h3>
@@ -509,7 +526,7 @@ export default function CategoriesPage() {
         ) : (
           <>
             <div className="categories-product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 20 }}>
-            {paginatedProducts.map((prod) => (
+            {products.map((prod) => (
               <ProductCard key={prod.id} product={prod} />
             ))}
           </div>
